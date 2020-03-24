@@ -4,7 +4,7 @@
 
 [ul]
   [li]Microsoft Visual Studio 2015 (Community Edition (free) or Pro/Paid version -- Express won't work)[/li]
-  [li]Exactly [url=https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/]Windoows 10 SDK version 10.0.17763.0[/url][/li]
+  [li]Exactly [url=https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/]Windows 10 SDK version 10.0.17763.0[/url][/li]
   [li][url=https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-2.2.0.exe]MozillaBuild 2.2[/url][/li]
   [li]At least 6 GB Ram (8 GB or more recommended)[/li]
   [li]Plenty of free disk space[/li]
