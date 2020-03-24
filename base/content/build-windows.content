@@ -116,7 +116,7 @@ WIN_UCRT_REDIST_DIR="C:/Program Files (x86)/Windows Kits/10/Redist/10.0.17763.0/
     [/ul]
   [/li]
   [li]In the shell, cd to your pale moon source directory, e.g. [codeline=bash]cd /c/palemoon-source[/codeline][/li]
-  [li]Start the build: [codeline]./mach build[/codeline][/li]
+  [li]Start the build: [codeline=bash]./mach build[/codeline][/li]
 [/ul]
 
 [p]Be patient. Building will take a long time. Your PC will be fully occupied compiling and linking the browser (you can expect 100% CPU usage throughout and lots of memory use - provide ample cooling) and you should not be using it for anything else that is intensive at this time. Especially memory-intensive applications should be avoided because it can cause issues with the linker (memory fragmentation) resulting in a very unstable browser.[dblbreak]
@@ -132,7 +132,7 @@ WIN_UCRT_REDIST_DIR="C:/Program Files (x86)/Windows Kits/10/Redist/10.0.17763.0/
 
 This will create a properly packaged .zip file in your object folder under the Pale Moon source folder. e.g. for x86:
 
-[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.en-US.win32.zip[/code][/p]
+[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.win32.zip[/code][/p]
 
 [section="Generating the installer"]
 
@@ -142,4 +142,4 @@ This will create a properly packaged .zip file in your object folder under the P
 
 This will create a self-extracting installer in your object folder under the Pale Moon source folder. e.g. for x86:
 
-[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.en-US.win32.installer.exe[/code]
+[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.win32.installer.exe[/code]
