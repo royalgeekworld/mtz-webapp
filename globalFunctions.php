@@ -154,7 +154,7 @@ function gfSuperVar($_type, $_value, $_allowFalsy = null) {
       $finalValue = $_GET[$_value] ?? null;
 
       if ($finalValue) {
-        $finalValue = preg_replace('/[^-a-zA-Z0-9_\-\/\{\}\@\.\%\s\,]/', '', $_GET[$_value]);
+        $finalValue = preg_replace('/[^-a-zA-Z0-9_\-\/\{\}\@\.\%\\:s\,]/', '', $_GET[$_value]);
       }
 
       break;

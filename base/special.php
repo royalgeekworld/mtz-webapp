@@ -31,9 +31,6 @@ switch ($strStripPath) {
     gfGenContent('Software State', $gaRuntime);
     break;
   case 'test':
-    gfError('This special function is disabled');
-
-    /*
     $gaRuntime['requestTestCase'] = gfSuperVar('get', 'case');
     $arrayTestsGlob = glob($strComponentPath . 'tests/*.php');
     $arrayFinalTests = [];
@@ -60,10 +57,9 @@ switch ($strStripPath) {
     $testsHTML = '<ul>' . $testsHTML . '</ul>';
 
     gfGenContent('Test Cases - Special Component', $testsHTML);
-    */
     break;
   default:
-    $rootHTML = //'<a href="/special/test/">Test Cases</a></li><li>' .
+    $rootHTML = '<a href="/special/test/">Test Cases</a></li><li>' .
                 '<a href="/special/phpinfo/">PHP Info</a></li><li>' .
                 '<a href="/special/software-state/">Software State</a>';
     gfGenContent('Special Component', $rootHTML, null, true);

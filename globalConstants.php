@@ -12,9 +12,11 @@ define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
 // Define basic constants for the software
 const SOFTWARE_NAME       = 'Selene';
 const SOFTWARE_VERSION    = '1.0.0a1';
+const SOFTWARE_REPO       = 'https://github.com/MoonchildProductions/selene';
 const DATASTORE_RELPATH   = '/datastore/';
 const OBJ_RELPATH         = '/.obj/';
 const BASE_RELPATH        = '/base/';
+const SKIN_RELPATH        = '/skin/';
 const COMPONENTS_RELPATH  = '/components/';
 const DATABASES_RELPATH   = '/databases/';
 const MODULES_RELPATH     = '/modules/';
@@ -28,9 +30,7 @@ const COMPONENTS = array(
 );
 
 // Define modules
-const MODULES = array(
-  'generateContent' => ROOT_PATH . MODULES_RELPATH . 'classGenerateContent.php',
-);
+const MODULES = null;
 
 // Define databases
 const DATABASES = null;

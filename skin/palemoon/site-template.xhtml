@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>{%SITE_NAME} - {%PAGE_TITLE}</title>
+    <link rel="icon" href="{%BASE_PATH}favicon.ico" />
+    <style type="text/css">
+      {%SITE_STYLESHEET}
+    </style>
+  </head>
+  <body>
+    <div id="PM-Wrapper">
+      <div id="PM-Header" class="PM-Wrapper-Width"></div>
+      <div id="PM-Menubar" class="mainmenu">
+      <span class="alignleft">
+        <ul>
+          <li class="li_hc">
+            <a href="#" target="_self">Main</a>
+            <ul class="ul_ch">
+              <li class="li_nc"><a href="http://www.palemoon.org/" target="_self">Pale Moon homepage</a></li>
+              <li class="li_nc"><a href="http://start.palemoon.org/" target="_self">Pale Moon Start page</a></li>
+              <li class="li_nc"><a href="/" target="_self">Pale Moon Developer Site</a></li>
+            </ul>
+          </li>
+          <li class="li_nc"><a href="/extensions/">Extensions</a></li>
+              <li class="li_nc"><a href="/themes/">Themes</a></li>
+              <li class="li_nc"><a href="/personas/">Personas</a></li>
+          <li class="li_nc"><a href="#">Language Tools</a>
+            <ul class="ul_ch">
+              <li class="li_nc"><a href="/language-packs/">Language Packs</a></li>
+              <li class="li_nc"><a href="/dictionaries/">Dictionaries</a></li>
+            </ul>
+          </li>
+          <li class="li_nc"><a href="/search-plugins/">Search Plugins</a></li>
+        </ul>
+      </span>
+      </div>
+      <div id="PM-Content">
+        <div id="PM-Content-Body">
+          {%PAGE_CONTENT}
+        </div> <!-- PM-Content-Body (Unless Sidebar then it is PM-Content-Sidebar) -->
+      </div> <!-- PM-Content -->
+
+      <div style="margin-top: 10px; text-align: center; line-height: 13px; font-size: 10px;">
+        <p><span style="color: rgb(102, 102, 102);">
+          Site design and Branding &copy; {%COPYRIGHT_YEAR} <a href="http://www.moonchildproductions.info/" target="_blank">Moonchild Productions</a> - All rights reserved
+        </span><br />
+        <span style="color: rgb(102, 102, 102);">
+          Any other content, brand names or logos are copyright or trademark to their respective owners.
+        </span><br />
+        <span style="color: rgb(102, 102, 102);">
+          Policies: <a href="//www.palemoon.org/cookies.shtml">Cookies</a> - <a href="//www.palemoon.org/usercontent.shtml">User Content</a>
+          - <a href="//www.palemoon.org/privacy.shtml">Privacy</a>.
+        </span></p>
+        <p><span style="color: rgb(102, 102, 102);">
+          The Pale Moon Developer Site is powered by <a href="{%SOFTWARE_REPO}" target="_blank">Project {%SOFTWARE_NAME}</a> {%SOFTWARE_VERSION}.
+        </span></p>
+      </div>
+    </div>
+  </body>
+</html>
