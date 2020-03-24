@@ -17,11 +17,11 @@ const CONTENT = array(
   '/'                                         => ['root-index', 'Welcome to the Pale Moon Developer Site'],
 
   // Build Documentation
-  '/build/'                                   => ['build-index','Building Pale Moon'],
+  '/build/'                                   => ['build-index','Building Pale Moon', true],
   '/build/windows/'                           => ['build-windows', 'Building Pale Moon: Windows'],
-  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: Linux'],
+  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: Linux', true],
   '/build/mac/'                               => ['build-mac', 'Building Pale Moon: MacOS X', true],
-  '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: Solaris/Illumos'],
+  '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: Solaris/Illumos', true],
 
   // Add-ons
   '/addons/'                                  => ['addons-index', 'Add-ons', true],
@@ -71,11 +71,7 @@ $gaRuntime['requestBypass'] = gfSuperVar('get', 'bypass');
 // == | Functions | ===================================================================================================
 
 function generateContent($aURL, $aBypass = null) {
-  if (!$aBypass) {
-    gfError('Content Generation is not finished yet...');
-  }
-
-  if (CONTENT[$aURL][2] ?? null) {
+  if (!$aBypass && (CONTENT[$aURL][2] ?? null)) {
     gfError('That content has not been ported yet...');
   }
 
@@ -85,6 +81,11 @@ function generateContent($aURL, $aBypass = null) {
   $template = @file_get_contents($skinDir . 'site-template.xhtml');
   $stylesheet = @file_get_contents($skinDir . 'site-stylesheet.css');
   $content = @file_get_contents($contentDir . CONTENT[$aURL][0] . '.content');
+
+  if (!$template || !$stylesheet || !$content) {
+    gfError('Failed to generate content.');
+  }
+
   $finalContent = $template;
 
   $pageSubsts = array(
@@ -98,6 +99,7 @@ function generateContent($aURL, $aBypass = null) {
     '{%COPYRIGHT_YEAR}'       => date("Y"),
     '{%SOFTWARE_NAME}'        => SOFTWARE_NAME,
     '{%SOFTWARE_VERSION}'     => SOFTWARE_VERSION,
+    '{%SOFTWARE_REPO}'        => SOFTWARE_REPO,
   );
 
   foreach ($pageSubsts as $_key => $_value) {
@@ -144,8 +146,9 @@ function parseSeleneCode($aContent) {
     '[/tfoot]'                                            => '</tfoot>',
     '[br]'                                                => '<br />',
     '[break]'                                             => '<br />',
-    '[code]'                                              => '<pre><code class="plaintext">',
+    '[dblbreak]'                                          => '<br /><br />',
     '[/code]'                                             => '</code></pre>',
+    '[/codeline]'                                         => '</code></pre>',
   );
 
   foreach ($seleneCodeSubsts as $_key => $_value) {
@@ -162,6 +165,7 @@ function parseSeleneCode($aContent) {
     '\[url\](.*)\[\/url\]'                                => '<a href="$1" target="_blank">$1</a>',
     '\[img(.*)\](.*)\[\/img\]'                            => '<img src="$2"$1 />',
     '\[code=(.*)\]'                                       => '<pre><code class="$1">',
+    '\[codeline=(.*)\]'                                   => '<pre style="display: inline;"><code class="$1" style="display: inline; background-color: transparent !important;">',
     '\[(' . $seleneCodeSuperRegex . ')(.*)\]'             => '<$1$2>',
   );
 
@@ -175,14 +179,6 @@ function parseSeleneCode($aContent) {
 // ====================================================================================================================
 
 // == | Main | ========================================================================================================
-
-// This is an in-development message for the root
-// It will be removed once generateContent can properly generate.. content...
-if ($gaRuntime['requestPath'] == '/' && !$gaRuntime['requestBypass']) {
-  $content = '<p>Welcome! This NEW Developer Site, interestingly enough, is actually in development. So none of its content is up yet.</p>' . 
-             '<p>We expect to have at least the updated build documentation up in the next several hours. In any event, we applogize for any inconvenence.</p>';
-  gfGenContent('Pale Moon Developer Site', $content);
-}
 
 // If the URL is known to us pass it to generateContent
 if (array_key_exists($gaRuntime['requestPath'], CONTENT)) {

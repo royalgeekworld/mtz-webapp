@@ -1,0 +1,145 @@
+[p]These instructions are for building Pale Moon 28.9.* and 29.0.0 and assumes you want to build the latest release.[/p]
+
+[header="Prerequisites"]
+
+[ul]
+  [li]Microsoft Visual Studio 2015 (Community Edition (free) or Pro/Paid version -- Express won't work)[/li]
+  [li]Exactly [url=https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/]Windoows 10 SDK version 10.0.17763.0[/url][/li]
+  [li][url=https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-2.2.0.exe]MozillaBuild 2.2[/url][/li]
+  [li]At least 6 GB Ram (8 GB or more recommended)[/li]
+  [li]Plenty of free disk space[/li]
+  [li]At least Windows 7 64-bit[/li]
+[/ul]
+
+[section="Caveats"]
+
+[p]To get the free Visual Studio 2015 Community Edition you need a Developer Account (simply a Microsoft account). Microsoft will try to push newer versions of Visual Studio but it must be exactly VS 2015 with Update 3. You will have to get this version from the "previous versions" part of the site.[/p]
+
+[p]Launch Visual Studio 2015 after installation to initialize the environment, start the IDE and get the latest updates. Launch after updating to finish up the update, after which you can close the IDE. For x64 builds, make sure you install the x64 build tools.[break]
+[i]Note: You will be asked to register with Microsoft when launching it the first time; simply log in with your developer account in the IDE and you're set.[/i][/p]
+
+[p]Make sure you install the correct components for "C++ development"; other languages are not necessary and not installing them will save you (heaps of) disk space.[/p]
+
+[header="Getting the Source"]
+
+[p]The [url=https://github.com/MoonchildProductions/Pale-Moon]Pale Moon[/url] source code along with the [url=https://github.com/MoonchildProductions/UXP]Unified XUL Platform[/url] are available on Github.[dblbreak]
+
+Both methods will assume you are going to create a directory on your C drive called palemoon-source. You can, of course, put the source code anywhere you want as long as the path does not contain any spaces.[/p]
+
+[section="Using git"]
+
+[p]This is the simplest method assuming you have or want to use [url=https://gitforwindows.org/]Git for Windows[/url][/p]
+
+[ul]
+  [li]Install and/or open Git Bash and change directory to the desired source location, e.g. [codeline=bash]cd /c/palemoon-source/[/codeline][/li]
+  [li]
+    Execute the following commands:
+[code=bash]git clone https://github.com/MoonchildProductions/Pale-Moon.git ./
+git submodule init && git submodule update
+git checkout release && git submodule update
+[/code]
+  [/li]
+  [li]Close Git bash and proceed to the Build Instructions below.[/li]
+[/ul]
+
+[section="Using the source archives"]
+
+[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repostory:[/p]
+
+[ul]
+  [li]Navigate to [url=https://github.com/MoonchildProductions/Pale-Moon/tree/release]the release branch[/url] on the Pale Moon repository or use the [url=https://github.com/MoonchildProductions/Pale-Moon/releases]releases page[/url] on the repostory and download the zip archive for Pale Moon.[/li]
+  [li]Extract the source code to the desired location e.g. [codeline=bash]c:\palemoon-source[/codeline][/li]
+  [li]Now from either the release branch (or by clicking the XX.X.X_Release tag link to the left on the releases page) navigate to the UXP repostory at the correct point by clicking on the platform @ {hash} directory on the repository page code tab.[/li]
+  [li]Once at the correct point on the Unified XUL Platform repository click the green "Clone or download" button and select "Download zip".[/li]
+  [li]Extract that archive to the platform directory inside the Pale Moon source directory e.g. [codeline=bash]c:\palemoon-source\platform[/codeline][/li]
+  [li]Proceed to the Build Instructions below.[/li]
+[/ul]
+
+[p]Make sure you unpack/clone to a path that does not contain spaces, e.g. c:\palemoon-source to prevent build system issues.[break][/p]
+  
+[p]This source tree will contain everything needed for both x86 and x64 builds of Pale Moon (they share the same release source code).[/p]
+
+[header="Build Instructions"]
+
+[section="Configure"]
+
+[p]Create a file called .mozconfig in the source folder you cloned or unpacked the source to.[dblbreak]
+
+(Yes, that is {dot}mozconfig -- don't omit the . at the start. Also make sure it's not .mozconfig.txt or something crooked like that. If you are hiding extensions of known file types, fix that first in folder options because it's a PITA when trying to do this kind of thing)[dblbreak]
+
+Make sure it contains at least the following for a close-to-official build:[dblbreak]
+
+[b].mozconfig file[/b][break]
+[code=bash]# Set to 1 if you want a 64 bit build else leave as-is
+_BUILD_64=
+
+# Standard build options for Pale Moon
+ac_add_options --enable-application=palemoon
+ac_add_options --enable-optimize="-O2 -GS-"
+ac_add_options --enable-jemalloc
+ac_add_options --enable-strip
+ac_add_options --enable-devtools
+ac_add_options --disable-eme
+ac_add_options --disable-webrtc
+ac_add_options --disable-gamepad
+ac_add_options --disable-parental-controls
+ac_add_options --disable-tests
+ac_add_options --disable-debug
+ac_add_options --disable-updater
+
+# Processor architecure specific build options
+if [ -n "$_BUILD_64" ]; then
+  _BUILD_ARCH=x64
+  ac_add_options --target=x86_64-pc-mingw32
+  ac_add_options --host=x86_64-pc-mingw32
+else
+  _BUILD_ARCH=x86
+fi
+
+# Visual C++ redist files
+WIN32_REDIST_DIR=$VCINSTALLDIR/redist/$_BUILD_ARCH/Microsoft.VC140.CRT
+WIN_UCRT_REDIST_DIR="C:/Program Files (x86)/Windows Kits/10/Redist/ucrt/DLLs/$_BUILD_ARCH"
+[/code]
+[/p]
+
+[p][i]Note: LESS IS MORE! There are some pre-made build configs out there that have a lot of options listed, often with insane resulting build configurations. [b]Do not use those[/b] and stick to the instructions here.[/i][/p]
+
+
+[section="Build"]
+
+[ul]
+  [li]
+    Go to C:\mozilla-build (or wherever you extracted to mozilla build tools) and run [codeline=bash]start-shell-msvc2015.bat[/codeline]
+    [ul]
+      [li]This will open a UNIX-like shell with the compile environment set up for Visual Studio 2015 with a 32-bit target. Please do not use the -x64 batch file even if you are on a 64-bit operating system when building x86.[/li]
+      [li]The -x64 batch file is for launching a 64-bit build environment and building a 64-bit browser. So for creating an x64 build of Pale Moon, run [codeline=bash]start-shell-msvc2015-x64.bat[/codeline][/li]
+    [/ul]
+  [/li]
+  [li]In the shell, cd to your pale moon source directory, e.g. [codeline=bash]cd /c/palemoon-source[/codeline][/li]
+  [li]Start the build: [codeline]./mach build[/codeline][/li]
+[/ul]
+
+[p]Be patient. Building will take a long time. Your PC will be fully occupied compiling and linking the browser (you can expect 100% CPU usage throughout and lots of memory use - provide ample cooling) and you should not be using it for anything else that is intensive at this time. Especially memory-intensive applications should be avoided because it can cause issues with the linker (memory fragmentation) resulting in a very unstable browser.[dblbreak]
+
+[i]Important note: before you start building, make sure to exclude the source and target folders from antivirus software or it will severely slow down the build process or may even break it entirely (due to file locks). Either completely disable real-time/on-access scanning before building, or make specific exclusions for your working folders.[/i][/p]
+
+
+[section="Strip/Package"]
+
+[p]After building is completed, you can take the resulting binaries for a test run in the object directory directly (see the on-screen instructions at the end of the build process) but it will not be complete yet. You need to strip and package the browser to integrate additional code, pack up the omnijar files, and have a ready-to-use browser. You do this by running:
+
+[code=bash]./mach package[/code]
+
+This will create a properly packaged .zip file in your object folder under the Pale Moon source folder. e.g. for x86:
+
+[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.en-US.win32.zip[/code][/p]
+
+[section="Generating the installer"]
+
+[p]If you want to build a self-extracting installer, similar to the off-line installers offered in official builds, you will have to do give the following command:
+
+[code=bash]./mach installer[/code]
+
+This will create a self-extracting installer in your object folder under the Pale Moon source folder. e.g. for x86:
+
+[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.en-US.win32.installer.exe[/code]
