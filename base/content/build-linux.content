@@ -96,7 +96,7 @@ libpulse gcc5
 [p]Install the required build dependencies by executing the following commands:[/p]
 
 [code=bash]# Compile time dependencies
-emerge -n1 sys-devel/gcc:4.9.3 =sys-devel/autoconf-2.13 \
+emerge -n1 sys-devel/gcc:4.9.4 =sys-devel/autoconf-2.13 \
 dev-lang/python:2.7 dev-lang/perl dev-lang/yasm
 
 # Runtime time dependencies
@@ -112,8 +112,8 @@ emerge -nN ffmpeg
 [/code]
 
 [p]Add the following to the .mozconfig file you will create in Build Instructions:[/p]
-[code=bash]export CC=gcc-4.9.3
-export CXX=g++-4.9.3
+[code=bash]export CC=gcc-4.9.4
+export CXX=g++-4.9.4
 mk_add_options PYTHON=/usr/bin/python2
 mk_add_options AUTOCONF=/usr/bin/autoconf-2.13
 [/code]
