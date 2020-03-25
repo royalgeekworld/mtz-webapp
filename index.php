@@ -35,7 +35,9 @@ const COMPONENTS = array(
 );
 
 // Define modules
-const MODULES = null;
+const MODULES = array(
+  'content'         => ROOT_PATH . BASE_RELPATH . 'moduleContent.php'
+);
 
 // Define databases
 const DATABASES = null;
