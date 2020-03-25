@@ -76,23 +76,26 @@ yum install devtoolset-7-toolchain
 [code=bash]scl enable devtoolset-7 bash[/code]
 
 [section="Debian"]
-[p]Install the required build dependencies by executing the following commands:[/p]
+[p]Install the required build dependencies by executing the following command:[/p]
 
 [code=bash]apt-get install build-essential libgtk2.0-dev libdbus-glib-1-dev autoconf2.13 \
 yasm libegl1-mesa-dev libasound2-dev libxt-dev zlib1g-dev libssl-dev \
 libsqlite3-dev libbz2-dev libpulse-dev zip python2.7 python-dbus
 [/code]
 
+[section="Arch"]
+
+[p]Install the required build dependencies by executing the following command:[/p]
+[code=bash]pacman -Syu gtk2 dbus-glib desktop-file-utils libxt mime-types \
+alsa-lib startup-notification python2 autoconf2.13 unzip zip yasm \
+libpulse gcc5
+[/code]
+
 [section="Gentoo"]
 
 [p]Install the required build dependencies by executing the following commands:[/p]
 
-[code=bash]# General build dependencies
-pacman -Syu gtk2 dbus-glib desktop-file-utils libxt mime-types \
-alsa-lib startup-notification python2 autoconf2.13 unzip zip yasm \
-libpulse gcc5
-
-# Compile time dependencies
+[code=bash]# Compile time dependencies
 emerge -n1 sys-devel/gcc:4.9.3 =sys-devel/autoconf-2.13 \
 dev-lang/python:2.7 dev-lang/perl dev-lang/yasm
 
