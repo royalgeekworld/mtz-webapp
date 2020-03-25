@@ -1,4 +1,4 @@
-[p]These instructions are for building Pale Moon 28.9.* and 29.0.0 and assumes you want to build the latest release.[/p]
+[p]These instructions are for building Pale Moon 28.9.* and 29.0.0+ and assumes you want to build the latest release.[/p]
 
 [header="Prerequisites"]
 
@@ -9,6 +9,7 @@
   [li]At least 6 GB Ram (8 GB or more recommended)[/li]
   [li]Plenty of free disk space[/li]
   [li]At least Windows 7 64-bit[/li]
+  [li]Modern 7zip or another archiver capable of reading 7z files[/li]
 [/ul]
 
 [section="Caveats"]
@@ -55,8 +56,6 @@ git checkout release && git submodule update
   [li]Proceed to the Build Instructions below.[/li]
 [/ul]
 
-[p]Make sure you unpack/clone to a path that does not contain spaces, e.g. c:\palemoon-source to prevent build system issues.[break][/p]
-  
 [p]This source tree will contain everything needed for both x86 and x64 builds of Pale Moon (they share the same release source code).[/p]
 
 [header="Build Instructions"]
@@ -86,6 +85,10 @@ ac_add_options --disable-parental-controls
 ac_add_options --disable-tests
 ac_add_options --disable-debug
 ac_add_options --disable-updater
+
+# Please see https://www.palemoon.org/redist.shtml for restrictions when using the official branding.
+ac_add_options --enable-official-branding
+export MOZILLA_OFFICIAL=1
 
 # Processor architecure specific build options
 if [ -n "$_BUILD_64" ]; then
@@ -132,7 +135,7 @@ WIN_UCRT_REDIST_DIR="C:/Program Files (x86)/Windows Kits/10/Redist/10.0.17763.0/
 
 This will create a properly packaged .zip file in your object folder under the Pale Moon source folder. e.g. for x86:
 
-[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.win32.zip[/code][/p]
+[code=bash]C:\palemoon-source\obj-i686-pc-mingw32\dist\palemoon-{version}.win32.7z[/code][/p]
 
 [section="Generating the installer"]
 
