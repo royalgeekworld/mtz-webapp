@@ -19,7 +19,7 @@ const CONTENT = array(
   // Build Documentation
   '/build/'                                   => ['build-index','Building Pale Moon', true],
   '/build/windows/'                           => ['build-windows', 'Building Pale Moon: Windows'],
-  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: Linux', true],
+  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: Linux'],
   '/build/mac/'                               => ['build-mac', 'Building Pale Moon: MacOS X', true],
   '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: Solaris/Illumos', true],
 
@@ -114,6 +114,7 @@ function generateContent($aURL, $aBypass = null) {
 // --------------------------------------------------------------------------------------------------------------------
 
 function parseSeleneCode($aContent) {     
+  $aContent = preg_replace('/\<\!\-\- (.*) \-\-\>\n/iU', '', $aContent);
   $aContent = htmlentities($aContent, ENT_XHTML);
 
   $seleneCodeSubsts = array(
