@@ -45,16 +45,17 @@ git checkout release && git submodule update
 
 [section="Using the source archives"]
 
-[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repostory:[/p]
+[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repostory and is more complicated:[/p]
 
 [ul]
-  [li]Navigate to [url=https://github.com/MoonchildProductions/Pale-Moon/tree/release]the release branch[/url] on the Pale Moon repository or use the [url=https://github.com/MoonchildProductions/Pale-Moon/releases]releases page[/url] on the repostory and download the zip archive for Pale Moon.[/li]
+  [li]Navigate to [url=https://github.com/MoonchildProductions/Pale-Moon/releases/latest]the release page[/url] on the Pale Moon repository and download the zip archive for Pale Moon.[/li]
   [li]Extract the source code to the desired location e.g. [codeline=bash]c:\palemoon-source[/codeline][/li]
-  [li]Now from either the release branch (or by clicking the XX.X.X_Release tag link to the left on the releases page) navigate to the UXP repostory at the correct point by clicking on the platform @ {hash} directory on the repository page code tab.[/li]
-  [li]Once at the correct point on the Unified XUL Platform repository click the green "Clone or download" button and select "Download zip".[/li]
+  [li]Then using the link in "Built with the Unified XUL Platform - {Month} {Day}, {Year} release" head to the matching UXP release page and download the zip archive for platform source code.[/li]
   [li]Extract that archive to the platform directory inside the Pale Moon source directory e.g. [codeline=bash]c:\palemoon-source\platform[/codeline][/li]
   [li]Proceed to the Build Instructions below.[/li]
 [/ul]
+
+[p][i]NOTE: You will need to extract the contents of the Pale-Moon-XXX or UXP-XXX directory to the locations indicated above.[/i][/p] 
 
 [p]This source tree will contain everything needed for both x86 and x64 builds of Pale Moon (they share the same release source code).[/p]
 

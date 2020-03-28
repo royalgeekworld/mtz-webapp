@@ -46,7 +46,19 @@ git checkout release && git submodule update
 
 [section="Using the source archives"]
 
-[p]This is not recommended for linux. However, you can do this as well but you are on your own. Just remember, if you obtain the source archives in a non-tar form e.g. zip or 7z then you will have to correct file permissions on the source tree.[/p]
+[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repostory and is more complicated:[/p]
+
+[ul]
+  [li]Navigate to [url=https://github.com/MoonchildProductions/Pale-Moon/releases/latest]the release page[/url] on the Pale Moon repository and download the tar.gz archive for Pale Moon.[/li]
+  [li]Extract the source code to the desired location e.g. [codeline=bash]~/palemoon-source[/codeline][/li]
+  [li]Then using the link in "Built with the Unified XUL Platform - {Month} {Day}, {Year} release" navigate to the matching UXP release page and download the tar.gz archive for the platform source code.[/li]
+  [li]Extract that archive to the platform directory inside the Pale Moon source directory e.g. [codeline=bash]~/palemoon-source/platform[/codeline][/li]
+  [li]Proceed to the Build Instructions below.[/li]
+[/ul]
+
+[p][i]NOTE: You will need to extract the contents of the Pale-Moon-XXX or UXP-XXX directory to the locations indicated above.[/i][/p] 
+
+[p]This is not recommended for linux. However, if you obtain the source archives in a non-tar form e.g. zip or 7z then you will have to correct file permissions on the source tree.[/p]
 
 [code=bash]chmod -R 744 palemoon-source[/code]
 
