@@ -1,0 +1,58 @@
+[p]The [url=https://addons.palemoon.org]Pale Moon Add-ons Site[/url] is a service provided by the Pale Moon project. The intent of the service is to facilitate indexing and hosting of extensions, themes, and search plugins for use in the Pale Moon browser. However, the backend software known as Phoebus, serves more than just Pale Moon.[/p]
+
+[header="Personnel"]
+
+[section="Pale Moon Add-ons Team"]
+[p]The Add-ons Team performs the day to day administration and coordination of all the Add-ons Sites.[/p]
+
+[p]Members:[/p]
+[ul]
+  [li]Lootyhoof [i]aka Ryan659[/i][/li]
+  [li]FranklinDM[/li]
+[/ul]
+
+[p]Alumni:[/p]
+[ul]
+  [li]Andrew Gilbertson [i]aka AndyTheAbsurd[/i][/li]
+  [li]Antonius32[/li]
+[/ul]
+
+[section="Phoebus Administrators"]
+[p]Phoebus Administrators have unrestricted access to the Phoebus Software, all Add-on Sites, and the Regolith Server its self. You likely shouldn't need to contact them.[/p]
+
+[ul]
+  [li]Matt A. Tobin[/li]
+  [li]Moonchild [i](ultra-super-emergency-if-tobin-is-dead-or-something only!)[/i][/li]
+[/ul]
+
+<!-- ============================================================================================================== -->
+
+[header="Submitting your add-on"]
+[p]So, you decided to bring your add-on to Pale Moon officially, have forked your own version for us, or have simply been awesome and created something new? That is fantastic. You have (or will) let the community chew it up a bit and think it is ready for a proper release.. So what do you do?[dblbreak]
+
+Well, you have a couple options but each one must be considered carefully.[/p]
+
+[section="Hosting your Add-on"]
+[p]The service will provide full hosting of your add-on, a dedicated page, and automatic update services.[dblbreak]
+
+As of Phoebus 2.0, the software now has a dedicated [url=https://addons.palemoon.org/panel/]control and management panel[/url] located on most Add-on Sites including Pale Moon's.[/p]
+[p]You might also be interested in the [link=/addons/site/phoebus-code/]phoebusCode syntax[/link].
+
+[section="Indexing your Add-on"]
+[p]This is known informally as an External. Indexing is available to both extensions and themes will list your extension to the category of your choosing and will link to where users can obtain your extension.[/p]
+
+[p]This solution is a great choice for maintaining your independence and choice of infrastructure and distribution. You may, for example, want to host your extension on your own website or source code repository's downloads section.[/p]
+
+[p]For the Add-ons Manager's Automatic Update Service you must include in your install.rdf file an "em:updateURL" tag to a well formed xml (rdf) file on your own service. You must also take into account that you must not set any cache headers on XPI files if you use HTTPS because cached items do not contain the original security information and will cause issues and therefore will be rejected by the XPInstall routine as insecure.[/p]
+
+[p]You should submit a request to the Add-ons Team (via the forum's Private Message system) with the following information:[/p]
+[ul]
+  [li]Add-ons Name[/li]
+  [li]A 64x64 alpha transparent icon in the PNG format (we can use the generic green puzzle piece if you simply don't have one)[/li]
+  [li]For Themes, a toolbar screenshot like those for hosted themes[/li]
+  [li]The "em:description" text as you define it in your install manifest for the category listing (~240 character limit)[/li]
+  [li]Category to be listed on (only one per add-on is allowed at this time; additionally, themes do not use categories at this time and some Add-ons Sites do not currently list by category but it is important to have one set): see the full list [url=http://addons.palemoon.org/extensions/]here[/url].[/li]
+  [li]URL to where you host your add-on[/li]
+[/ul]
+
+[p]In this instance we would not be able to display a full content page or any other metadata. It is up to you to provide these on the page you want us to link to in the category listing.[/p]

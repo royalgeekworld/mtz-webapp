@@ -24,7 +24,7 @@ const CONTENT = array(
   '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: SunOS-based Systems', true],
 
   // Add-ons
-  '/addons/'                                  => ['addons-index', 'Add-ons', true],
+  '/addons/'                                  => ['addons-index', 'Add-ons'],
   '/addons/resources/'                        => ['addons-resources', 'Add-ons: Resources', true],
   '/addons/resources/install-manifest/'       => ['addons-resources-install-manifest', 'Add-ons: Install Manifest', true],
   '/addons/extensions/'                       => ['addons-extensions', 'Add-ons: Extensions', true],
@@ -33,11 +33,8 @@ const CONTENT = array(
   '/addons/themes/complete/'                  => ['addons-themes-complete', 'Add-ons: Complete Themes', true],
   '/addons/themes/personas/'                  => ['addons-themes-personas', 'Add-ons: Personas (Lightweight Themes),', true],
   '/addons/themes/pm-history/'                => ['addons-themes-pmhistory', 'Add-ons: Pale Moon Theme History', true],
-
-  // Add-ons Site
-  '/addons-site/'                             => ['addons-site', 'Add-ons Site', true],
-  '/addons-site/submit/'                      => ['addons-site-submit', 'Add-ons Site: Submission', true],
-  '/addons-site/phoebus-code/'                => ['addons-site-phoebus-code', 'Add-ons Site: Phoebus Code Syntax', true],
+  '/addons/site/'                             => ['addons-site', 'Add-ons: Site'],
+  '/addons/site/phoebus-code/'                => ['addons-site-phoebus-code', 'Add-ons: Phoebus Code Syntax'],
 );
 
 // This constant array contains old wiki URLs (accounting for the fact that we add / to non-file.ext urls here)
@@ -58,9 +55,9 @@ const WIKI_URLS = array(
   '/Add-ons:Themes/Complete/'                               => '/addons/themes/complete/',
   '/Add-ons:Themes/Complete/Changes/'                       => '/addons/themes/pm-history/',
   '/Add-ons:Themes/Persona/'                                => '/addons/themes/personas/',
-  '/Add-ons:Site/'                                          => '/addons-site/',
-  '/Add-ons:Site/Submit/'                                   => '/addons-site/submit/',
-  '/Add-ons:Site/Manifest_Files/'                           => '/addons-site/phoebus-code/',
+  '/Add-ons:Site/'                                          => '/addons/site/',
+  '/Add-ons:Site/Submit/'                                   => '/addons/site/',
+  '/Add-ons:Site/Manifest_Files/'                           => '/addons/site/phoebus-code/',
   
 );
 

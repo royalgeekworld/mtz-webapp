@@ -49,6 +49,10 @@ function generateContent($aURL, $aBypass = null) {
 // --------------------------------------------------------------------------------------------------------------------
 
 function parseSeleneCode($aContent) {     
+  if (str_starts_with($aContent, '[html-override]')) {
+    return str_replace('[html-override]', '', $aContent);
+  }
+
   $aContent = preg_replace('/\<\!\-\- (.*) \-\-\>\n/iU', '', $aContent);
   $aContent = htmlentities($aContent, ENT_XHTML);
 
