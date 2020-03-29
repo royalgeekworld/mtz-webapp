@@ -13,6 +13,7 @@ function generateContent($aURL, $aBypass = null) {
 
   $template = @file_get_contents($skinDir . 'site-template.xhtml');
   $stylesheet = @file_get_contents($skinDir . 'site-stylesheet.css');
+  $stylesheetHLJS = @file_get_contents($skinDir . '../../jsmodules/highlight/styles/github.css');
   $content = @file_get_contents($contentDir . CONTENT[$aURL][0] . '.content');
 
   if (!$template || !$stylesheet || !$content) {
@@ -23,6 +24,7 @@ function generateContent($aURL, $aBypass = null) {
 
   $pageSubsts = array(
     '{%SITE_STYLESHEET}'      => $stylesheet,
+    '{%HIGHLIGHT_STYLESHEET}' => $stylesheetHLJS,
     '{%PAGE_CONTENT}'         => '<h1>' . ($aURL == '/' ? 'Pale Moon Developer Site' : CONTENT[$aURL][1]) . '</h1>' .
                                  NEW_LINE . parseSeleneCode($content),
     '{%BASE_PATH}'            => str_replace(ROOT_PATH, '', $skinDir),
