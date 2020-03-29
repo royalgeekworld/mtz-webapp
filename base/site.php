@@ -17,11 +17,11 @@ const CONTENT = array(
   '/'                                         => ['root-index', 'Welcome to the Pale Moon Developer Site'],
 
   // Build Documentation
-  '/build/'                                   => ['build-index','Building Pale Moon', true],
-  '/build/windows/'                           => ['build-windows', 'Building Pale Moon: Windows'],
-  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: Linux'],
-  '/build/mac/'                               => ['build-mac', 'Building Pale Moon: MacOS X', true],
-  '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: Solaris/Illumos', true],
+  '/build/'                                   => ['build-index','Building Pale Moon'],
+  '/build/windows/'                           => ['build-windows', 'Building Pale Moon: Microsoft Windows'],
+  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: GNU Linux'],
+  '/build/mac/'                               => ['build-mac', 'Building Pale Moon: Apple Macintosh', true],
+  '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: SunOS-based Systems', true],
 
   // Add-ons
   '/addons/'                                  => ['addons-index', 'Add-ons', true],
