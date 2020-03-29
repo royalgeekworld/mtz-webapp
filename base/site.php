@@ -24,7 +24,7 @@ const CONTENT = array(
   '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: SunOS-based Systems', true],
 
   // Add-ons
-  '/addons/'                                  => ['addons-index', 'Add-ons'],
+  '/addons/'                                  => ['addons-index', 'Add-ons', true],
   '/addons/resources/'                        => ['addons-resources', 'Add-ons: Resources', true],
   '/addons/resources/install-manifest/'       => ['addons-resources-install-manifest', 'Add-ons: Install Manifest', true],
   '/addons/extensions/'                       => ['addons-extensions', 'Add-ons: Extensions', true],
