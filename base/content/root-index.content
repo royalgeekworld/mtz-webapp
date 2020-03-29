@@ -1,3 +1,11 @@
-[p]Welcome! This NEW Developer Site, interestingly enough, is actually in development. So is not fully up yet.[/p]
-[p]HOWEVER, the build documentation is in the process of being updated. It may already be up (Windows and Linux is). If not, hang tight![/p]
-[p]-Tobin[/p]
+[p]Greetings and welcome to our Developer Site! This site intends to document and provide resources regarding Pale Moon.[/p]
+
+[p][i]NOTE: This NEW Developer Site, interestingly enough, is actually in development. So some previous content may not be up yet.[/i][/p]
+
+[section="Points of intrest"]
+
+[ul]
+  [li][link=/build/]Pale Moon Build Documentation[/link][/li]
+  [li][link=/addons/]Information and resources about Add-ons[/link][/li]
+  [li][link=/addons/site/]Overview of the Add-ons Site, submission, and personnel[/link][/li]
+[/ul]

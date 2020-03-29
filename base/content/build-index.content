@@ -1,0 +1,14 @@
+[p]So you want to build Pale Moon yourself? Awesome! However, there are limits to what we can offer in terms of end user support for builds you roll yourself including the build process. As such, you will largely be on your own.[dblbreak]
+
+That being said, you might want to take some time to familiarize yourself with the various [url=http://www.palemoon.org/licensing.shtml]terms and licensing[/url] associated with Pale Moon before you proceed.[/p]
+
+[section="Build Instructions"]
+
+[p]Pale Moon (and the Unified XUL Platform) can be built for many systems. While the process is similar across the board, each target operating system or processor architecture has its own specifics.[/p]
+
+[ul]
+  [li][link=/build/windows/]Microsoft Windows[/link][/li]
+  [li][link=/build/linux/]GNU Linux[/link][/li]
+  [li][link=/build/mac/]Apple Macintosh[/link][/li]
+  [li][link=/build/sunos/]SunOS-based Systems[/link] [i](Modern Solaris and Illumos)[/i][/li]
+[/ul]

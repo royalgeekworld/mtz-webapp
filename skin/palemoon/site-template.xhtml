@@ -7,10 +7,9 @@
     <link rel="icon" href="{%BASE_PATH}favicon.ico" />
     <style type="text/css">
       {%SITE_STYLESHEET}
+      {%HIGHLIGHT_STYLESHEET}
     </style>
-    <link rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script src="/jsmodules/highlight/highlight.pack.js"></script>
   </head>
   <body>
     <div id="PM-Wrapper">
@@ -29,9 +28,17 @@
           <!-- <li class="li_nc"><a href="/extensions/">Build Pale Moon</a></li> -->
           <li class="li_nc"><a href="#">Build Documentation</a>
             <ul class="ul_ch">
-              <li class="li_nc"><a href="/build/windows/">Windows</a></li>
-              <li class="li_nc"><a href="/build/linux/">Linux</a></li>
-              <li class="li_nc"><a href="/build/">Additional Platforms&hellip;</a></li>
+              <li class="li_nc"><a href="/build/windows/">Microsoft Windows</a></li>
+              <li class="li_nc"><a href="/build/linux/">GNU Linux</a></li>
+              <li class="li_nc"><a href="/build/">More&hellip;</a></li>
+            </ul>
+          </li>
+          <li class="li_nc"><a href="#">Add-ons</a>
+            <ul class="ul_ch">
+              <li class="li_nc"><a href="/addons/resources/">General Resources</a></li>
+              <li class="li_nc"><a href="/addons/site/">Add-ons Site</a></li>
+              <li class="li_nc"><a href="/addons/extensions/">Extensions</a></li>
+              <li class="li_nc"><a href="/addons/themes/">Themes</a></li>
             </ul>
           </li>
         </ul>
@@ -40,7 +47,6 @@
       <div id="PM-Content">
         <div id="PM-Content-Body">
           {%PAGE_CONTENT}
-          <script>hljs.initHighlightingOnLoad();</script>
         </div> <!-- PM-Content-Body (Unless Sidebar then it is PM-Content-Sidebar) -->
       </div> <!-- PM-Content -->
 
@@ -60,5 +66,6 @@
         </span></p>
       </div>
     </div>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

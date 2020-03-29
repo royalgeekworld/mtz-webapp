@@ -1,0 +1,46 @@
+[html-override]
+<p>"phoebusCode" is a bbcode-like syntax used for the Add-on Page Content on the <a href="https://addons.palemoon.org">Pale Moon Add-ons Site</a> and other Phoebus-powered Add-on Sites.<br /><br />
+
+It isn't perfect but it tends to do the job.</p>
+
+<h3>Syntax</h3>
+
+<ul>
+   <li>[b] and [/b]: Bold text</li>
+   <li>[i] and [/i]: Italic text</li>
+   <li>[u] and [/u]: Underlined text</li>
+   <li>[ul] and [/ul]: Unordered list (combine with [li] as below to create a bulletted list)</li>
+   <li>[ol] and [/ol]: Unordered list (combine with [li] as below to create a numerical ordered list)</li>
+   <li>[li] and [/li]: List item</li>
+   <li>[section] and [/section]: Denotes individual sections</li>
+   <li>[url] and [/url]: Provides links. Also accepted is [url=http://example.com]Example Test[/url]</li>
+</ul>
+
+
+<h3>Example</h3>
+<p>An example of a phoebus.content file using some of the most common syntax.</p>
+<pre style="white-space: pre-wrap;">
+<code class="plain">
+Pale Moon Commander is an extension designed for the [url=http://www.palemoon.org/]Pale Moon web browser[/url]. It is a configurator, meaning it will provide a user-friendly interface to advanced preferences that would otherwise require manual editing of parameters, which can be cumbersome and time-consuming to do.
+[section]How to access the add-on's settings[/section]
+The add-on, when installed, adds a menu item 'Advanced Options...' in two locations:
+[ul]
+  [li]In the Application Menu (Pale Moon) under Options -> Advanced Options...[/li]
+  [li]In the classic menu under Tools -> Advanced Options...[/li]
+[/ul]
+Clicking this menu item will open the preferences window that has been added by installing the add-on.
+[section]There be dragons here![/section]
+Using Pale Moon Commander to change advanced preferences is potentially dangerous and can leave your browser profile in a potentially unusable state. If you don't know what a setting is for, don't touch it. A number of the preferences made accessible through the add-on can prevent proper operation of the browser.
+
+You can reset Pale Moon Commander's controlled settings from within the last category of the extension.
+Because all the add-on does is change preferences, you can, at all times, reset the preferences by starting Pale Moon with the SHIFT key depressed, and selecting 'Reset preferences to Pale Moon defaults'. Of course this will also reset any other modified preferences you may have. Using the Reset feature in the add-on itself will have a similar result.
+
+Use of this add-on is at all times at your own risk. I do not give warranty or guarantees, and it is provided 'as-is' although I've done my best to make sure it works as-intended.
+
+You can [url=https://forum.palemoon.org/viewtopic.php?f=50&t=16081]go to the forum thread[/url] for this add-on to provide feedback.
+[section]Documentation[/section]
+The add-on currently has a basic manual in PDF format, applicable to the previous version 1.7. An update will be made as time permits, but most of the options are explained.
+
+You can get the manual by [url=http://rm-eu.palemoon.org/tools/Pale%20Moon%20Commander_v1.7.0.pdf]clicking here[/url].
+</code>
+</pre>

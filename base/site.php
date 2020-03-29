@@ -17,11 +17,11 @@ const CONTENT = array(
   '/'                                         => ['root-index', 'Welcome to the Pale Moon Developer Site'],
 
   // Build Documentation
-  '/build/'                                   => ['build-index','Building Pale Moon', true],
-  '/build/windows/'                           => ['build-windows', 'Building Pale Moon: Windows'],
-  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: Linux'],
-  '/build/mac/'                               => ['build-mac', 'Building Pale Moon: MacOS X', true],
-  '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: Solaris/Illumos', true],
+  '/build/'                                   => ['build-index','Building Pale Moon'],
+  '/build/windows/'                           => ['build-windows', 'Building Pale Moon: Microsoft Windows'],
+  '/build/linux/'                             => ['build-linux', 'Building Pale Moon: GNU Linux'],
+  '/build/mac/'                               => ['build-mac', 'Building Pale Moon: Apple Macintosh', true],
+  '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: SunOS-based Systems', true],
 
   // Add-ons
   '/addons/'                                  => ['addons-index', 'Add-ons', true],
@@ -33,11 +33,8 @@ const CONTENT = array(
   '/addons/themes/complete/'                  => ['addons-themes-complete', 'Add-ons: Complete Themes', true],
   '/addons/themes/personas/'                  => ['addons-themes-personas', 'Add-ons: Personas (Lightweight Themes),', true],
   '/addons/themes/pm-history/'                => ['addons-themes-pmhistory', 'Add-ons: Pale Moon Theme History', true],
-
-  // Add-ons Site
-  '/addons-site/'                             => ['addons-site', 'Add-ons Site', true],
-  '/addons-site/submit/'                      => ['addons-site-submit', 'Add-ons Site: Submission', true],
-  '/addons-site/phoebus-code/'                => ['addons-site-phoebus-code', 'Add-ons Site: Phoebus Code Syntax', true],
+  '/addons/site/'                             => ['addons-site', 'Add-ons: Site'],
+  '/addons/site/phoebus-code/'                => ['addons-site-phoebus-code', 'Add-ons: Phoebus Code Syntax'],
 );
 
 // This constant array contains old wiki URLs (accounting for the fact that we add / to non-file.ext urls here)
@@ -58,9 +55,9 @@ const WIKI_URLS = array(
   '/Add-ons:Themes/Complete/'                               => '/addons/themes/complete/',
   '/Add-ons:Themes/Complete/Changes/'                       => '/addons/themes/pm-history/',
   '/Add-ons:Themes/Persona/'                                => '/addons/themes/personas/',
-  '/Add-ons:Site/'                                          => '/addons-site/',
-  '/Add-ons:Site/Submit/'                                   => '/addons-site/submit/',
-  '/Add-ons:Site/Manifest_Files/'                           => '/addons-site/phoebus-code/',
+  '/Add-ons:Site/'                                          => '/addons/site/',
+  '/Add-ons:Site/Submit/'                                   => '/addons/site/',
+  '/Add-ons:Site/Manifest_Files/'                           => '/addons/site/phoebus-code/',
   
 );
 
