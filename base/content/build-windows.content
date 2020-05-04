@@ -45,7 +45,7 @@ git checkout release && git submodule update
 
 [section="Using the source archives"]
 
-[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repostory and is more complicated:[/p]
+[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repository and is more complicated:[/p]
 
 [ul]
   [li]Navigate to [url=https://github.com/MoonchildProductions/Pale-Moon/releases/latest]the release page[/url] on the Pale Moon repository and download the zip archive for Pale Moon.[/li]

@@ -30,7 +30,7 @@ These instructions assume you are going to create a directory in your home direc
 
 [section="Using git"]
 
-[p]This is the simplest method and git is readily avaiable in all package managers.[/url][/p]
+[p]This is the simplest method and git is readily available in all package managers.[/p]
 
 [ul]
   [li]Install git and/or open a terminal shell and change directory to the desired source location, e.g. [codeline=bash]cd ~/palemoon-source/[/codeline][/li]
@@ -46,7 +46,7 @@ git checkout release && git submodule update
 
 [section="Using the source archives"]
 
-[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repostory and is more complicated:[/p]
+[p]This requires downloading source archives from both the Pale Moon and Unified XUL Repository and is more complicated:[/p]
 
 [ul]
   [li]Navigate to [url=https://github.com/MoonchildProductions/Pale-Moon/releases/latest]the release page[/url] on the Pale Moon repository and download the tar.gz archive for Pale Moon.[/li]
