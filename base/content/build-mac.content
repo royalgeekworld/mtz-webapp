@@ -3,13 +3,8 @@
 [header="Prerequisites"]
 
 [ul]
-  [li][url=https://developer.apple.com/download/more/]Xcode[/url] version 8 or higher and command line tools[/li]
-  [li]
-    Python 2.7.3 to 2.7.latest
-    [ul]
-      [li]Python comes bundled with most versions of MacOS, however it has been deprecated and will be removed from future versions.[/li]
-    [/ul]
-  [/li]
+  [li]Xcode version 8 or higher and command line tools[/li]
+  [li]Python 2.7.3 to 2.7.latest[/li]
   [li]Exactly Autoconf 2.13[/li]
   [li]yasm 1.2.0 or higher[/li]
   [li]Plenty of free disk space[/li]
@@ -31,9 +26,9 @@ These instructions assume you are going to create a directory in your home direc
 [p]This is the simplest method and git is bundled with Xcode.[/p]
 
 [ul]
-  [li]Install Xcode command line tools and open a terminal shell and change directory to the desired source location, e.g. [codeline=bash]cd ~/palemoon-source/[/codeline][/li]
-  [li]
-    Execute the following commands:
+  [li]Install [url=https://developer.apple.com/download/more/]Xcode[/url] command line tools[/li]
+  [li]Open a terminal shell and change directory to the desired source location, e.g. [codeline=bash]cd ~/palemoon-source/[/codeline][/li]
+  [li]Execute the following commands:
 [code=bash]git clone https://github.com/MoonchildProductions/Pale-Moon.git ./
 git submodule init && git submodule update
 git checkout release && git submodule update
@@ -53,7 +48,11 @@ git checkout release && git submodule update
   [li]Extract that archive to the platform directory inside the Pale Moon source directory e.g. [codeline=bash]~/palemoon-source/platform[/codeline][/li]
 [/ul]
 
-[p][i]NOTE: You will need to extract the contents of the Pale-Moon-XXX or UXP-XXX directory to the locations indicated above.[/i][/p] 
+[p][i]NOTE: You will need to extract the contents of the Pale-Moon-XXX or UXP-XXX directory to the locations indicated above.[/i][/p]
+
+[p]This is not recommended for Machintosh. However, if you obtain the source archives in a non-tar form e.g. zip or 7z then you will have to correct file permissions on the source tree.[/p]
+
+[code=bash]chmod -R 744 palemoon-source[/code]
 
 <!-- ============================================================================================================== -->
 
@@ -93,11 +92,11 @@ ac_add_options --disable-updater
 ac_add_options --with-macos-sdk=/Path/to/SDKs/MacOSX10.7.sdk
 
 # Please see https://www.palemoon.org/redist.shtml for restrictions when using the official branding.
-#ac_add_options --enable-official-branding
-#export MOZILLA_OFFICIAL=1
+ac_add_options --enable-official-branding
+export MOZILLA_OFFICIAL=1
 
 # Uncomment if using clang++ from Xcode 10 or higher
-#export CXX="/usr/bin/clang++ -std=gnu++11 -stdlib=libc++"
+# export CXX="/usr/bin/clang++ -std=gnu++11 -stdlib=libc++"
 [/code]
 [/p]
 
