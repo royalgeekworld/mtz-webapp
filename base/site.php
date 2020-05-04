@@ -61,7 +61,6 @@ const WIKI_URLS = array(
   
 );
 
-$gaRuntime['requestBypass'] = gfSuperVar('get', 'bypass');
 require_once(MODULES['content']);
 
 // ====================================================================================================================
@@ -70,7 +69,7 @@ require_once(MODULES['content']);
 
 // If the URL is known to us pass it to generateContent
 if (array_key_exists($gaRuntime['requestPath'], CONTENT)) {
-  generateContent($gaRuntime['requestPath'], $gaRuntime['requestBypass']);
+  generateContent($gaRuntime['requestPath']);
 }
 
 // This will handle translation from the wiki urls to the new urls

@@ -3,18 +3,22 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-function generateContent($aURL, $aBypass = null) {
-  if (!$aBypass && (CONTENT[$aURL][2] ?? null)) {
-    gfError('That content has not been ported yet...');
-  }
-
+function generateContent($aURL, $aContentOverride = null) {
   $contentDir = ROOT_PATH . BASE_RELPATH . 'content/';
   $skinDir = ROOT_PATH . SKIN_RELPATH . SKIN . '/';
 
   $template = @file_get_contents($skinDir . 'site-template.xhtml');
   $stylesheet = @file_get_contents($skinDir . 'site-stylesheet.css');
   $stylesheetHLJS = @file_get_contents($skinDir . '../../jsmodules/highlight/styles/github.css');
-  $content = @file_get_contents($contentDir . CONTENT[$aURL][0] . '.content');
+
+  if ($aContentOverride) {
+    $content = $aContentOverride;
+    $title = 'Content Test';
+  }
+  else {
+    $content = @file_get_contents($contentDir . CONTENT[$aURL][0] . '.content');
+    $title = CONTENT[$aURL][1];
+  }
 
   if (!$template || !$stylesheet || !$content) {
     gfError('Failed to generate content.');
@@ -25,17 +29,21 @@ function generateContent($aURL, $aBypass = null) {
   $pageSubsts = array(
     '{%SITE_STYLESHEET}'      => $stylesheet,
     '{%HIGHLIGHT_STYLESHEET}' => $stylesheetHLJS,
-    '{%PAGE_CONTENT}'         => '<h1>' . ($aURL == '/' ? 'Pale Moon Developer Site' : CONTENT[$aURL][1]) . '</h1>' .
+    '{%PAGE_CONTENT}'         => '<h1>' . ($aURL == '/' ? 'Pale Moon Developer Site' : $title) . '</h1>' .
                                  NEW_LINE . parseSeleneCode($content),
     '{%BASE_PATH}'            => str_replace(ROOT_PATH, '', $skinDir),
     '{%CONTENT_PATH}'         => str_replace(ROOT_PATH, '', $contentDir),
     '{%SITE_NAME}'            => SITE_NAME,
-    '{%PAGE_TITLE}'           => $aURL == '/' ? 'Front Page' : CONTENT[$aURL][1],
+    '{%PAGE_TITLE}'           => $aURL == '/' ? 'Front Page' : $title,
     '{%COPYRIGHT_YEAR}'       => date("Y"),
     '{%SOFTWARE_NAME}'        => SOFTWARE_NAME,
     '{%SOFTWARE_VERSION}'     => SOFTWARE_VERSION,
     '{%SOFTWARE_REPO}'        => SOFTWARE_REPO,
   );
+
+  if ($aContentOverride) {
+    $pageSubsts['{%PAGE_CONTENT}'] = '<p><a href="#" onclick="window.history.back();"><-- Back</a></p>' . $pageSubsts['{%PAGE_CONTENT}'];
+  }
 
   foreach ($pageSubsts as $_key => $_value) {
     $finalContent = str_replace($_key, $_value, $finalContent);
