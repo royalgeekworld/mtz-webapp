@@ -393,22 +393,13 @@ if (!function_exists('str_contains')) {
 
 // Define an array that will hold the current application state
 $gaRuntime = array(
-  'authentication'      => null,
-  'currentApplication'  => null,
-  'orginalApplication'  => null,
-  'currentSiteTitle'    => null,
   'currentScheme'       => gfSuperVar('server', 'SCHEME'),
-  'currentDomain'       => null,
-  'debugMode'           => null,
-  'tap'                 => gfSuperVar('var', file_exists(ROOT_PATH . '/.tap')),
   'phpServerName'       => gfSuperVar('server', 'SERVER_NAME'),
   'phpRequestURI'       => gfSuperVar('server', 'REQUEST_URI'),
   'remoteAddr'          => gfSuperVar('server', 'HTTP_X_FORWARDED_FOR') ??
                            gfSuperVar('server', 'REMOTE_ADDR'),
   'requestComponent'    => gfSuperVar('get', 'component'),
   'requestPath'         => gfSuperVar('get', 'path'),
-  'requestDebugOff'     => gfSuperVar('get', 'debugOff'),
-  'requestSearchTerms'  => gfSuperVar('get', 'terms')
 );
 
 // --------------------------------------------------------------------------------------------------------------------
