@@ -98,7 +98,7 @@ skin global namehere chrome/global/
 
 [section="Application styles (browser)"]
 
-[table cellpadding="4" cellspacing="1"]
+[table cellpadding="4" cellspacing="1" class="wikiTable"]
 	[tbody]
 		[tr]
 			[th][i]/browser[/i][/th]
@@ -229,7 +229,7 @@ skin global namehere chrome/global/
 
 [section="Toolkit styles (global and mozapps)"]
 
-[table cellpadding="4" cellspacing="1"]
+[table cellpadding="4" cellspacing="1" class="wikiTable"]
 	[tbody]
 		[tr]
 			[th][i]/global[/i][/th]
@@ -542,7 +542,7 @@ skin global namehere chrome/global/
 
 [p][b]Developer Tools (Applies only to Pale Moon 27)[/b][/p]
 
-[table cellpadding="4" cellspacing="1"]
+[table cellpadding="4" cellspacing="1" class="wikiTable"]
 	[tbody]
 		[tr]
 			[th][i]/global/devtools[/i][/th]
