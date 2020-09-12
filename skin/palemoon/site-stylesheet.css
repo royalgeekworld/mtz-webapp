@@ -448,4 +448,26 @@ hr {
 	color: #FFFFFF;
 }
 
+/* Table styling */
+
+.wikiTable {
+  border: 1px solid #bcbcbc;
+}
+
+.wikiTable th {
+  background-color: #ededed;
+  font-weight: bold;
+  text-align: center;
+  color: #225588;
+}
+
+.wikiTable tr {
+  padding: 4px;
+  background-color: #FFFFFF;
+}
+
+.wikiTable tr:nth-child(odd) {
+  background-color: #F0F0F0;
+}
+
 /* end of mainmenu css - change*/
