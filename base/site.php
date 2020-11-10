@@ -35,6 +35,10 @@ const CONTENT = array(
   '/addons/themes/pm-history/'                => ['addons-themes-pmhistory', 'Add-ons: Pale Moon Theme History'],
   '/addons/site/'                             => ['addons-site', 'Add-ons: Site'],
   '/addons/site/phoebus-code/'                => ['addons-site-phoebus-code', 'Add-ons: Phoebus Code Syntax'],
+
+  // Misc docs that need a place to live
+  '/docs/'                                    => ['docs-index', 'Docs', true],
+  '/docs/bounty/'                             => ['ocs-bounty', 'Development Bounty Program'],
 );
 
 // This constant array contains old wiki URLs (accounting for the fact that we add / to non-file.ext urls here)
