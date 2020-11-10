@@ -38,7 +38,7 @@ const CONTENT = array(
 
   // Misc docs that need a place to live
   '/docs/'                                    => ['docs-index', 'Docs', true],
-  '/docs/bounty/'                             => ['ocs-bounty', 'Development Bounty Program'],
+  '/docs/bounty/'                             => ['docs-bounty', 'Development Bounty Program'],
 );
 
 // This constant array contains old wiki URLs (accounting for the fact that we add / to non-file.ext urls here)
