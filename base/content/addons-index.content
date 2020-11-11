@@ -1,0 +1,78 @@
+[p]Add-ons are a hallmark of classical mozilla-style applications and as such a lot of this information not only applies to Pale Moon but to [url=http://www.basilisk-browser.org/]Basilisk[/url] and [url=http://thereisonlyxul.org]other applications[/url] based on the Unified XUL Platform.[/p]
+
+[header="Add-on Concepts"]
+
+[p]There are many concepts when it comes to the Add-on Technology employed in the Unified XUL Platform and used by Pale Moon. As such, there is an on-going effort to (re-)document them and you will see them here soon. You may also find valuable information under [b]External Resources[/b] in the site's menu bar.[/p]
+
+[header="Add-on Types"]
+[p]There are many kinds of Add-ons and how they are used is dependant on what type they are.[/p]
+
+[section="Extensions"]
+[p]Extensions are small add-ons that add new functionality to the application, from a simple toolbar button to a completely new feature. They allow you to customize the application to fit your own needs and preferences, while allowing the core itself light and lean.[/p]
+
+[p]There are three sub-types of Extensions:[/p]
+
+[ul]
+  [li][b]Overlay[/b] (historically called Toolkit Extensions)[/li]
+  [li][b]Bootstrap[/b] (commonly refered to as Restartless Extensions)[/li]
+  [li][b]Jetpack[/b] created with the so-called Add-ons SDK
+    [ul]
+      [li][i]This sub-type of extension also leverages Bootstrap technology to operate in a restartless way which can be confusing.[/i][/li]
+      [li]
+        [i]Jetpack is considered deprecated in the scheme of UXP but [url=http://www.basilisk-browser.org/]Basilisk[/url] still uses them (as old [url=https://github.com/JustOff/ca-archive/releases]Firefox Extensions[/url]) and a handful do target Pale Moon. It is [b]not recommended[/b] that anyone fork or create new extensions using this technology.[/i]
+      [/li]
+      [li][i][url=https://binaryoutcast.com/]Binary Outcast[/url] UXP-based applications have wholly rejected the technology and jetpack extensions [b]will not[/b] work with them. Keep this in mind if you develop cross-application compatible extensions.[/i][/li]
+    [/ul]
+  [/li]
+[/ul]
+
+[p]You can learn more about the specifics of extensions [link=/addons/extensions/]here[/link].[/p]
+
+[section="Themes"]
+[p]Themes allow you to change the look and feel of the user interface and personalize it to your tastes. A theme can simply change the colors of the UI or it can change every aspect of its appearance.[/p]
+
+[p]There are two sub-types of Themes:[/p]
+
+[ul]
+  [li][b]Complete Themes[/b]
+    [ul]
+      [li][i]There is a pseudo-sub-type of theme is known as an Icon Theme which is a severely reduced version of a complete theme that only targets changing the toolbar icon set.[/i][/li]
+    [/ul]
+  [/li]
+  [li][b]Personas[/b] (also known as Lightweight Themes)
+    [ul]
+      [li][i]This is a service-based pseudo-add-on type and is completely unrelated to the classical themeing technology.[/i][/li]
+    [/ul]
+  [/li]
+[/ul]
+
+[p]You can learn more about the specifics of themes [link=/addons/themes/]here[/link]. Including the history of theme [link=/addons/themes/pm-history/]support and changes[/link] in Pale Moon.[/p]
+
+
+[section="Language Packs"]
+
+[p]Language Packs are add-ons that provide localized user interface strings so that users can have the application in their language.[/p]
+
+[p]Due to the extreme amount of work, Pale Moon is the only UXP-based application that has an active community effort to provide localization of the application into different languages. If you would like to assist please see the [url=https://forum.palemoon.org/viewforum.php?f=30]relevant board[/url] on the Pale Moon Forum and check out the l10n effort on [url=https://crowdin.com/project/pale-moon]CrowdIn[/url]!
+
+[section="Dictionaries"]
+
+[p]Dictionaries are add-ons that provide different spell checker languages for UXP-based applications.[/p]
+
+[section="Search Plugins"]
+
+[p]A search plugin provides the ability to access a search engine from a web browser, without having to go to the engine's website first. Technically, a search plugin is a small xml file that tells the browser what information to send to a search engine and how the results are to be retrieved.[/p]
+
+[p][url=https://binaryoutcast.com/projects/interlink/]Interlink Mail & News[/url] also uses them to instruct the system-defined default web client where to navigate to for a requested web search.[/p]
+
+[section="NPAPI Plugins"]
+
+[p]The Netscape Plugin Application Programming Interface is an API that allows browser plugins to be developed. It was first developed for Netscape in 1995 with Netscape Navigator 2.0, but was subsequently adopted by other browsers.[/p]
+
+[p]Unfortunately, support in recent years has been crippled or outright dropped by mainstream browsers and plugin developers under the justification of HTML5. Never the less, Pale Moon and all UXP-based applications will retain the full implimentation and freedom of the NPAPI and plugins written for it.[/p]
+
+[header="The Add-ons Site"]
+
+[p]The [url=https://addons.palemoon.org/]Pale Moon Add-ons SIte[/url] is a service provided to facilitate indexing and hosting of extensions, themes, and search plugins for use in the Pale Moon browser. You can find out more about the Add-ons Site and how to submit your add-ons [link=/addons/site/]here[/link].
+
+

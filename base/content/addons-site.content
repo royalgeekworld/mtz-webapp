@@ -36,7 +36,7 @@ Well, you have a couple options but each one must be considered carefully.[/p]
 [p]The service will provide full hosting of your add-on, a dedicated page, and automatic update services.[dblbreak]
 
 As of Phoebus 2.0, the software now has a dedicated [url=https://addons.palemoon.org/panel/]control and management panel[/url] located on most Add-on Sites including Pale Moon's.[/p]
-[p]You might also be interested in the [link=/addons/site/phoebus-code/]phoebusCode syntax[/link].
+[p]You might also be interested in the [link=/docs/syntax/#phoebusCode]phoebusCode syntax[/link].
 
 [section="Indexing your Add-on"]
 [p]This is known informally as an External. Indexing is available to both extensions and themes will list your extension to the category of your choosing and will link to where users can obtain your extension.[/p]

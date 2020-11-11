@@ -1,4 +1,7 @@
 [html-override]
+
+<h2><a name="phoebusCode"></a>Phoebus Code</h2>
+
 <p>"phoebusCode" is a bbcode-like syntax used for the Add-on Page Content on the <a href="https://addons.palemoon.org">Pale Moon Add-ons Site</a> and other Phoebus-powered Add-on Sites.<br /><br />
 
 It isn't perfect but it tends to do the job.</p>
@@ -44,3 +47,18 @@ The add-on currently has a basic manual in PDF format, applicable to the previou
 You can get the manual by [url=http://rm-eu.palemoon.org/tools/Pale%20Moon%20Commander_v1.7.0.pdf]clicking here[/url].
 </code>
 </pre>
+
+<h2><a name="seleneCode"></a>Selene Code</h2>
+
+<p>"seleneCode" is a bbcode-like syntax used for this Pale Moon Developer Site. Unlike Phoebus Code it does not automatically translate new lines. As such it is more akin to HTML.</p>
+
+<h3>Syntax</h3>
+<p><em>To be added...</em></p>
+
+<h3>Example</h3>
+<p><em>To be added...</em></p>
+
+<h3>Live Preview</h3>
+<p>We understand that since the Developer Site has a greater degree of freedom regarding content layout and because of it being git controlled without a web panel it may be difficult to visualize how seleneCode tags will be translated to a live html form. To assist in this endevor we have written a test case to allow you to paste (or even compose) an arbitrary page and preview it live in your browser before commiting and submitting a pull request.</p>
+
+<p>Just use this <a href="/special/test/?case=content" target="_blank">testing tool</a> to enter your content and press the test button.</p>

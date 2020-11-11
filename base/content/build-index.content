@@ -1,8 +1,12 @@
-[p]So you want to build Pale Moon yourself? Awesome! However, there are limits to what we can offer in terms of end user support for builds you roll yourself including the build process. As such, you will largely be on your own.[dblbreak]
+[p]So you want to build Pale Moon yourself? Awesome![/p]
 
-That being said, you might want to take some time to familiarize yourself with the various [url=http://www.palemoon.org/licensing.shtml]terms and licensing[/url] associated with Pale Moon before you proceed.[/p]
+[section="Before you begin"]
 
-[section="Build Instructions"]
+There are limits to what we can offer in terms of end user support for builds you roll yourself, as well as for the build process itself. As such, you will largely be on your own if you decide to build from source.[dblbreak]
+
+[b]Important:[/b] Please take some time to familiarize yourself with the various [i][url=http://www.palemoon.org/licensing.shtml]terms and licensing[/url][/i] associated with Pale Moon [b]before[/b] you proceed.[/p]
+
+[section="Build targets"]
 
 [p]Pale Moon (and the Unified XUL Platform) can be built for many systems. While the process is similar across the board, each target operating system or processor architecture has its own specifics.[/p]
 
