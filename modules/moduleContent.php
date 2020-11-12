@@ -71,6 +71,8 @@ function parseSeleneCode($aContent) {
     '[/header]'                                           => '</h2>',
     '[section]'                                           => '<h3>',
     '[/section]'                                          => '</h3>',
+    '[small]'                                             => '<small>',
+    '[/small]'                                            => '</small>',
     '[/span]'                                             => '</span>',    
     '[b]'                                                 => '<strong>',
     '[/b]'                                                => '</strong>',

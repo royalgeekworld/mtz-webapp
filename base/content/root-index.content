@@ -1,11 +1,25 @@
-[p]Greetings and welcome to our Developer Site! This site intends to document and provide resources regarding Pale Moon.[/p]
+[p]Greetings and welcome to our Developer Site![/p]
 
-[p][i]NOTE: This NEW Developer Site, interestingly enough, is actually in development. So some previous content may not be up yet.[/i][/p]
+[p]This site intends to document and provide resources regarding Pale Moon (and the Unified XUL Platform).[/p]
 
-[section="Points of intrest"]
+[section="Selected points of intrest"]
 
 [ul]
-  [li][link=/build/]Pale Moon Build Documentation[/link][/li]
-  [li][link=/addons/]Information and resources about Add-ons[/link][/li]
-  [li][link=/addons/site/]Overview of the Add-ons Site, submission, and personnel[/link][/li]
+  [li][link=/build/]Pale Moon Build Instructions[/link][/li]
+  [li][link=/addons/]Add-ons Overview[/link][/li]
+  [li][link=/addons/site/]The Add-ons Site, how to submit/index your add-on, and the Add-ons Team[/link][/li]
 [/ul]
+
+[section="Helping build the future could be profitable"]
+
+[p]Anyone can help with any number of tasks when it comes to Pale Moon, UXP, this Developer Site, or other related projects and those contributions are always considered valuable (or rather invaluable). However, there are jobs that we place a bounty on. These are the larger and more complex issues that may require focused or specialized knowledge to accomplish.[/p]
+
+[p]So, if you have the skills to tackle the tough assignments you will be rewarded for your efforts. If you are interested, check out the [link=/docs/bounty/]Bounty Program[/link].[/p]
+
+[section="Contributing to the Developer Site"]
+
+[p]You can contribute to this site to correct typos or add whole new pages. Just get in contact with [url=https://forum.palemoon.org/]someone[/url] in the Pale Moon project or [url=https://binaryoutcast.com/interact/]Tobin[/url] to lend a hand. As this site is primarily [url=https://repo.palemoon.org/MoonchildProductions/selene]git controlled[/url] and content uses a decently easy [link=/docs/syntax/]syntax[/link] in lieu of straight html creating and modifing content not very difficult.[/p]
+
+[p]A complete guide on how to contribute to this site will come soon to help those who may not be familar with the process. In the meantime, you can just ask someone for pointers.[/p]
+
+[p][small][b]Note:[/b] This NEW Developer Site is, interestingly enough, actually in development. So some previous content and planned new content may not be available yet.[/small][/p]
