@@ -35,6 +35,7 @@ const CONTENT = array(
 
   // Misc docs that need a place to live
   '/docs/'                                    => ['docs-index', 'Docs', true],
+  '/docs/primer/'                             => ['docs-primer', 'Get Started: The primer to creating the future!'],
   '/docs/bounty/'                             => ['docs-bounty', 'Development Bounty Program'],
   '/docs/syntax/'                             => ['docs-syntax', 'Site-Specific Syntax'],
 );
