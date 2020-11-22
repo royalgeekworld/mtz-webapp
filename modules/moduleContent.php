@@ -106,6 +106,9 @@ function parseSeleneCode($aContent) {
   }
 
   $seleneCodeSuperRegex = 'span|p|ul|ol|li|hr|table|th|tr|td|hr|caption|col|colgroup|thead|tbody|tfoot';
+  $preStyle = 'border-radius: 6px !important; padding: 4px !important; background-color: #ecf3f7 !important;';
+  $codeStyle = 'background-color: transparent !important;';
+
   $seleneCodeRegex = array(
     '\[title=\"(.*)\"\]'                                  => '<h1>$1</h1>',
     '\[header=\"(.*)\"\]'                                 => '<h2>$1</h2>',
@@ -114,8 +117,8 @@ function parseSeleneCode($aContent) {
     '\[url=(.*)\](.*)\[\/url\]'                           => '<a href="$1" target="_blank">$2</a>',
     '\[url\](.*)\[\/url\]'                                => '<a href="$1" target="_blank">$1</a>',
     '\[img(.*)\](.*)\[\/img\]'                            => '<img src="$2"$1 />',
-    '\[code=(.*)\]'                                       => '<pre><code class="$1">',
-    '\[codeline=(.*)\]'                                   => '<pre style="display: inline;"><code class="$1" style="display: inline; background-color: transparent !important;">',
+    '\[code=(.*)\]'                                       => '<pre style="' . $preStyle . '"><code class="$1" style="' . $codeStyle . '">',
+    '\[codeline=(.*)\]'                                   => '<pre style="display: inline; ' . $preStyle .'"><code class="$1" style="display: inline; ' . $codeStyle . '">',
     '\[(' . $seleneCodeSuperRegex . ')(.*)\]'             => '<$1$2>',
   );
 
