@@ -1,20 +1,25 @@
 [p]Profiles are central to the function of mozilla-based applications since way back in the Netscape days. However, one important fact about them is [b]that migration of profile data is only one way, from older to newer versions of the application[/b]. Pale Moon Profiles are no different.[/p]
 
-[p]In the past when Pale Moon was closer to its wayward sibling, Firefox, one could get away with just a simple file copy operation from one Application Data directory to another. Though, today, this is not so cut and dry. As with Mozilla and [i]other[/i] rebuilds and vague forks one must take care when uplifting an established profile up the line. However, when going between the orginal mozilla application and legitimate divergant forks or different applications within the same family of forks (Such as Pale Moon and Basilisk both being Phoenix-based specifically) it becomes quite the minefield.[/p]
+[p]In the past when Pale Moon was closer to its wayward sibling, Firefox, one could get away with just a simple file copy operation from one Application Data directory to another. Though, today, this is not so cut and dry. As with Mozilla and [i]other[/i] rebuilds and vague forks one must take care when uplifting an established profile up the line. However, when going between the original mozilla application and legitimate divergent forks or different applications within the same family of forks (Such as Pale Moon and Basilisk both being Phoenix-based specifically) it becomes quite the minefield.[/p]
 
 [header="Firefox to Pale Moon"]
 
-[p]The hard and fast rule is that Firefox profiles can be migrated to Pale Moon as-is if the profile is from Firefox 24 and no newer. This is because while we have progressed through two platform code rebases (Tycho and UXP) the Pale Moon specific application code in its current incarnation largely orginates from the Firefox 24 state despite being updated and ported up twenty-eight reletive Mozilla platform codebases.[/p]
+[p]The hard and fast rule is that Firefox profiles can be migrated to Pale Moon as-is if the profile is from Firefox 24 and no newer. This is because while we have progressed through two platform code rebases (Tycho and UXP) the Pale Moon specific application code in its current incarnation largely originates from the Firefox 24 state despite being updated and ported up twenty-eight relative Mozilla platform codebases.[/p]
 
 [p]Firefox 24 (or older back to at least Firefox 4) should successfully migrate them selves through Pale Moon 28.16.0 to the latest Pale Moon release. Why 28.16.0? Because this was the last version capable of migrating your NSS credental stores from dbm to sqlite. After that you can take the profile to the latest release. However, [b]for the best results[/b] you should take your Firefox >=24 profile through Pale Moon 26.5.x to 27.9.4 to 28.16.0 to latest release.[/p]
 
-[p][small][b]NOTE:[/b] [i]The migration window for NSS datastore from DBM to sqlite is Pale Moon 28.11.0 to 28.16.0 so any of those versions can be used as a touchbase to migrate this specific type of profile data. We merely recommend the last version capable.[/i][/small][/p]
+[p][small][b]NOTE:[/b] [i]The migration window for NSS datastore from DBM to sqlite is Pale Moon 28.11.0 to 28.16.0 so any of those versions can be used as a touch-base to migrate this specific type of profile data. We merely recommend the last version capable.[/i][/small][/p]
 
 [header="Older Pale Moon to Newer Pale Moon"]
 
-[p]Essentually this is the same process as [i]Firefox to Pale Moon[/i]. You should follow the recommended milestone progression listed above and make sure to make a pit stop at 28.16.0 to ensure NSS data is migrated from dbm to sqlite.[/p]
+[p]Essentially this is the same process as [i]Firefox to Pale Moon[/i]. You should follow the recommended milestone progression listed above and make sure to make a pit stop at 28.16.0 to ensure NSS data is migrated from dbm to sqlite.[/p]
 
 [p style="color: #BF0000;"][small][b]NOTE:[/b] [i]Once again, profiles can be migrated/upgraded in one direction ONLY. If you try to use a profile from a newer version of Pale Moon on the older one it will become corrupt even if you return to the newer version. We will [u]not[/u] extend support to users with corrupt profiles. To say nothing about mangled franken-profiles.[/i][/small][/p]
+
+[header="Profiles between Operating Systems"]
+[p]There are some issues when migrating profiles between different operating systems e.g. Windows to Linux that must be considered. These small but breaking differences require special care. One such instance is the download manager will fail completely if the last cached or set default download directory uses paths that are not existent or not even in the same style as the target operating system. Unfortunately, there isn't an easy remedy to this or other potental issues between OS's that covers all cases.[/p]
+
+[p]More research into these differences will need to be conducted so [b]we cannot recommend or support transferring profiles between operating systems[/b].[/p]
 
 [header="Other UXP Applications"]
 
