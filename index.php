@@ -14,6 +14,15 @@ ini_set("display_errors", "on");
 // NOTE: DOCUMENT_ROOT does NOT have a trailing slash.
 define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
 
+const NEW_LINE              = "\n";
+const EMPTY_STRING          = "";
+const EMPTY_ARRAY           = [];
+const SPACE                 = " ";
+const DOT                   = ".";
+const SLASH                 = "/";
+const DASH                  = "-";
+const WILDCARD              = "*";
+
 // Define basic constants for the software
 const SOFTWARE_NAME       = 'Selene';
 const SOFTWARE_VERSION    = '1.0.0a1';
@@ -26,7 +35,6 @@ const COMPONENTS_RELPATH  = '/components/';
 const DATABASES_RELPATH   = '/databases/';
 const MODULES_RELPATH     = '/modules/';
 const LIB_RELPATH         = '/libraries/';
-const NEW_LINE            = "\n";
 
 // Define components
 const COMPONENTS = array(
@@ -401,6 +409,13 @@ $gaRuntime = array(
   'requestComponent'    => gfSuperVar('get', 'component'),
   'requestPath'         => gfSuperVar('get', 'path'),
 );
+
+// --------------------------------------------------------------------------------------------------------------------
+
+// Offline check
+if (file_exists(ROOT_PATH . SLASH . '.offline')) {
+  gfError('Site Offline');
+}
 
 // --------------------------------------------------------------------------------------------------------------------
 
