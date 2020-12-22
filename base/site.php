@@ -38,6 +38,7 @@ const CONTENT = array(
   '/docs/primer/'                             => ['docs-primer', 'Get Started: The primer to creating the future!'],
   '/docs/bounty/'                             => ['docs-bounty', 'Development Bounty Program'],
   '/docs/syntax/'                             => ['docs-syntax', 'Site-Specific Syntax'],
+  '/docs/profile-migration/'                  => ['docs-profile-migration', 'Profile Migration'],
 );
 
 // This constant array contains redirects (largely old wiki urls accounting for the fact that we add / to non-file.ext urls here)
