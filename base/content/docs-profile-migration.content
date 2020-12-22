@@ -16,15 +16,15 @@
 
 [p style="color: #BF0000;"][small][b]NOTE:[/b] [i]Once again, profiles can be migrated/upgraded in one direction ONLY. If you try to use a profile from a newer version of Pale Moon on the older one it will become corrupt even if you return to the newer version. We will [u]not[/u] extend support to users with corrupt profiles. To say nothing about mangled franken-profiles.[/i][/small][/p]
 
+[header="Other UXP Applications"]
+
+[section="Firefox to Basilisk"]
+
+[p]Basilisk should be able to accept Firefox 52.x and older profiles with no real trouble. Though we do not support WebExtensions so those will obviously not function. Additionally, like Pale Moon, you will need to take your profile through Basilisk [b]v2020.11.25[/b] for the NSS DBM to sqlite conversion before landing on the latest release.[/p]
+
 [header="Profiles between Operating Systems"]
 [p]There are some issues when migrating profiles between different operating systems e.g. Windows to Linux that must be considered. These small but breaking differences require special care.[/p]
 
 [p]One such instance is the download manager will fail completely if the last cached or set default download directory uses paths that are not existent or not even in the same style as the target operating system. Unfortunately, there isn't an easy remedy to this or other potential issues between OS's that covers all cases.[/p]
 
 [p]More research into these differences will need to be conducted so [b]we cannot recommend or support transferring profiles between operating systems[/b].[/p]
-
-[header="Other UXP Applications"]
-
-[section="Firefox to Basilisk"]
-
-[p]Basilisk should be able to accept Firefox 52.x and older profiles with no real trouble. Though we do not support WebExtensions so those will obviously not function. Additionally, like Pale Moon, you will need to take your profile through Basilisk [b]v2020.11.25[/b] for the NSS DBM to sqlite conversion before landing on the latest release.[/p]
