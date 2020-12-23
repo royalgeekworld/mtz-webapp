@@ -4,10 +4,10 @@
 
 [ul]
   [li]
-    GCC versions 4.9, 5.x, 7.x, 8.x or 9.x
+    GCC versions 4.9, 5.x, 7.x, 8.x, 9.x or 10.x
     [ul]
       [li]GCC 6.x is not at ALL recommended and has been known to produce unstable binaries. It has been reported that Debian-based GCC 6.x seems to produce stable [i]enough[/i] binaries. Your mileage will vary, of course.[/li]
-      [li]GCC 9.x is still considered experimental at this time, however, it has thus far produced stable binaries.[/li]
+      [li]GCC 9.x and 10.x are still considered experimental at this time, however, they have thus far produced stable binaries.[/li]
     [/ul]
   [/li]
   [li]Python 2.7.x[/li]
@@ -101,7 +101,7 @@ zip python2.7 python-dbus
 [p]Install the required build dependencies by executing the following command:[/p]
 [code=bash]pacman -Syu gtk2 dbus-glib desktop-file-utils libxt mime-types \
 alsa-lib startup-notification python2 autoconf2.13 unzip zip yasm \
-libpulse gcc5
+libpulse gcc
 [/code]
 
 [section="Gentoo"]
