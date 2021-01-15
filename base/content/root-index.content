@@ -5,8 +5,8 @@
 [section="Selected points of intrest"]
 
 [ul]
-  [li][link=/build/]Pale Moon Build Instructions[/link][/li]
-  [li][link=/addons/]Add-ons Overview[/link][/li]
+  [li][link=/build/]Pale Moon build instructions[/link][/li]
+  [li][link=/addons/]Add-ons overview[/link][/li]
   [li][link=/addons/site/]The Add-ons Site, how to submit/index your add-on, and the Add-ons Team[/link][/li]
 [/ul]
 
@@ -22,4 +22,4 @@
 
 [p]A complete guide on how to contribute to this site will come soon to help those who may not be familar with the process. In the meantime, you can just ask someone for pointers.[/p]
 
-[p][small][b]Note:[/b] This NEW Developer Site is, interestingly enough, actually in development. So some previous content and planned new content may not be available yet.[/small][/p]
+[p][small][b]Note:[/b] This [b]new[/b] Developer Site is, interestingly enough, actually in development. So some previous content and planned new content may not be available yet.[/small][/p]

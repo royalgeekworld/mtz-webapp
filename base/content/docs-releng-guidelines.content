@@ -1,5 +1,5 @@
 [header]Release Engineering flow[/header]
-[p]Releases are somewhat synchronized with Firefox releases because they release security patches each cycle that we need to adopt and publish ourselves in Pale moon within a reasonable time frame. That currently means a release approximately every 4 weeks.[br]
+[p]Releases are somewhat synchronized with Firefox releases because they release security patches each cycle that we need to adopt and publish ourselves in Pale Moon within a reasonable time frame. That currently means a release approximately every 4 weeks.[br]
 To make releases go smooth and without unnecessary stress, we should be following the following rough 1-week game plan with each release:[/p]
 [ul][li]Firefox release date: [b]Code freeze[/b]. (Tuesday)[br]
   From this date, high-risk patches and feature merges should not be landed until after the cycle's version bump lands on merge day.[/li]

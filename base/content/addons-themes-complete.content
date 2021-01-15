@@ -5,10 +5,11 @@
 [/ul]
 [p]If you're looking for Complete Themes that are compatible with Pale Moon[/p]
 [ul]
-  [li]Please see: [url=https://addons.palemoon.org/themes/]Themes listing in the Pale Moon Add-ons Site[/url][/li]
+  [li]Please see: [url=https://addons.palemoon.org/themes/]Themes listing on the Pale Moon Add-ons Site[/url][/li]
 [/ul]
 
 [header="How to: Create a Complete Theme"]
+[p][b]Note: this guide might be outdated and in need of updating for current versions of the browser.[/b][/p]
 [p][i]This guide was originally written by Lootyhoof, the forum topic can be found [url=https://forum.palemoon.org/viewtopic.php?f=19&t=10158]here[/url].[/i][/p]
 
 [p][b]Please note:[/b] In order to create such themes, extensive use of CSS is required. If you currently are not confident with CSS, please take time to review tutorials such as [url=http://www.w3schools.com/css/default.asp]W3Schools CSS Tutorial[/url], as well as reviewing [url=https://udn.realityripple.com/docs/Web/CSS/Mozilla_Extensions]Mozilla-specific CSS extensions[/url], which are used extensively in themes. It would also be worth looking at the [url=https://udn.realityripple.com/docs/Archive/Mozilla/XUL/XUL_Reference]XUL Reference[/url], to be fully aware of how particular elements are named.[/p]
@@ -28,9 +29,9 @@
       [li]Depending where you installed Pale Moon, this will be browser/omni.ja and omni.ja within the installation folder.[/li]
     [/ul]
   [/li]
-  [li]macOS:
+  [li]MacOS:
     [ul]
-      [li]Finder - Applications - Pale Moon (or New Moon, if unbranded) - CTRL+Click - Show package contents - Content - Resources[/li]
+      [li]Finder - Applications - Pale Moon - CTRL+Click - Show package contents - Content - Resources[/li]
       [li]In this folder you will want browser/omni.ja and omni.ja.[/li]
     [/ul]
   [/li]
@@ -546,7 +547,7 @@ skin global namehere chrome/global/[/code]
 	[/tbody]
 [/table][dblbreak]
 
-[p][b]Developer Tools (Applies only to Pale Moon 27)[/b][/p]
+[p][b]Developer Tools (applies only to Pale Moon 27)[/b][/p]
 
 [table cellpadding="4" cellspacing="1" class="wikiTable"]
 	[tbody]

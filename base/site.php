@@ -39,7 +39,7 @@ const CONTENT = array(
   '/docs/bounty/'                             => ['docs-bounty', 'Development Bounty Program'],
   '/docs/syntax/'                             => ['docs-syntax', 'Site-Specific Syntax'],
   '/docs/profile-migration/'                  => ['docs-profile-migration', 'Profile Migration'],
-  '/docs/releng-guidelines/'                  => ['docs-releng-guidelines', 'Release Engineering guidelines'],
+  '/docs/releng-guidelines/'                  => ['docs-releng-guidelines', 'Release Engineering Guidelines'],
 );
 
 // This constant array contains redirects (largely old wiki urls accounting for the fact that we add / to non-file.ext urls here)

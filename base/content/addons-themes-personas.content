@@ -1,4 +1,4 @@
-[p]Lightweight themes consist of two images: one that is used as the background for the tool bars, address bar, search bar, and tab strip, and a second image that's used as the background for the status and find bars at the bottom of the window.[/p]
+[p]Lightweight themes consist of two images: one that is used as the background for the toolbars, address bar, search bar and tab strip, and a second image that's used as the background for the status and find bars at the bottom of the window.[/p]
 
 [section="Distributing lightweight themes on your own site"]
 
@@ -49,7 +49,7 @@ function setTheme(node, theme, action) {
 
 [section="Distributing lightweight themes as downloadable XPI"]
 
-[p]From within a [link=/addons/extensions/jetpack/]Bootstrap Style Extension[/url]'s bootstrap.js, you can issue code similar to the following to install and activate a lightweight theme and uninstall it on plugin deactivation.[/p]
+[p]From within a [link=/addons/extensions/jetpack/]Bootstrap Style Extension[/url]'s bootstrap.js, you can issue code similar to the following to install and activate a lightweight theme and uninstall it on add-on deactivation.[/p]
 
 [code=javascript]let lightweightTheme = {
     id: "example-01",
