@@ -4,7 +4,7 @@
 
 [ul]
   [li]Microsoft Visual Studio 2015 (Community Edition (free) or Pro/Paid version -- Express won't work) with updates[/li]
-  [li]Exactly [url=https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/]Windows 10 SDK version 10.0.17763.0[/url][/li]
+  [li]Exactly [url=https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/]Windows 10 SDK version 10.0.19041.0[/url] (with servicing update .685)[/li]
   [li][url=https://ftp.mozilla.org/pub/mozilla/libraries/win32/MozillaBuildSetup-2.2.0.exe]MozillaBuild 2.2[/url][/li]
   [li]At least 6 GB RAM (8 GB or more recommended)[/li]
   [li]Plenty of free disk space[/li]
@@ -67,7 +67,7 @@ git checkout release && git submodule update
 
 (Yes, that is {dot}mozconfig -- don't omit the . at the start. Also make sure it's not .mozconfig.txt or something crooked like that. If you are hiding extensions of known file types, fix that first in folder options because it's a PITA when trying to do this kind of thing)[dblbreak]
 
-Make sure it contains at least the following for a close-to-official build:[dblbreak]
+Make sure it contains at least the following for a close-to-official build excluding updater:[dblbreak]
 
 [b].mozconfig file[/b][break]
 [code=bash]# Set to 1 if you want a 64 bit build else leave as-is
@@ -79,6 +79,8 @@ ac_add_options --enable-optimize="-O2 -GS-"
 ac_add_options --enable-jemalloc
 ac_add_options --enable-strip
 ac_add_options --enable-devtools
+ac_add_options --enable-av1
+ac_add_options --disable-accessibility
 ac_add_options --disable-eme
 ac_add_options --disable-webrtc
 ac_add_options --disable-gamepad
@@ -105,11 +107,12 @@ fi
 
 # Visual C++ redist files
 WIN32_REDIST_DIR=$VCINSTALLDIR/redist/$_BUILD_ARCH/Microsoft.VC140.CRT
-WIN_UCRT_REDIST_DIR="C:/Program Files (x86)/Windows Kits/10/Redist/10.0.17763.0/ucrt/DLLs/$_BUILD_ARCH"
+WIN_UCRT_REDIST_DIR="C:/Program Files (x86)/Windows Kits/10/Redist/10.0.19041.0/ucrt/DLLs/$_BUILD_ARCH"
 [/code]
 [/p]
 
 [p][i][b]Note: less is more![/b] There are some pre-made build configs out there that have a lot of options listed, often with insane resulting build configurations. [b]Do not use those[/b] and stick to the instructions here.[/i][/p]
+[p][i][b]Note: Please check the Visual C++ redist directories.[/b] If you use MozillaBuild 3.0 or later, $VCINSTALLDIR will not be defined and you will have to indicate a full path. If you build with a different Win 10 SDK version (e.g. the one included with VS2015 or an earlier/later version -- not recommended) or have installed the SDK in a different path than the default, then you need to adjust the mozconfig path to the UCRT DLLs accordingly.[/i][/p]
 
 
 [section="Build"]
