@@ -1,35 +1,77 @@
-[header]Release Engineering flow[/header]
-[p]Releases are somewhat synchronized with Firefox releases because they release security patches each cycle that we need to adopt and publish ourselves in Pale Moon within a reasonable time frame. That currently means a release approximately every 4 weeks.[br]
-To make releases go smooth and without unnecessary stress, we should be following the following rough 1-week game plan with each release:[/p]
-[ul][li]Firefox release date: [b]Code freeze[/b]. (Tuesday)[br]
-  From this date, high-risk patches and feature merges should not be landed until after the cycle's version bump lands on merge day.[/li]
-[li][b]Security updates[/b]: Gain access to sec bugs and port applicable bugs across to UXP/Pale Moon (landed on master of each respectively) (Tuesday-Thursday/Friday)[/li]
-[li][b]Merge day[/b] (Friday)[br]
-  Merge master branches into release, make release branches release-ready, and bump the version on master to start the next cycle.[br]
-  Write draft release notes.[/li]
-[li][b]Build[/b] Release Candidates (RC) (Friday-Saturday)[br]
-  Build signed binaries on various platforms and make them available for final acceptance tests.[/li]
-[li][b]Testing[/b] phase (RC) (Friday-Monday)[br]
-  Test built binaries for any showstoppers. Implement spot-fixes or backout problematic code changes that are too big to tackle on short notice. Build new binaries (RC2, 3, etc.) as-needed.[/li]
-[li][b]Finalize[/b] releases (Monday)
-  [ul][li]Distribute final binaries to release mirrors[/li]
-  [li]Signal external mirrors[/li]
-  [li]Write final release notes[/li]
-  [li]Update web front-end in staging[/li][/ul]
-[li][b]Publish[/b] (Tuesday)
-  [ul][li]Put web pages live, enable new downloads.[/li]
-  [li]Publish announcements on forum and social media[/li][/ul]
+[p]Pale Moon (and other applications on the Unified XUL Platform Stable Release train) utilize a four week release cycle. This is mainly due to Mozilla's similar move from a six to eight week cycle to releasing a new Firefox version every four weeks. Since we retain [i]some[/i] historical similarity with our wayward sibling, both Application and Platform wise, we [b]MUST[/b] take care to evaluate any Mozilla security fixes included in their releases.[/p]
+
+[p]However, the current practice that was formalized in an earlier version of this document has proven too inflexible with only allowing approximately three weeks of every four week release cycle for tangible development and testing of often complex and radical changes. Thus we have devised an improved strategy for maximum flexibility and efficiency while satisfying the security requirements imposed by Mozilla's increasingly frantic releases.[/p]
+
+[header="The Release Cycle"]
+[p]Pale Moon will primarily be alternating between the type of release every four weeks with a Major/Feature (including security fixes) release and a Minor/Security release. This will be similar in practice to how the releases worked pre-2020.[/p]
+
+[p][small][i][b]NOTE[/b]: There will be instances such as a particularly productive development period where it is desirable to make the next release a major one. As well as special occasions such as an approaching milestone release happening or emergency releases such as a target operating system specific out-of-band release or to address a found zero-day flaw. However, primarily we will be sticking with this alternating Major and Security release scheme.[/i][/small][/p]
+
+[section="Current release schedule for Pale Moon"]
+
+[p]The advantage or disadvantage (depending on your point of view) to a set calendar based cycle is that in general our releases are predictable by specific calendar days. As such, we have outlined the anticipated release schedule and it will be kept updated for any changes.[/p]
+
+[p]Each date is offset from Mozilla Firefox's release day by one week to allow requesting of security access and evaluation of any known Mozilla vulnerabilities. This also gives us the time to test and stabilize the codebase for release.[/p]
+
+[ul]
+  [li][b]29.1.0[/b] - 2020-03-02 - [i]Major Release[/i][/li]
+  [li][b]29.1.1[/b] - 2020-03-30 - [i]Security Release[/i][/li]
+  [li][b]29.2.0[/b] - 2020-04-27 - [i]Major Release[/i][/li]
+  [li][b]29.2.1[/b] - 2020-05-25 - [i]Security Release[/i][/li]
+  [li][b]29.3.0[/b] - 2020-06-22 - [i]Major Release[/i][/li]
+  [li][b]29.3.1[/b] - 2020-07-20 - [i]Security Release[/i][/li]
 [/ul]
 
-[header]Rough calendar layout[/header]
-[p]With releases being tied to Firefox releases due to sec and them being set on specific calendar dates, our own published releases will be pretty much set for that reason to a calendar also.[br]
-Rough layout for first half of 2021:[/p]
+[p style="color: #BF0000;"][small][i][b]NOTE:[/b] Major releases do include security fixes (when applicable) and security releases may include minor changes.[/i][/small][/p]
+
+[Header="Release Engineering Workflow"]
+
+[p]Our release engineering workflow happens over the course of one week starting with Firefox Release Day which tends to always be a Tuesday and will run through the week to the following Tuesday which is our release day as outlined above.[/p]
+
 [ul]
-[li]29.0 - Feb 2nd[/li]
-[li]29.1 - March 2nd[/li]
-[li]29.2 - March 30th[/li]
-[li]29.3 - April 27th[/li]
-[li]29.4 - May 25th[/li]
-[li]29.5 - June 22nd[/li]
-[li]29.6 - July 20th[/li]
+  [li]
+    [b]Tuesday[/b] - Firefox Release Day
+    [ul]
+      [li]The master branches will be placed under a "CLOSED TREE" type of condition where no high-risk patches and feature merges will be permitted until after merge day.[/li]
+      [li]Security Access will be requested on all known Mozilla vulnerabilities described on the Mozilla Foundation Security Advisory.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Tuesday through Friday[/b] - Security Updates
+    [ul]
+      [li]Each known Mozilla security vulnerability will be evaluated and patched, if applicable.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Friday[/b] - Release Branch Preparations (Merge Day)
+    [ul]
+      [li]For Major Releases: The master branches will be merged to the release branches.[/li]
+      [li]For Security Releases: The security patches and any minor patches will be cherry-picked to the release branches.[/li]
+      [li]Application Release Notes and UXP Change Log will be drafted.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Friday through Monday[/b] - Build and Test Release Candidates
+    [ul]
+      [li]Build signed binaries for various target operating systems and make them available for final acceptance tests.[/li]
+      [li]Test built binaries for any show-stoppers. Implement spot-fixes or back-out problematic code changes that are too big to tackle on short notice. Building new binaries (RC2, 3, etc.) as-needed.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Monday[/b] - Finalize Releases
+    [ul]
+      [li]Distribute final binaries to release mirrors.[/li]
+      [li]Signal external mirrors.[/li]
+      [li]Write final Application Release Notes and UXP Change Log.[/li]
+      [li]Distribute final binaries to release mirrors.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Tuesday[/b] - Our Release Day
+    [ul]
+      [li]Put web pages live, enable new downloads.[/li]
+      [li]Publish announcements on forum and to any applicable social media.[/li]
+    [/ul]
+  [/li]
 [/ul]
+
