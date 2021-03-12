@@ -133,3 +133,6 @@ Please see the following commit:[break]
 
 [header="Pale Moon 28.13.0"]
 [p]This version fixes an issue with the close button for the undo prompt on the Quickdial page. Please see [url=https://repo.palemoon.org/MoonchildProductions/Pale-Moon/commit/1227e3ce131812afc950b3b3f9734cb3047c1b80]here[/url] for the official commit.[/p]
+
+[header="Pale Moon 28.14.0"]
+[p]This version added a distinct mixed-mode indicator for websites in the identity panel. Please see [url=https://repo.palemoon.org/MoonchildProductions/Pale-Moon/commit/2771b99fc37699b36f3804be1b39649fa541b2b1]here[/url] for the official commit.[/p]
