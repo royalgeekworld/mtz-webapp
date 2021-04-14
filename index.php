@@ -177,9 +177,12 @@ function gfErrorHandler($errno, $errstr, $errfile, $errline) {
   $errorMessage = $errorType . ': ' . $errstr . ' in ' .
                   str_replace(ROOT_PATH, '', $errfile) . ' on line ' . $errline;
 
-  if (error_reporting() !== 0) {
-    gfError($errorMessage, 1);
+  if (!(error_reporting() & $errno)) {
+    // Don't do jack shit because the developers of PHP think users shouldn't be trusted.
+    return;
   }
+
+  gfError($errorMessage, 1);
 }
 
 set_error_handler("gfErrorHandler");
