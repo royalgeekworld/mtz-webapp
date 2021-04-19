@@ -13,6 +13,5 @@ There are limits to what we can offer in terms of end user support for builds yo
 [ul]
   [li][link=/build/windows/]Microsoft Windows[/link][/li]
   [li][link=/build/linux/]GNU/Linux[/link][/li]
-  [li][link=/build/mac/]Apple Macintosh[/link][/li]
   [li][link=/build/sunos/]SunOS-based Systems[/link] [i](Modern Solaris and Illumos)[/i][/li]
 [/ul]

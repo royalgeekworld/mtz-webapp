@@ -20,7 +20,6 @@ const CONTENT = array(
   '/build/'                                   => ['build-index','Building Pale Moon'],
   '/build/windows/'                           => ['build-windows', 'Building Pale Moon: Microsoft Windows'],
   '/build/linux/'                             => ['build-linux', 'Building Pale Moon: GNU Linux'],
-  '/build/mac/'                               => ['build-mac', 'Building Pale Moon: Apple Macintosh'],
   '/build/sunos/'                             => ['build-sunos', 'Building Pale Moon: SunOS-based Systems'],
 
   // Add-ons
@@ -47,6 +46,7 @@ const REDIRECTS = array(
   // Obsolete URLs since the Developer Site Started
   '/addons/resources/'                                      => '/addons/concepts/',
   '/addons/site/phoebus-code/'                              => '/docs/syntax/#phoebusCode',
+  '/build/mac/'                                             => '/build/',
 
   // Old Wiki URLS
   '/Main_Page/'                                             => '/',
