@@ -166,10 +166,7 @@ ac_add_options --with-pthreads
 ac_add_options --enable-official-branding
 export MOZILLA_OFFICIAL=1
 
-# For versions after 28.12.0
-ac_add_options --enable-phoenix-extensions
-
-# Processor architecure specific build options
+# Processor architecture specific build options
 if [ -n "$_BUILD_64" ]; then
   ac_add_options --x-libraries=/usr/lib64
 else
