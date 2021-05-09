@@ -14,12 +14,12 @@
 [p]Each date is offset from Mozilla Firefox's release day by one week to allow requesting of security access and evaluation of any known Mozilla vulnerabilities. This also gives us the time to test and stabilize the codebase for release.[/p]
 
 [ul]
-  [li][b]29.1.0[/b] - 2020-03-02 - [i]Major Release[/i][/li]
-  [li][b]29.1.1[/b] - 2020-03-30 - [i]Security Release[/i][/li]
-  [li][b]29.2.0[/b] - 2020-04-27 - [i]Major Release[/i][/li]
-  [li][b]29.2.1[/b] - 2020-05-25 - [i]Security Release[/i][/li]
-  [li][b]29.3.0[/b] - 2020-06-22 - [i]Major Release[/i][/li]
-  [li][b]29.3.1[/b] - 2020-07-20 - [i]Security Release[/i][/li]
+  [li][b]29.1.0[/b] - 2021-03-02 - [i]Major Release[/i][/li]
+  [li][b]29.1.1[/b] - 2021-03-30 - [i]Security Release[/i][/li]
+  [li][b]29.2.0[/b] - 2021-04-27 - [i]Major Release[/i][/li]
+  [li][b]29.2.1[/b] - 2021-05-25 - [i]Security Release[/i][/li]
+  [li][b]29.3.0[/b] - 2021-06-22 - [i]Major Release[/i][/li]
+  [li][b]29.3.1[/b] - 2021-07-20 - [i]Security Release[/i][/li]
 [/ul]
 
 [p style="color: #BF0000;"][small][i][b]NOTE:[/b] Major releases do include security fixes (when applicable) and security releases may include minor changes.[/i][/small][/p]
