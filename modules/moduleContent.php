@@ -177,21 +177,17 @@ function parseSpecialTags($aContent) {
     // [riaddon] Riiis
     $riForkedRegex          = '\[riaddon rislug=\"(.*)\" riname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]';
     $riForkedReplace        = '<tr>' .
-                              '<td>$1</td>' .
+                              '<td><small>$1</small></td>' .
                               '<td>$2</td>' .
-                              '</tr><tr>' .
-                              '<th style="color: #000 !important; background-color: #eaf6eb !important; text-align: left !important;">Fork:</td>' .
                               '<td style="background-color: #eaf6eb !important;"><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
                               '</tr>';
     $specialCodeRegex[$riForkedRegex] = $riForkedReplace;
 
     $riBadRegex             = '\[riaddon rislug=\"(.*)\" riname=\"(.*)\" rireason=\"(.*)\"\]';
     $riBadReplace           = '<tr>' .
-                              '<td>$1</td>' .
-                              '<td colspan="2">$2</td>' .
-                              '</tr><tr>' .
-                              '<th style="color: #000 !important; background-color: #f6eaeb !important; text-align: left !important;">Reason for Deactivation:</td>' .
-                              '<td style="background-color: #f6eaeb !important;">$3</td>' .
+                              '<td><small>$1</small></td>' .
+                              '<td>$2</td>' .
+                              '<td style="background-color: #f6eaeb !important; border-spacing: 0px;"><small>$3</small></td>' .
                               '</tr>';
     $specialCodeRegex[$riBadRegex] = $riBadReplace;
   }
