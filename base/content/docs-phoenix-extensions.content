@@ -1,6 +1,6 @@
 [p]This page will track various critical or important Firefox Extensions that the user base has expressed a direct need for since the release of Pale Moon 29.2.0 and map them to any forks or other suitable replacements within our own [url=https://addons.palemoon.org/extensions/?all=1]Add-ons Site[/url].[/p]
 
-[p]In addition, this master list will be useful for those who wish to find potential targets they may wish to fork. As well as, track extensions that current or former Pale Moon Add-on Developers who have since abandoned or abused their position for one reason or another.[/p]
+[p]This "master list" will be useful for finding extensions that new or current Add-on Developers may wish to fork. Including existing Pale Moon extensions have been abandoned or abused by their developer.[/p]
 
 [p style="color: #BF0000;"][small][b]NOTE:[/b] [i]This page will be continuously updated. So check back often! Additionally, you can help update and improve this page by pull request on [url=https://repo.palemoon.org/MoonchildProductions/selene]the repository[/url]![/i][/small][/p]
 
@@ -67,7 +67,7 @@
 [header="Deactivated extensions by riiis"]
 [p]This Add-on Developer has a well established history of bucking proper procedure both in moral or legal contexts. Though we appreciate his early enthusiasm at a critical time for us around Pale Moon 25, proper vetting in the context of intellectual property was not as tightly enforced for longstanding developers as it is today for new contributors. A recent audit found several extensions with potential or actual issues. However, riiis has chosen not to address these and the only recourse left was to deactivate them.[/p]
 
-[p]To that end, the user base has requested a list of extensions no longer available on the Add-ons Site which are for all intents and purposes are now considered abandoned. To facilitate replacements for these troublesome extensions, the following list is provided with the reasoning for their deactivation. Upon request the last released version will be produced (along with more specific information) as a base for proper forking as there are no known code repositories maintained by riiis. If you wish to fork any of the following, please contact a member of the Add-ons Team or a Phoebus Administrator.[/p]
+[p]The user base has requested a list of extensions no longer available on the Add-ons Site which are for all intents and purposes are now considered abandoned. To facilitate replacements for these troublesome extensions, the following list is provided with the reasoning for their deactivation. Upon request the last released version will be produced (along with more specific information) as a base for proper forking as there are no known code repositories maintained by riiis. If you wish to fork any of the following, please contact a member of the Add-ons Team or a Phoebus Administrator.[/p]
 
 [p][small][b]NOTE:[/b] [i]Forks of any of riiis's extensions that are Jetpack-based are eligible for special dispensation in regards to submission to the Add-ons Site. Please contact a member of the Add-ons Team or a Phoebus Administrator for more information on this.[/i][/small][/p]
 
