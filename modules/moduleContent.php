@@ -108,7 +108,7 @@ function parseSeleneCode($aContent) {
   $seleneCodeSuperRegex = 'span|p|ul|ol|li|hr|table|th|tr|td|hr|caption|col|colgroup|thead|tbody|tfoot';
   $preStyle = 'border-radius: 6px !important; padding: 4px !important; background-color: #ecf3f7 !important;';
   $codeStyle = 'background-color: transparent !important;';
-
+  
   $seleneCodeRegex = array(
     '\[title=\"(.*)\"\]'                                  => '<h1>$1</h1>',
     '\[header=\"(.*)\"\]'                                 => '<h2>$1</h2>',
@@ -123,6 +123,84 @@ function parseSeleneCode($aContent) {
   );
 
   foreach ($seleneCodeRegex as $_key => $_value) {
+    $aContent = preg_replace('/' . $_key . '/iU', $_value, $aContent);
+  }
+  
+  return parseSpecialTags($aContent);
+}
+
+function parseSpecialTags($aContent) {
+  $specialCodeSubsts  = EMPTY_ARRAY;
+  $specialCodeRegex   = EMPTY_ARRAY;
+
+  if ($GLOBALS['gaRuntime']['requestPath'] == '/docs/phoenix-extensions/') {
+    // [fxaddon] (Firefox CAA)
+    $fxForkedRegex          = '\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]';
+    $fxForkedReplace        = '<tr>' .
+                              '<td style="color: #00c019;">Forked</td>' .
+                              '<td><a href="caa:addon/$1" target="_blank">$2</a></td>' .
+                              '<td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
+                              '</tr>';
+    $specialCodeRegex[$fxForkedRegex] = $fxForkedReplace;
+
+    $fxBadRegex             = '\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\" fxreason=\"(.*)\"\]';
+    $fxBadReplace           = '<tr>' .
+                              '<td style="color: #BF0000;">Unforkable</td>' .
+                              '<td><a href="caa:addon/$1" target="_blank">$2</a></td>' .
+                              '<td style="color: #BF0000;">$3</td>' .
+                              '</tr>';
+    $specialCodeRegex[$fxBadRegex] = $fxBadReplace;
+
+    $fxRegex                = '\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\"\]';
+    $fxReplace              = '<tr>' .
+                              '<td>Available</td>' .
+                              '<td colspan="2"><a href="caa:addon/$1" target="_blank">$2</a></td>' .
+                              '</tr>';
+    $specialCodeRegex[$fxRegex] = $fxReplace;
+
+    // [joaddon] (JustOff)
+    $justoffForkedRegex     = '\[joaddon joslug=\"(.*)\" joname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]';
+    $justoffForkedReplace   = '<tr>' .
+                              '<td style="color: #00c019;">Forked</td>' .
+                              '<td><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td>' .
+                              '<td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
+                              '</tr>';
+    $specialCodeRegex[$justoffForkedRegex] = $justoffForkedReplace;
+
+    $justoffRegex           = '\[joaddon joslug=\"(.*)\" joname=\"(.*)\"\]';
+    $justoffReplace         = '<tr>' .
+                              '<td>Up for grabs!</td>' .
+                              '<td colspan="2"><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td>' .
+                              '</tr>';
+    $specialCodeRegex[$justoffRegex] = $justoffReplace;
+
+    // [riaddon] Riiis
+    $riForkedRegex          = '\[riaddon rislug=\"(.*)\" riname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]';
+    $riForkedReplace        = '<tr>' .
+                              '<td>$1</td>' .
+                              '<td>$2</td>' .
+                              '</tr><tr>' .
+                              '<th style="color: #000 !important; background-color: #eaf6eb !important; text-align: left !important;">Fork:</td>' .
+                              '<td style="background-color: #eaf6eb !important;"><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
+                              '</tr>';
+    $specialCodeRegex[$riForkedRegex] = $riForkedReplace;
+
+    $riBadRegex             = '\[riaddon rislug=\"(.*)\" riname=\"(.*)\" rireason=\"(.*)\"\]';
+    $riBadReplace           = '<tr>' .
+                              '<td>$1</td>' .
+                              '<td colspan="2">$2</td>' .
+                              '</tr><tr>' .
+                              '<th style="color: #000 !important; background-color: #f6eaeb !important; text-align: left !important;">Reason for Deactivation:</td>' .
+                              '<td style="background-color: #f6eaeb !important;">$3</td>' .
+                              '</tr>';
+    $specialCodeRegex[$riBadRegex] = $riBadReplace;
+  }
+
+  foreach ($specialCodeSubsts as $_key => $_value) {
+    $aContent = str_replace($_key, $_value, $aContent);
+  }
+  
+  foreach ($specialCodeRegex as $_key => $_value) {
     $aContent = preg_replace('/' . $_key . '/iU', $_value, $aContent);
   }
 

@@ -1,0 +1,103 @@
+[p]This page will track various critical or important Firefox Extensions that the user base has expressed a direct need for since the release of Pale Moon 29.2.0 and map them to any forks or other suitable replacements within our own [url=https://addons.palemoon.org/extensions/?all=1]Add-ons Site[/url].[/p]
+
+[p]In addition, this master list will be useful for those who wish to find potential targets they may wish to fork. As well as, track extensions that current or former Pale Moon Add-on Developers who have since abandoned or abused their position for one reason or another.[/p]
+
+[p style="color: #BF0000;"][small][b]NOTE:[/b] [i]This page will be continuously updated. So check back often! Additionally, you can help update and improve this page by pull request on [url=https://repo.palemoon.org/MoonchildProductions/selene]the repository[/url]![/i][/small][/p]
+
+[header="Firefox-targeted Extensions"]
+
+[p]This list is based entirely on requests gathered from the user base and may note most of the service-based extensions that have been requested. Those that target a specific website to provide services or modify content or design elements that has very likely changed in the past several years and in most cases are entirely proprietary in nature. Thus they are [b]NOT[/b] considered as good forking prospects. Also noted here are extensions that are based on Mozilla's Add-ons SDK, also known as Jetpack.[/p]
+
+[p]Jetpack technology is deprecated in the Unified XUL Platform (and are forbidden from being submitted to the Add-ons Site unless special dispensation is granted) as noted on the [link=/addons/]Add-ons Overview[/link] page and are also [b]NOT[/b] good prospects for forks. As such, they are listed as unforkable for record keeping purposes. It is recommended that new extensions based on their concept are created instead.[/p]
+
+[p style="color: #BF0000;"][small][b]NOTE:[/b] [i]This list is incomplete but Tobin needs a break![/i][/small][/p]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+			[th width="120px"]Status[/th]
+			[th width="425px"]Firefox Extension (CAA-linked)[/th]
+			[th width="425px"]Fork / Replacement or Additional Notes[/th]
+		[/tr]
+    [fxaddon fxslug="old-location-bar" fxname="Old Location Bar"]
+    [fxaddon fxslug="sqlite-manager" fxname="SQLite Manager" pmslug="sqlite-admin" pmname="SQLite Admin"]
+    [fxaddon fxslug="elemhidehelper" fxname="Element Hiding Helper for Adblock Plus" pmslug="ehprime" pmname="EHPrime"]
+    [fxaddon fxslug="forecastfox-weather" fxname="Forecastfox Weather" fxreason="Proprietary, all rights reserved."]
+    [fxaddon fxslug="forecastfox-fix-version" fxname="Forecastfox (fix version)" fxreason="Illegal fork"]
+  [/tbody]
+[/table]
+
+<!-- XXXTobin: Shitting on JustOff will NEVER stop as long I draw breath! -->
+
+[header="Withdrawn extensions by JustOff"]
+[p]The Add-on Developer and former Pale Moon contributor, JustOff, withdrew his extensions in a very abusive manner that has shaken or obliterated user confidence in his continuing activities. To that end, some users have expressed their wish that current or future Add-on Developers provide direct forks of his former APMO offerings. Below is a list of his [i]important[/i] extensions and current alternative forks.[/p]
+
+[p][small][b]NOTE:[/b] [i]Forks of any of JustOff's extensions that are Jetpack-based are eligible for special dispensation in regards to submission to the Add-ons Site. Please contact a member of the Add-ons Team or a Phoebus Administrator for more information on this.[/i][/small][/p]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+			[th width="120px"]Status[/th]
+			[th width="425px"]Extension Name (Github-linked)[/th]
+			[th width="425px"]Extension Fork[/th]
+		[/tr]
+    [joaddon joslug="active-stop-button" joname="Active Stop Button"]
+    [joaddon joslug="add-bookmark-helper" joname="Add Bookmark Helper"]
+    [joaddon joslug="advanced-night-mode" joname="Advanced Night Mode"]
+    [joaddon joslug="dismiss-the-overlay" joname="Dismiss The Overlay"]
+    [joaddon joslug="cookies-exterminator" joname="Cookies Exterminator"]
+    [joaddon joslug="github-wc-polyfill" joname="GitHub Web Components Polyfill"]
+    [joaddon joslug="greedy-cache" joname="Greedy Cache"]
+    [joaddon joslug="html5-video-tuner" joname="HTML5 Media Tuner"]
+    [joaddon joslug="L4E" joname="Location-4-Evar"]
+    [joaddon joslug="lull-the-tabs" joname="Lull The Tabs" pmslug="suspender" pmname="Suspender"]
+    [joaddon joslug="modify-http-response" joname="Modify HTTP Response"]
+    [joaddon joslug="password-backup-tool" joname="Password Backup Tool"]
+    [joaddon joslug="proxy-privacy-ruler" joname="Proxy Privacy Ruler"]
+    [joaddon joslug="responsive-bookmarks-toolbar" joname="Responsive Bookmarks Toolbar"]
+    [joaddon joslug="save-all-images" joname="Save All Images"]
+    [joaddon joslug="send-link-to-device" joname="Send Link to Device"]
+    [joaddon joslug="speed-start" joname="Speed Start"]
+    [joaddon joslug="youtube-lazy-load" joname="YouTube Lazy Load"]
+  [/tbody]
+[/table]
+
+<!-- XXXTobin: riiis simply is a fucking scumbag... -->
+
+[header="Deactivated extensions by riiis"]
+[p]This Add-on Developer has a well established history of bucking proper procedure both in moral or legal contexts. Though we appreciate his early enthusiasm at a critical time for us around Pale Moon 25, proper vetting in the context of intellectual property was not as tightly enforced for longstanding developers as it is today for new contributors. A recent audit found several extensions with potential or actual issues. However, riiis has chosen not to address these and the only recourse left was to deactivate them.[/p]
+
+[p]To that end, the user base has requested a list of extensions no longer available on the Add-ons Site which are for all intents and purposes are now considered abandoned. To facilitate replacements for these troublesome extensions, the following list is provided with the reasoning for their deactivation. Upon request the last released version will be produced (along with more specific information) as a base for proper forking as there are no known code repositories maintained by riiis. If you wish to fork any of the following, please contact a member of the Add-ons Team or a Phoebus Administrator.[/p]
+
+[p][small][b]NOTE:[/b] [i]Forks of any of riiis's extensions that are Jetpack-based are eligible for special dispensation in regards to submission to the Add-ons Site. Please contact a member of the Add-ons Team or a Phoebus Administrator for more information on this.[/i][/small][/p]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+			[th width="220px"]Extension Slug[/th]
+			[th width="758px"]Extension / Fork Name[/th]
+		[/tr]
+    [riaddon rislug="bookmarks-sb-panels" riname="Bookmarks Sidebar with Panels" rireason="Branding: Original Icon"]
+    [riaddon rislug="bookmarksbarvisibility" riname="Bookmarks Toolbar More Visible" rireason="Marked as GPL 3.0 but uses MPL 2.0 code (css) from Aris's Classic Toolbar Buttons"]
+    [riaddon rislug="colorpicker-moonedition" riname="Color Identifier" pmslug="colorpili" pmname="ColorPili"]
+    [riaddon rislug="colorpicker-converter" riname="Color Picker & Converter" rireason="Branding: Original Icon"]
+    [riaddon rislug="dir-up-moon-edition" riname="Directory Up" rireason="License: MPL 1.1 vs GPL 3.0 / Branding: Ambiguous Name & Original Icon"]
+    [riaddon rislug="downloadstatusbar-pm" riname="Downloads Statusbar" rireason="Branding: Ambiguous Name & Original Icon"]
+    [riaddon rislug="showdownloadswts" riname="Downloads: Show in Window, Tab, or Sidebar" rireason="License: MPL 1.1 vs GPL 3.0"]
+    [riaddon rislug="search-drag-n-drop" riname="Drag & Drop: Search, Open Links, & Open Images" rireason="Branding: Original Icon"]
+    [riaddon rislug="fireftpbutton" riname="FireFTP- replace toolbar buttons" rireason="License: BSD vs MPL 2.0 / Branding: Slug Squatting"]
+    [riaddon rislug="fcstweatherbutton" riname="Forecast & Weather on the Button" rireason="Branding: Original Icon"]
+    [riaddon rislug="gtranslator-moon-edition" riname="Google Translator for Pale Moon" rireason="Branding: Original Icon"]
+    [riaddon rislug="popup-english-dictionary" riname="Popup Dictionaries With Audio" rireason="License: MPL 1.1 vs GPL 3.0 / Branding: Original Icon"]
+    [riaddon rislug="sage-reader" riname="Sage Reader" rireason="License: MPL 1.1 vs GPL 3.0 / Branding: Ambiguous Name & Original Icon"]
+    [riaddon rislug="sdc-moon-edition" riname="Self-Destructing Cookies for Pale Moon" rireason="Branding: Ambiguous Name"]
+    [riaddon rislug="sidebartogglemenu" riname="Sidebar Tools" rireason="License: MPL 1.1 vs GPL 3.0 / Branding: Original Icon"]
+    [riaddon rislug="superstart-moon-edition" riname="Super Start Speed Dial" rireason="Branding: Ambiguous Name & Original Icon"]
+    [riaddon rislug="personamaker" riname="Theme Maker" rireason="Branding: Original Icon which violates Mozilla IP"]
+    [riaddon rislug="toggle-night-mode" riname="Toggle Night Mode" rireason="Branding: Orginal Icon"]
+    [riaddon rislug="translatethis" riname="Translate This Page, Text, or Link" rireason="Branding: Ambiguous Name & Original Icon & Slug Squatting"]
+    [riaddon rislug="turbo-downloader" riname="Turbo Downloader" rireason="Branding: Ambiguous Name & Original Icon"]
+    [riaddon rislug="zoompagestool" riname="Zoom Pages Tool" rireason="Branding: Original Icon"]
+  [/tbody]
+[/table]
+

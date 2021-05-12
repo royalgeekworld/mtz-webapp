@@ -38,6 +38,7 @@ const CONTENT = array(
   '/docs/syntax/'                             => ['docs-syntax', 'Site-Specific Syntax'],
   '/docs/profile-migration/'                  => ['docs-profile-migration', 'Profile Migration'],
   '/docs/releng-guidelines/'                  => ['docs-releng-guidelines', 'Release Engineering Guidelines'],
+  '/docs/phoenix-extensions/'                 => ['docs-phoenix-extensions', 'Firefox Extension Request and Fork List'],
 );
 
 // This constant array contains redirects (largely old wiki urls accounting for the fact that we add / to non-file.ext urls here)
