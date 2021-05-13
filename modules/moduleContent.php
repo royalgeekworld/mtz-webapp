@@ -153,7 +153,7 @@ function parseSpecialTags($aContent) {
 
     $fxRegex                = '\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\"\]';
     $fxReplace              = '<tr>' .
-                              '<td>Available</td>' .
+                              '<td>Forkable</td>' .
                               '<td colspan="2"><a href="caa:addon/$1" target="_blank">$2</a></td>' .
                               '</tr>';
     $specialCodeRegex[$fxRegex] = $fxReplace;
