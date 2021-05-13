@@ -10,7 +10,7 @@
 
 [p]Jetpack technology is deprecated in the Unified XUL Platform (and are forbidden from being submitted to the Add-ons Site unless special dispensation is granted) as noted on the [link=/addons/]Add-ons Overview[/link] page and are also [b]NOT[/b] good prospects for forks. As such, they are listed as unforkable for record keeping purposes. It is recommended that new extensions based on their concept are created instead.[/p]
 
-[p style="color: #BF0000;"][small][b]NOTE:[/b] [i]This list is incomplete but currently in progress...[/i][/small][/p]
+[p style="color: #000080;"][small][b]NOTE:[/b] [i]This list, so far, contains requests from the Open Casting Call Thread. Post-29.2.0 requests will be forthcoming.[/i][/small][/p]
 
 [table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
 	[tbody]
@@ -37,7 +37,7 @@
     [fxaddon fxslug="tab-scope-tweaker" fxname="Tab Scope Tweaker"]
     [fxaddon fxslug="refcontrol" fxname="RefControl"]
     [fxaddon fxslug="hide-caption-titlebar-plus-sma" fxname="Hide caption titlebar plus"]
-    [fxaddon fxslug="expire-history-by-days" fxname="Expire history by days" pmslug="expire-history-by-days" pmname="Expire history by days (*)"]
+    [fxaddon fxslug="expire-history-by-days" fxname="Expire history by days" pmslug="expire-history-by-days" pmname="Expire history by days"]
     [fxaddon fxslug="google-search-link-fix" fxname="Google search link fix" fxreason="Service extension, Jetpack"]
     [fxaddon fxslug="cachetoggle" fxname="CacheToggle" pmslug="cacheswitch" pmname="CacheSwitch"]
     [fxaddon fxslug="copy-plain-text-2" fxname="Copy Plain Text 2" pmslug="copy-as-plain-text" pmname="Copy As Plain Text"]
