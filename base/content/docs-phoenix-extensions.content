@@ -32,7 +32,7 @@
     [fxaddon fxslug="private-tab" fxname="Private Tab"]
     [fxaddon fxslug="redirector" fxname="Redirector" pmslug="url-rewriter" pmname="URL Rewriter"]
     [fxaddon fxslug="roomy-bookmarks-toolbar" fxname="Roomy Bookmarks Toolbar" pmslug="cozy-bookmarks-toolbar" pmname="Cozy Bookmarks Toolbar"]
-    [fxaddon fxslug="sitedelta" fxname="SiteDelta" pmslug="update-alert" pmname="Update Alert"]
+    [fxaddon fxslug="sitedelta" fxname="SiteDelta"]
     [fxaddon fxslug="tab-scope" fxname="Tab Scope"]
     [fxaddon fxslug="tab-scope-tweaker" fxname="Tab Scope Tweaker"]
     [fxaddon fxslug="refcontrol" fxname="RefControl"]
