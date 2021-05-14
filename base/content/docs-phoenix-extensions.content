@@ -115,7 +115,7 @@
     [fxaddon fxslug="quick-context-2" fxname="Quick Context 2 "]
     [fxaddon fxslug="image-search-options" fxname="Image Search Options" pmslug="image-search-options" pmname="Image Search Options (*)"]
     [fxaddon fxslug="right-links" fxname="Right Links" pmslug="new-tab-links" pmname="New Tab Links"]
-    [fxaddon fxslug="dblclicker" fxname="DblClicker"]
+    [fxaddon fxslug="dblclicker" fxname="DblClicker" pmslug="double-click-tweaks" pmname="Double-click Tweaks"]
     [fxaddon fxslug="open-bookmarks-in-new-tab" fxname="Open Bookmarks in New Tab"]
     [fxaddon fxslug="simple-mail" fxname="SimpleMail"]
     [fxaddon fxslug="markdown-editor" fxname="Markdown Editor"]
