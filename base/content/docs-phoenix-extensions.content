@@ -10,7 +10,7 @@
 <!-- [fxaddon fxslug="null" fxname="null" fxreason="null"] -->
 <!-- [fxaddon fxslug="null" fxname="null" pmslug="null" pmname="null"] -->
 
-[p]This list (presented in no particular order) is mostly based on requests gathered from the user base over the years. Unfortently, some extensions cannot be reasonably forked due to several conserns. For example, we will note most of the service-based extensions that have been requested. Those that target a specific website to provide services or modify content or design elements that has very likely changed in the past several years and in most cases are entirely proprietary in nature. Thus they are [b]NOT[/b] considered as good forking prospects.[/p]
+[p]This list is mostly based on requests gathered from the user base over the years. Unfortently, some extensions cannot be reasonably forked due to several conserns. For example, we will note most of the service-based extensions that have been requested. Those that target a specific website to provide services or modify content or design elements that has very likely changed in the past several years and in most cases are entirely proprietary in nature. Thus they are [b]NOT[/b] considered as good forking prospects.[/p]
 
 [p]Also noted here are extensions that are based on Mozilla's Add-ons SDK, also known as Jetpack. Jetpack technology has been deprecated in the Unified XUL Platform and may not be submitted to the Add-ons Site under normal circumstances. As such Jetpack-based extensions are also [b]NOT[/b] good prospects for forks and are listed below as "Unforkable". It is recommended that new extensions based on their concept are created instead.[/p]
 
