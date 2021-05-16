@@ -113,6 +113,7 @@ function parseSeleneCode($aContent) {
     '\[title=\"(.*)\"\]'                                  => '<h1>$1</h1>',
     '\[header=\"(.*)\"\]'                                 => '<h2>$1</h2>',
     '\[section=\"(.*)\"\]'                                => '<h3>$1</h3>',
+    '\[script=(.*)\]'                                     => '<script src="$1"></script>',
     '\[link=(.*)\](.*)\[\/link\]'                         => '<a href="$1">$2</a>',
     '\[url=(.*)\](.*)\[\/url\]'                           => '<a href="$1" target="_blank">$2</a>',
     '\[url\](.*)\[\/url\]'                                => '<a href="$1" target="_blank">$1</a>',
