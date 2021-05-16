@@ -144,7 +144,6 @@
     [fxaddon fxslug="foxclocks" fxname="FoxClocks" pmslug="foxclocks" pmname="FoxClocks (*)"]
     [fxaddon fxslug="hard-refresh" fxname="Hard Refresh" pmslug="reloadskipcache" pmname="Reload and Skip Cache"]
     [fxaddon fxslug="tab-counter" fxname="Tab Counter" pmslug="tab-counter" pmname="Tab Counter"]
-    [fxaddon fxslug="undo-closed-tabs-button" fxname="Undo Closed Tabs Button" pmslug="restore-tabs-button" pmname="Restore Tabs Button"]
     [fxaddon fxslug="image-search-options" fxname="Image Search Options" pmslug="image-search-options" pmname="Image Search Options (*)"]
     [fxaddon fxslug="right-links" fxname="Right Links" pmslug="new-tab-links" pmname="New Tab Links"]
     [fxaddon fxslug="dblclicker" fxname="DblClicker" pmslug="double-click-tweaks" pmname="Double-click Tweaks"]
