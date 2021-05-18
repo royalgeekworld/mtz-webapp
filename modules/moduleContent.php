@@ -106,9 +106,11 @@ function parseSeleneCode($aContent) {
   }
 
   $seleneCodeSuperRegex = 'span|p|ul|ol|li|hr|table|th|tr|td|hr|caption|col|colgroup|thead|tbody|tfoot';
-  $preStyle = 'border-radius: 6px !important; padding: 4px !important; border: 1px solid #cedfea !important; background-color: #ecf3f7 !important;';
-  $codeStyle = 'background-color: transparent !important;';
-  
+  $basePreStyle = 'background-color: #ecf3f7 !important; border: 1px solid #cedfea !important; border-radius: 6px !important;';
+  $blockPreStyle = 'padding: 4px !important;';
+  $inlinePreStyle = 'display: inline !important; line-height: 20pt !important;';
+  $codePreStyle = 'background-color: transparent !important;';
+
   $seleneCodeRegex = array(
     '\[title=\"(.*)\"\]'                                  => '<h1>$1</h1>',
     '\[header=\"(.*)\"\]'                                 => '<h2>$1</h2>',
@@ -118,15 +120,15 @@ function parseSeleneCode($aContent) {
     '\[url=(.*)\](.*)\[\/url\]'                           => '<a href="$1" target="_blank">$2</a>',
     '\[url\](.*)\[\/url\]'                                => '<a href="$1" target="_blank">$1</a>',
     '\[img(.*)\](.*)\[\/img\]'                            => '<img src="$2"$1 />',
-    '\[code=(.*)\]'                                       => '<pre style="' . $preStyle . '"><code class="$1" style="' . $codeStyle . '">',
-    '\[codeline=(.*)\]'                                   => '<pre style="display: inline; ' . $preStyle .'"><code class="$1" style="display: inline; ' . $codeStyle . '">',
+    '\[code=(.*)\]'                                       => '<pre style="' . $basePreStyle . $blockPreStyle . '"><code class="$1" style="' . $codePreStyle . '">',
+    '\[codeline=(.*)\]'                                   => '<pre style="' . $basePreStyle . $inlinePreStyle .'"><code class="$1" style="display: inline; ' . $codePreStyle . '">',
     '\[(' . $seleneCodeSuperRegex . ')(.*)\]'             => '<$1$2>',
   );
 
   foreach ($seleneCodeRegex as $_key => $_value) {
     $aContent = preg_replace('/' . $_key . '/iU', $_value, $aContent);
   }
-  
+
   return parseSpecialTags($aContent);
 }
 
