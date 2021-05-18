@@ -106,7 +106,7 @@ function parseSeleneCode($aContent) {
   }
 
   $seleneCodeSuperRegex = 'span|p|ul|ol|li|hr|table|th|tr|td|hr|caption|col|colgroup|thead|tbody|tfoot';
-  $preStyle = 'border-radius: 6px !important; padding: 4px !important; background-color: #ecf3f7 !important;';
+  $preStyle = 'border-radius: 6px !important; padding: 4px !important; border: 1px solid #cedfea !important; background-color: #ecf3f7 !important;';
   $codeStyle = 'background-color: transparent !important;';
   
   $seleneCodeRegex = array(
