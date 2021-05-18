@@ -37,7 +37,7 @@ const CONTENT = array(
   '/docs/bounty/'                             => ['docs-bounty', 'Development Bounty Program'],
   '/docs/syntax/'                             => ['docs-syntax', 'Site-Specific Syntax'],
   '/docs/profile-migration/'                  => ['docs-profile-migration', 'Profile Migration'],
-  '/docs/releng-guidelines/'                  => ['docs-releng-guidelines', 'Release Engineering Guidelines'],
+  '/docs/release-engineering/'                => ['docs-release-engineering', 'Release Engineering'],
   '/docs/phoenix-extensions/'                 => ['docs-phoenix-extensions', 'Firefox Extension Request and Fork List'],
 );
 
@@ -47,6 +47,7 @@ const REDIRECTS = array(
   '/addons/resources/'                                      => '/addons/concepts/',
   '/addons/site/phoebus-code/'                              => '/docs/syntax/#phoebusCode',
   '/build/mac/'                                             => '/build/',
+  '/docs/releng-guidelines/'                                => '/docs/release-engineering/',
 
   // Old Wiki URLS
   '/Main_Page/'                                             => '/',
