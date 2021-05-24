@@ -101,7 +101,7 @@
     [fxaddon fxslug="simple-mail" fxname="SimpleMail"]
     [fxaddon fxslug="markdown-editor" fxname="Markdown Editor"]
     [fxaddon fxslug="grabmybooks" fxname="GrabMyBooks"]
-    [fxaddon fxslug="3597" fxname="ChromEditPlus"]
+    [fxaddon fxslug="3597" fxname="ChromEditPlus" fxreason="Unclear licensing"]
     [fxaddon fxslug="autocopy-2" fxname="AutoCopy 2"]
     [fxaddon fxslug="file-and-folder-shortcuts" fxname="File and Folder Shortcuts"]
     [fxaddon fxslug="newsfox" fxname="Newsfox"]
