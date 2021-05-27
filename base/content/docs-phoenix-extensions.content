@@ -39,7 +39,7 @@
     [fxaddon fxslug="refcontrol" fxname="RefControl"]
     [fxaddon fxslug="hide-caption-titlebar-plus-sma" fxname="Hide caption titlebar plus"]
     [fxaddon fxslug="google-search-link-fix" fxname="Google search link fix" fxreason="Service extension, Jetpack"]
-    [fxaddon fxslug="fww-flst" fxname="FLST (Firefox 4+)"]
+    [fxaddon fxslug="fww-flst" fxname="FLST (Firefox 4+)" pmslug="flft" pmname="FLFT"]
     [fxaddon fxslug="form-history-control" fxname="Form History Control"]
     [fxaddon fxslug="googalexa" fxname="GoogAlexa" fxreason="Service extension"]
     [fxaddon fxslug="menu-icons-plus" fxname="Menu Icons Plus"]
