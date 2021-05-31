@@ -62,7 +62,7 @@
     [fxaddon fxslug="google-shortcuts-all-google-se" fxname="Google Shortcuts" fxreason="Service extension"]
     [fxaddon fxslug="more-tools-menu" fxname="More Tools Menu"]
     [fxaddon fxslug="places-maintenance" fxname="Places Maintenance"]
-    [fxaddon fxslug="search-on-engine-change" fxname="Search on Engine Change"]
+    [fxaddon fxslug="search-on-engine-change" fxname="Search on Engine Change" pmslug="engine-click-to-search" pmname="Engine Click To Search"]
     [fxaddon fxslug="sortcustomizationdialog" fxname="Sort and Search Customization Dialogs"]
     [fxaddon fxslug="undo-bookmarks-menu" fxname="Undo Bookmarks Menu"]
     [fxaddon fxslug="xclear" fxname="xclear"]
