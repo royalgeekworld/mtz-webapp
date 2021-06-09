@@ -206,6 +206,7 @@
     [fxaddon fxslug="rikaichan-jphu" fxname="Rikaichan Japanese-Hungarian Dictionary"]
     [fxaddon fxslug="screenshoter" fxname="Screenshoter" fxreason="Proprietary, no licensing information"]
     [fxaddon fxslug="screenshoter-fixed" fxname="Screenshoter (Fixed)" fxreason="Illegal fork"]
+    [fxaddon fxslug="download-manager-tweak" fxname="Download Manager Tweak" pmslug="download-manager-customizations" pmname="Download Manager Customizations"]
   [/tbody]
 [/table]
 
