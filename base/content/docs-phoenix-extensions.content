@@ -207,7 +207,7 @@
     [fxaddon fxslug="screenshoter" fxname="Screenshoter" fxreason="Proprietary, no licensing information"]
     [fxaddon fxslug="screenshoter-fixed" fxname="Screenshoter (Fixed)" fxreason="Illegal fork"]
     [fxaddon fxslug="download-manager-tweak" fxname="Download Manager Tweak" pmslug="download-manager-customizations" pmname="Download Manager Customizations"]
-    [fxaddon fxslug="easy-screenshot" fxname="Easy Screenshot" pmslug="simple-screenshot" pmname="Simple Screenshot"]
+    [fxaddon fxslug="easyscreenshot" fxname="Easy Screenshot" pmslug="simple-screenshot" pmname="Simple Screenshot"]
   [/tbody]
 [/table]
 
