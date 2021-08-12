@@ -16,12 +16,12 @@ class classGenerateContent {
     global $gaRuntime;
     $ePrefix = __CLASS__ . '::' . __FUNCTION__ . DASH_SEPARATOR;
 
-    if (str_contains($gaRuntime['requestPath'], DOTDOT)) {
+    if (str_contains($gaRuntime['qPath'], DOTDOT)) {
       gfError($ePrefix . 'CODE: ID-10-T');
     }
 
-    $this->contentURL = $gaRuntime['requestPath'];
-    $this->contentBase = dirname(COMPONENTS[$gaRuntime['requestComponent']]) . SLASH . 'content';
+    $this->contentURL = $gaRuntime['qPath'];
+    $this->contentBase = dirname(COMPONENTS[$gaRuntime['qComponent']]) . SLASH . 'content';
 
     $filename = 'selene' . CONTENT_EXTENSION;
 
@@ -50,7 +50,7 @@ class classGenerateContent {
     $ePrefix = __CLASS__ . '::' . __FUNCTION__ . DASH_SEPARATOR;
 
     if (!$this->contentURL) {
-      $this->contentURL = $aURL ?? $gaRuntime['requestPath'];
+      $this->contentURL = $aURL ?? $gaRuntime['qPath'];
     }
 
     if (!$this->contentBase) {

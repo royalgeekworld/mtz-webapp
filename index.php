@@ -138,8 +138,8 @@ $gaRuntime = array(
   'phpServerName'       => gfSuperVar('server', 'SERVER_NAME'),
   'phpRequestURI'       => gfSuperVar('server', 'REQUEST_URI'),
   'remoteAddr'          => gfSuperVar('server', 'HTTP_X_FORWARDED_FOR') ?? gfSuperVar('server', 'REMOTE_ADDR'),
-  'requestComponent'    => gfSuperVar('get', 'component'),
-  'requestPath'         => gfSuperVar('get', 'path'),
+  'qComponent'          => gfSuperVar('get', 'component'),
+  'qPath'               => gfSuperVar('get', 'path'),
 );
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -152,23 +152,23 @@ if (file_exists(ROOT_PATH . SLASH . '.offline')) {
 // --------------------------------------------------------------------------------------------------------------------
 
 // Root (/) won't set a component or path
-if (!$gaRuntime['requestComponent'] && !$gaRuntime['requestPath']) {
-  $gaRuntime['requestComponent'] = 'site';
-  $gaRuntime['requestPath'] = '/';
+if (!$gaRuntime['qComponent'] && !$gaRuntime['qPath']) {
+  $gaRuntime['qComponent'] = 'site';
+  $gaRuntime['qPath'] = SLASH;
 }
 // The SPECIAL component overrides the SITE component
 elseif (str_starts_with($gaRuntime['phpRequestURI'], '/special/')) {
-  $gaRuntime['requestComponent'] = 'special';
+  $gaRuntime['qComponent'] = 'special';
 }
 elseif (str_starts_with($gaRuntime['phpRequestURI'], '/mdn/')) {
-  $gaRuntime['requestComponent'] = 'mdn';
+  $gaRuntime['qComponent'] = 'mdn';
 }
 
 // --------------------------------------------------------------------------------------------------------------------
 
-// Load component based on requestComponent
-if ($gaRuntime['requestComponent'] && array_key_exists($gaRuntime['requestComponent'], COMPONENTS)) {
-  require_once(COMPONENTS[$gaRuntime['requestComponent']]);
+// Load component based on qComponent
+if ($gaRuntime['qComponent'] && array_key_exists($gaRuntime['qComponent'], COMPONENTS)) {
+  require_once(COMPONENTS[$gaRuntime['qComponent']]);
 }
 else {
   if (!DEBUG_MODE) {

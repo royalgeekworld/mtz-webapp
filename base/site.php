@@ -45,14 +45,14 @@ const REDIRECTS = array(
 // == | Main | ========================================================================================================
 
 // This will handle redirects largely from the old wiki urls to the new urls
-if (array_key_exists($gaRuntime['requestPath'], REDIRECTS)) {
-  gfRedirect(REDIRECTS[$gaRuntime['requestPath']]);
+if (array_key_exists($gaRuntime['qPath'], REDIRECTS)) {
+  gfRedirect(REDIRECTS[$gaRuntime['qPath']]);
 }
 
 $gvExtraSimpleTags  = EMPTY_ARRAY;
 $gvExtraRegexTags   = EMPTY_ARRAY;
 
-if ($gaRuntime['requestPath'] == '/docs/phoenix-extensions/') {
+if ($gaRuntime['qPath'] == '/docs/phoenix-extensions/') {
   // [fxaddon] (Firefox CAA)
   $gvFxForkedRegex        = "\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]";
   $gvFxForkedReplace      = '<tr>' .
@@ -119,7 +119,7 @@ if (!empty($gvExtraRegexTags)) {
   $gmGenerateContent->extraRegexTags = $gvExtraRegexTags;
 }
 
-$gmGenerateContent->loadAndDisplay($gaRuntime['requestPath']);
+$gmGenerateContent->loadAndDisplay($gaRuntime['qPath']);
 
 
 // No idea what we should do so 404

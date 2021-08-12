@@ -8,7 +8,7 @@
 /**********************************************************************************************************************
 * Strips path to obtain the slug
 *
-* @param $aPath     $gaRuntime['requestPath']
+* @param $aPath     $gaRuntime['qPath']
 * @param $aPrefix   Prefix to strip 
 * @returns          slug
 ***********************************************************************************************************************/
@@ -18,8 +18,8 @@ function funcStripPath($aPath, $aPrefix) {
 
 // == | Main | ========================================================================================================
 
-$strComponentPath = dirname(COMPONENTS[$gaRuntime['requestComponent']]) . '/';
-$strStripPath = funcStripPath($gaRuntime['requestPath'], '/special/');
+$strComponentPath = dirname(COMPONENTS[$gaRuntime['qComponent']]) . '/';
+$strStripPath = funcStripPath($gaRuntime['qPath'], '/special/');
 
 // --------------------------------------------------------------------------------------------------------------------
 
