@@ -52,11 +52,13 @@ class classGenerateContent {
 
     $finalContent = $template;
 
+    $content = $isHTML ? str_replace('[html-override]', EMPTY_STRING, $content) : $this->parseSeleneCode($content);   
+    $content = '<h1>' . ($this->contentURL == SLASH ? 'Pale Moon Developer Site' : $title) . '</h1>' . NEW_LINE . $content;
+
     $pageSubsts = array(
       '{%SITE_STYLESHEET}'      => $stylesheet,
       '{%HIGHLIGHT_STYLESHEET}' => $stylesheetHLJS,
-      '{%PAGE_CONTENT}'         => '<h1>' . ($this->contentURL == SLASH ? 'Pale Moon Developer Site' : $title) . '</h1>' .
-                                   NEW_LINE . $this->parseSeleneCode($content),
+      '{%PAGE_CONTENT}'         => $content,
       '{%BASE_PATH}'            => gfStripRootPath($skinDir),
       '{%CONTENT_PATH}'         => gfStripRootPath($contentDir),
       '{%SITE_NAME}'            => SITE_NAME,
