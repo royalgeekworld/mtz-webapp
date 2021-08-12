@@ -10,8 +10,8 @@ const SKIN = 'palemoon';
 $post = gfSuperVar('post', 'content');
 
 if ($post) {
-  require_once(MODULES['content']);
-  generateContent('/content-test/', str_replace("\r", '', $post));
+  gfImportModules('generateContent');
+  $gmGenerateContent->display('/content-test/', str_replace("\r", '', $post));
 }
 else {
   $content = '<form id="content" accept-charset="UTF-8" autocomplete="on" method="POST" enctype="multipart/form-data">' .
