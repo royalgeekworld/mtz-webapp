@@ -11,8 +11,8 @@ class classGenerateContent {
       $this->contentURL = $aURL;
     }
 
-    $contentDir     = ROOT_PATH . BASE_RELPATH . 'content/';
-    $skinDir        = ROOT_PATH . SKIN_RELPATH . SKIN . '/';
+    $contentDir     = ROOT_PATH . BASE_RELPATH . 'content' . SLASH;
+    $skinDir        = ROOT_PATH . SKIN_RELPATH . SKIN . SLASH;
 
     $template       = gfReadFile($skinDir . 'site-template.xhtml');
     $stylesheet     = gfReadFile($skinDir . 'site-stylesheet.css');
@@ -47,8 +47,8 @@ class classGenerateContent {
       '{%HIGHLIGHT_STYLESHEET}' => $stylesheetHLJS,
       '{%PAGE_CONTENT}'         => '<h1>' . ($this->contentURL == SLASH ? 'Pale Moon Developer Site' : $title) . '</h1>' .
                                    NEW_LINE . $this->parseSeleneCode($content),
-      '{%BASE_PATH}'            => str_replace(ROOT_PATH, '', $skinDir),
-      '{%CONTENT_PATH}'         => str_replace(ROOT_PATH, '', $contentDir),
+      '{%BASE_PATH}'            => gfStripRootPath($skinDir),
+      '{%CONTENT_PATH}'         => gfStripRootPath($contentDir),
       '{%SITE_NAME}'            => SITE_NAME,
       '{%PAGE_TITLE}'           => $this->contentURL == SLASH ? 'Front Page' : $title,
       '{%COPYRIGHT_YEAR}'       => date("Y"),
