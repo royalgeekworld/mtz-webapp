@@ -61,7 +61,7 @@ switch ($gvSpecialFunction) {
   case 'test':
     $gaRuntime['qTestCase'] = gfSuperVar('get', 'case');
     $arrayTestsGlob = glob('./base/tests/*.php');
-    $arrayFinalTests = [];
+    $arrayFinalTests = EMPTY_ARRAY;
 
     foreach ($arrayTestsGlob as $_value) {
       $arrayFinalTests[] = str_replace('.php', '', str_replace('./base/tests/', '', $_value));
@@ -77,7 +77,7 @@ switch ($gvSpecialFunction) {
       require_once('./base/tests/' . $gaRuntime['qTestCase'] . '.php');
     }
 
-    $testsHTML = '';
+    $testsHTML = EMPTY_STRING;
 
     foreach ($arrayFinalTests as $_value) {
       $testsHTML .= '<li><a href="/test/?case=' . $_value . '">' . $_value . '</a></li>';
