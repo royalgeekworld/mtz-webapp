@@ -635,6 +635,7 @@ function gfHexString($aLength = 40) {
 /**********************************************************************************************************************
 * Basic Filter Substitution of a string
 *
+* @dep EMPTY_STRING
 * @dep SLASH
 * @dep SPACE
 * @dep gfError()
@@ -643,33 +644,34 @@ function gfHexString($aLength = 40) {
 * @param $aRegEx                set to true if pcre
 * @returns                      bitwise int value representing applications
 ***********************************************************************************************************************/
-function gfSubst($aSubsts, $aString, $aRegEx = null) {
+function gfSubst($aMode, $aSubsts, $aString) {
+  $ePrefix = __FUNCTION__ . DASH_SEPARATOR;
   if (!is_array($aSubsts)) {
-    gfError('$aSubsts must be an array');
+    gfError($ePrefix . '$aSubsts must be an array');
   }
 
   if (!is_string($aString)) {
-    gfError('$aString must be a string');
+    gfError($ePrefix . '$aString must be a string');
   }
 
-  $string = $aString;
+  $rv = $aString;
 
-  if ($aRegEx) {
-    foreach ($aSubsts as $_key => $_value) {
-      $string = preg_replace(SLASH . $_key . SLASH . 'iU', $_value, $string);
-    }
-  }
-  else {
-    foreach ($aSubsts as $_key => $_value) {
-      $string = str_replace($_key, $_value, $string);
-    }
-  }
-
-  if (!$string) {
-    gfError('Something has gone wrong with' . SPACE . __FUNCTION__);
+  switch ($aMode) {
+    case 'simple':
+      foreach ($aSubsts as $_key => $_value) { $rv = str_replace($_key, $_value, $rv); }
+      break;
+    case 'regex':
+      foreach ($aSubsts as $_key => $_value) { $rv = preg_replace(SLASH . $_key . SLASH . 'iU', $_value, $rv); }
+      break;
+    default:
+      gfError($ePrefix . 'Unknown mode');
   }
 
-  return $string;
+  if (!$rv) {
+    gfError($ePrefix . 'Something has gone wrong...');
+  }
+
+  return $rv;
 }
 
 /**********************************************************************************************************************

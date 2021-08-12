@@ -6,7 +6,7 @@
 class classGenerateContent {
   private $contentURL;
 
-  public function display($aURL, $aContentOverride = null) {
+  public function display($aURL, $aContent = null) {
     if (!$this->contentURL) {
       $this->contentURL = $aURL;
     }
@@ -18,17 +18,17 @@ class classGenerateContent {
     $stylesheet     = @file_get_contents($skinDir . 'site-stylesheet.css');
     $stylesheetHLJS = @file_get_contents($skinDir . '../../jsmodules/highlight/styles/github.css');
 
-    if ($aContentOverride) {
-      if (is_array($aContentOverride)) {
-        $title = $aContentOverride['title'];
-        $content = $aContentOverride['content'];
-        if (array_key_exists('html', $aContentOverride)) {
+    if ($aContent) {
+      if (is_array($aContent)) {
+        $title = $aContent['title'];
+        $content = $aContent['content'];
+        if (array_key_exists('html', $aContent)) {
           $content = "[html-override]" . NEW_LINE . $content;
         }
       }
       else {
         $title = 'Content Test';
-        $content = $aContentOverride;
+        $content = $aContent;
       }
     }
     else {
@@ -57,7 +57,7 @@ class classGenerateContent {
       '{%SOFTWARE_REPO}'        => SOFTWARE_REPO,
     );
 
-    if (is_string($aContentOverride)) {
+    if (is_string($aContent)) {
       $pageSubsts['{%PAGE_CONTENT}'] = '<p><a href="#" onclick="window.history.back();"><-- Back</a></p>' . $pageSubsts['{%PAGE_CONTENT}'];
     }
 
@@ -136,16 +136,18 @@ class classGenerateContent {
       "\[url=(.*)\](.*)\[\/url\]"                           => '<a href="$1" target="_blank">$2</a>',
       "\[url\](.*)\[\/url\]"                                => '<a href="$1" target="_blank">$1</a>',
       "\[img(.*)\](.*)\[\/img\]"                            => '<img src="$2"$1 />',
-      "\[code=(.*)\]"                                       => '<pre style="' . $basePreStyle . $blockPreStyle . '"><code class="$1" style="' . $codePreStyle . '">',
-      "\[codeline=(.*)\]"                                   => '<pre style="' . $basePreStyle . $inlinePreStyle .'"><code class="$1" style="display: inline; ' . $codePreStyle . '">',
+      "\[code=(.*)\]"                                       => '<pre style="' . $basePreStyle . $blockPreStyle . '">' .
+                                                               '<code class="$1" style="' . $codePreStyle . '">',
+      "\[codeline=(.*)\]"                                   => '<pre style="' . $basePreStyle . $inlinePreStyle .'">' .
+                                                               '<code class="$1" style="display: inline; ' . $codePreStyle . '">',
       "\[(" . $seleneCodeSuperRegex . ")(.*)\]"             => '<$1$2>',
     );
 
     // Handle Special Tags
     $specialTags = $this->getSpecialTags();
 
-    if (!empty($specialTags['substs'])) {
-      $seleneCodeSimple = array_merge($seleneCodeSimple, $specialTags['substs']);
+    if (!empty($specialTags['simple'])) {
+      $seleneCodeSimple = array_merge($seleneCodeSimple, $specialTags['simple']);
     }
 
     if (!empty($specialTags['regex'])) {
@@ -153,8 +155,8 @@ class classGenerateContent {
     }
 
     // Process the substs
-    $aContent = gfSubst($seleneCodeSimple, $aContent);
-    $aContent = gfSubst($seleneCodeRegex, $aContent, true);
+    $aContent = gfSubst('simple', $seleneCodeSimple, $aContent);
+    $aContent = gfSubst('regex', $seleneCodeRegex, $aContent);
 
     return $aContent;
   }
@@ -224,7 +226,7 @@ class classGenerateContent {
       $specialCodeRegex[$riBadRegex] = $riBadReplace;
     }
 
-    return ['substs' => $specialCodeSimple, 'regex' => $specialCodeRegex];
+    return ['simple' => $specialCodeSimple, 'regex' => $specialCodeRegex];
   }
 }
 
