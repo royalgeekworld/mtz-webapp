@@ -155,7 +155,7 @@ It isn't perfect but it tends to do the job.</p>
 <h3>Example</h3>
 <p>An example of a phoebus.content file using some of the most common syntax.</p>
 <pre style="white-space: pre-wrap; border-radius: 6px !important; border: 1px solid #cedfea !important; padding: 4px !important; background-color: #ecf3f7 !important;">
-<code class="nohightlight" style="background-color: transparent !important;">Pale Moon Commander is an extension designed for the [url=http://www.palemoon.org/]Pale Moon web browser[/url]. It is a configurator, meaning it will provide a user-friendly interface to advanced preferences that would otherwise require manual editing of parameters, which can be cumbersome and time-consuming to do.
+<code class="plain" style="background-color: transparent !important;">Pale Moon Commander is an extension designed for the [url=http://www.palemoon.org/]Pale Moon web browser[/url]. It is a configurator, meaning it will provide a user-friendly interface to advanced preferences that would otherwise require manual editing of parameters, which can be cumbersome and time-consuming to do.
 [section]How to access the add-on's settings[/section]
 The add-on, when installed, adds a menu item 'Advanced Options...' in two locations:
 [ul]
