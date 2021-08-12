@@ -12,8 +12,17 @@ function generateContent($aURL, $aContentOverride = null) {
   $stylesheetHLJS = @file_get_contents($skinDir . '../../jsmodules/highlight/styles/github.css');
 
   if ($aContentOverride) {
-    $content = $aContentOverride;
-    $title = 'Content Test';
+    if (is_array($aContentOverride)) {
+      $title = $aContentOverride['title'];
+      $content = $aContentOverride['content'];
+      if (array_key_exists('html', $aContentOverride)) {
+        $content = "[html-override]" . NEW_LINE . $content;
+      }
+    }
+    else {
+      $title = 'Content Test';
+      $content = $aContentOverride;
+    }
   }
   else {
     $content = @file_get_contents($contentDir . CONTENT[$aURL][0] . '.content');
@@ -41,7 +50,7 @@ function generateContent($aURL, $aContentOverride = null) {
     '{%SOFTWARE_REPO}'        => SOFTWARE_REPO,
   );
 
-  if ($aContentOverride) {
+  if (is_string($aContentOverride)) {
     $pageSubsts['{%PAGE_CONTENT}'] = '<p><a href="#" onclick="window.history.back();"><-- Back</a></p>' . $pageSubsts['{%PAGE_CONTENT}'];
   }
 
