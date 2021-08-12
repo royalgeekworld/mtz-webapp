@@ -144,7 +144,7 @@ class classGenerateContent {
     );
 
     // Handle Special Tags
-    $specialTags = $this->getSpecialTags();
+    $specialTags = $this->getSpecialSeleneTags();
 
     if (!empty($specialTags['simple'])) {
       $seleneCodeSimple = array_merge($seleneCodeSimple, $specialTags['simple']);
@@ -163,7 +163,7 @@ class classGenerateContent {
 
   // --------------------------------------------------------------------------------------------------------------------
 
-  private function getSpecialTags() {
+  private function getSpecialSeleneTags() {
     $specialCodeSimple  = EMPTY_ARRAY;
     $specialCodeRegex   = EMPTY_ARRAY;
 
