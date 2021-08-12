@@ -73,18 +73,17 @@ const SCHEME_SUFFIX         = "://";
 
 const PHP_EXTENSION         = DOT . 'php';
 const INI_EXTENSION         = DOT . 'ini';
+const HTML_EXTENSION        = DOT . 'html';
 const XML_EXTENSION         = DOT . 'xml';
+const RDF_EXTENSION         = DOT . 'rdf';
 const JSON_EXTENSION        = DOT . 'json';
+const CONTENT_EXTENSION     = DOT . 'content';
+const XPINSTALL_EXTENSION   = DOT . 'xpi';
 const TEMP_EXTENSION        = DOT . 'temp';
 
 // --------------------------------------------------------------------------------------------------------------------
 
 const XML_TAG               = '<?xml version="1.0" encoding="utf-8" ?>';
-
-// --------------------------------------------------------------------------------------------------------------------
-
-const XPINSTALL_EXTENSION   = DOT . 'xpi';
-const RDF_EXTENSION         = DOT . 'rdf';
 
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -99,6 +98,7 @@ const FILE_WRITE_FLAGS      = "w+";
 // --------------------------------------------------------------------------------------------------------------------
 
 const REGEX_GET_FILTER      = "/[^-a-zA-Z0-9_\-\/\{\}\@\.\%\s\,]/";
+const REGEX_YAML_FILTER     = "/\A---(.|\n)*?---/";
 const REGEX_GUID            = "/^\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\}$/i";
 const REGEX_HOST            = "/[a-z0-9-\._]+\@[a-z0-9-\._]+/i";
 

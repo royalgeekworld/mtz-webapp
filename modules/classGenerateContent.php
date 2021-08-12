@@ -4,10 +4,18 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 class classGenerateContent {
+  public $extraSimpleTags;
+  public $extraRegexTags;
   private $contentURL;
 
-  public function display($aURL, $aContent = null) {
+  public function display($aURL = null, $aContent = null) {
+    $ePrefix = __CLASS__ . '::' . __FUNCTION__ . DASH_SEPARATOR;
+
     if (!$this->contentURL) {
+      if (!$aURL) {
+        gfError($ePrefix . 'You must pass a url');
+      }
+
       $this->contentURL = $aURL;
     }
 
@@ -37,7 +45,7 @@ class classGenerateContent {
     }
 
     if (!$template || !$stylesheet || !$content) {
-      gfError('Failed to generate content.');
+      gfError($ePrefix . 'Failed to generate content.');
     }
 
     $finalContent = $template;
@@ -65,7 +73,7 @@ class classGenerateContent {
       $finalContent = str_replace($_key, $_value, $finalContent);
     }
 
-    // Clear contentURL just in case for reasons
+    // Clear contentURL for reasons
     $this->contentURL = null;
 
     // Set header and print the content and fuck off...
@@ -84,7 +92,7 @@ class classGenerateContent {
     $aContent = preg_replace('/\<\!\-\- (.*) \-\-\>\n/iU', '', $aContent);
     $aContent = htmlentities($aContent, ENT_XHTML);
 
-    $seleneCodeSimple = array(
+    $seleneCodeSimpleTags = array(
       '[title]'                                             => '<h1>',
       '[/title]'                                            => '</h1>',
       '[header]'                                            => '<h2>',
@@ -127,7 +135,7 @@ class classGenerateContent {
     $inlinePreStyle = 'display: inline !important; line-height: 20pt !important;';
     $codePreStyle = 'background-color: transparent !important;';
 
-    $seleneCodeRegex = array(
+    $seleneCodeRegexTags = array(
       "\[title=\"(.*)\"\]"                                  => '<h1>$1</h1>',
       "\[header=\"(.*)\"\]"                                 => '<h2>$1</h2>',
       "\[section=\"(.*)\"\]"                                => '<h3>$1</h3>',
@@ -143,90 +151,23 @@ class classGenerateContent {
       "\[(" . $seleneCodeSuperRegex . ")(.*)\]"             => '<$1$2>',
     );
 
-    // Handle Special Tags
-    $specialTags = $this->getSpecialSeleneTags();
-
-    if (!empty($specialTags['simple'])) {
-      $seleneCodeSimple = array_merge($seleneCodeSimple, $specialTags['simple']);
+    if ($this->extraSimpleTags) {
+      $seleneCodeSimpleTags = array_merge($seleneCodeSimpleTags, $this->extraSimpleTags);
     }
 
-    if (!empty($specialTags['regex'])) {
-      $seleneCodeRegex = array_merge($seleneCodeRegex, $specialTags['regex']);
+    if ($this->extraRegexTags) {
+      $seleneCodeRegexTags = array_merge($seleneCodeRegexTags, $this->extraRegexTags);
     }
 
     // Process the substs
-    $aContent = gfSubst('simple', $seleneCodeSimple, $aContent);
-    $aContent = gfSubst('regex', $seleneCodeRegex, $aContent);
+    $aContent = gfSubst('simple', $seleneCodeSimpleTags, $aContent);
+    $aContent = gfSubst('regex', $seleneCodeRegexTags, $aContent);
+
+    // Clear the extra tag class vars
+    $this->extraSimpleTags = null;
+    $this->extraRegexTags = null;
 
     return $aContent;
-  }
-
-  // --------------------------------------------------------------------------------------------------------------------
-
-  private function getSpecialSeleneTags() {
-    $specialCodeSimple  = EMPTY_ARRAY;
-    $specialCodeRegex   = EMPTY_ARRAY;
-
-    if ($this->contentURL == '/docs/phoenix-extensions/') {
-      // [fxaddon] (Firefox CAA)
-      $fxForkedRegex          = '\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]';
-      $fxForkedReplace        = '<tr>' .
-                                '<td style="color: #00c019;">Forked</td>' .
-                                '<td><a href="caa:addon/$1" target="_blank">$2</a></td>' .
-                                '<td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
-                                '</tr>';
-      $specialCodeRegex[$fxForkedRegex] = $fxForkedReplace;
-
-      $fxBadRegex             = '\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\" fxreason=\"(.*)\"\]';
-      $fxBadReplace           = '<tr>' .
-                                '<td style="color: #BF0000;">Unforkable</td>' .
-                                '<td><a href="caa:addon/$1" target="_blank">$2</a></td>' .
-                                '<td style="color: #BF0000;">$3</td>' .
-                                '</tr>';
-      $specialCodeRegex[$fxBadRegex] = $fxBadReplace;
-
-      $fxRegex                = '\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\"\]';
-      $fxReplace              = '<tr>' .
-                                '<td>Forkable</td>' .
-                                '<td colspan="2"><a href="caa:addon/$1" target="_blank">$2</a></td>' .
-                                '</tr>';
-      $specialCodeRegex[$fxRegex] = $fxReplace;
-
-      // [joaddon] (JustOff)
-      $justoffForkedRegex     = '\[joaddon joslug=\"(.*)\" joname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]';
-      $justoffForkedReplace   = '<tr>' .
-                                '<td style="color: #00c019;">Forked</td>' .
-                                '<td><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td>' .
-                                '<td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
-                                '</tr>';
-      $specialCodeRegex[$justoffForkedRegex] = $justoffForkedReplace;
-
-      $justoffRegex           = '\[joaddon joslug=\"(.*)\" joname=\"(.*)\"\]';
-      $justoffReplace         = '<tr>' .
-                                '<td>Up for grabs!</td>' .
-                                '<td colspan="2"><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td>' .
-                                '</tr>';
-      $specialCodeRegex[$justoffRegex] = $justoffReplace;
-
-      // [riaddon] Riiis
-      $riForkedRegex          = '\[riaddon rislug=\"(.*)\" riname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]';
-      $riForkedReplace        = '<tr>' .
-                                '<td><small>$1</small></td>' .
-                                '<td>$2</td>' .
-                                '<td style="background-color: #eaf6eb !important;"><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
-                                '</tr>';
-      $specialCodeRegex[$riForkedRegex] = $riForkedReplace;
-
-      $riBadRegex             = '\[riaddon rislug=\"(.*)\" riname=\"(.*)\" rireason=\"(.*)\"\]';
-      $riBadReplace           = '<tr>' .
-                                '<td><small>$1</small></td>' .
-                                '<td>$2</td>' .
-                                '<td style="background-color: #f6eaeb !important; border-spacing: 0px;"><small>$3</small></td>' .
-                                '</tr>';
-      $specialCodeRegex[$riBadRegex] = $riBadReplace;
-    }
-
-    return ['simple' => $specialCodeSimple, 'regex' => $specialCodeRegex];
   }
 }
 
