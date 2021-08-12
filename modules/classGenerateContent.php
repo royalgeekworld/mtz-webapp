@@ -63,7 +63,7 @@ class classGenerateContent {
 
     $template       = gfReadFile($this->skinPath . SLASH . 'site-template.xhtml');
     $stylesheet     = gfReadFile($this->skinPath . SLASH . 'site-stylesheet.css');
-    $stylesheetHLJS = gfReadFile(dirname(JSMODULES['highlight']) . '/styles/github.css');
+    $stylesheetHLJS = gfReadFile(dirname(JSMODULES['highlight']) . '/styles/github.min.css');
 
     $isHTML = false;
 

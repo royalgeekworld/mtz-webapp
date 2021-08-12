@@ -46,7 +46,7 @@ const MODULES = array(
 
 // Define JS Modules
 const JSMODULES = array(
-  'highlight'       => ROOT_PATH . JSMODULES_RELPATH . 'highlight/highlight.pack.js'
+  'highlight'       => ROOT_PATH . JSMODULES_RELPATH . 'highlight/highlight.min.js'
 );
 
 // Define libraries
