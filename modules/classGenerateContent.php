@@ -26,22 +26,24 @@ class classGenerateContent {
     $stylesheet     = gfReadFile($skinDir . 'site-stylesheet.css');
     $stylesheetHLJS = gfReadFile(dirname(JSMODULES['highlight']) . '/styles/github.css');
 
+    $isHTML = false;
+
     if ($aContent) {
       if (is_array($aContent)) {
         $title = $aContent['title'];
         $content = $aContent['content'];
-        if (array_key_exists('html', $aContent)) {
-          $content = "[html-override]" . NEW_LINE . $content;
-        }
+        $isHTML = array_key_exists('html', $aContent);
       }
       else {
         $title = 'Content Test';
         $content = $aContent;
+        $isHTML = str_starts_with($content, '[html-override]');
       }
     }
     else {
-      $content = gfReadFile($contentDir . CONTENT[$this->contentURL][0] . '.content');
       $title = CONTENT[$this->contentURL][1];
+      $content = gfReadFile($contentDir . CONTENT[$this->contentURL][0] . CONTENT_EXTENSION);
+      $isHTML = str_starts_with($content, '[html-override]');
     }
 
     if (!$template || !$stylesheet || !$content) {
@@ -85,10 +87,6 @@ class classGenerateContent {
   // --------------------------------------------------------------------------------------------------------------------
 
   private function parseSeleneCode($aContent) {     
-    if (str_starts_with($aContent, '[html-override]')) {
-      return str_replace('[html-override]', '', $aContent);
-    }
-
     $aContent = preg_replace('/\<\!\-\- (.*) \-\-\>\n/iU', '', $aContent);
     $aContent = htmlentities($aContent, ENT_XHTML);
 
