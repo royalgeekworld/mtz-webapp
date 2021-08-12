@@ -7,7 +7,9 @@ class classGenerateContent {
   private $contentURL;
 
   public function display($aURL, $aContentOverride = null) {
-    $this->contentURL = $aURL;
+    if (!$this->contentURL) {
+      $this->contentURL = $aURL;
+    }
 
     $contentDir     = ROOT_PATH . BASE_RELPATH . 'content/';
     $skinDir        = ROOT_PATH . SKIN_RELPATH . SKIN . '/';
@@ -63,6 +65,10 @@ class classGenerateContent {
       $finalContent = str_replace($_key, $_value, $finalContent);
     }
 
+    // Clear contentURL just in case for reasons
+    $this->contentURL = null;
+
+    // Set header and print the content and fuck off...
     gfHeader('html');
     print($finalContent);
     exit();
