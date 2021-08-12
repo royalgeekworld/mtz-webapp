@@ -353,7 +353,7 @@ function gfHeader($aHeader) {
 **********************************************************************************************************************/
 // This function sends a redirect header
 function gfRedirect($aURL) {
-	header('Location: ' . $aURL , true, 302);
+  header('Location: ' . $aURL , true, 302);
   
   // We are done here
   exit();
