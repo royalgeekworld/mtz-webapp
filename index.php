@@ -28,6 +28,7 @@ const BASE_RELPATH        = '/base/';
 const SKIN_RELPATH        = '/skin/';
 const COMPONENTS_RELPATH  = '/components/';
 const MODULES_RELPATH     = '/modules/';
+const JSMODULES_RELPATH   = '/jsmodules/';
 const LIB_RELPATH         = '/libraries/';
 
 // Define components
@@ -39,7 +40,12 @@ const COMPONENTS = array(
 
 // Define modules
 const MODULES = array(
-  'content'         => ROOT_PATH . MODULES_RELPATH . 'moduleContent.php'
+  'generateContent' => ROOT_PATH . MODULES_RELPATH . 'classGenerateContent.php'
+);
+
+// Define JS Modules
+const JSMODULES = array(
+  'highlight'       => ROOT_PATH . JSMODULES_RELPATH . 'highlight/highlight.pack.js'
 );
 
 // Define libraries

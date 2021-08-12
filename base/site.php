@@ -5,6 +5,8 @@
 
 // == | Setup | =======================================================================================================
 
+gfImportModules('generateContent');
+
 const SITE_NAME = 'Pale Moon - Developer Site';
 const SKIN = 'palemoon';
 
@@ -71,15 +73,13 @@ const REDIRECTS = array(
   '/Add-ons:Site/Manifest_Files/'                           => '/docs/syntax/#phoebusCode',
 );
 
-require_once(MODULES['content']);
-
 // ====================================================================================================================
 
 // == | Main | ========================================================================================================
 
 // If the URL is known to us pass it to generateContent
 if (array_key_exists($gaRuntime['requestPath'], CONTENT)) {
-  generateContent($gaRuntime['requestPath']);
+  $gmGenerateContent->display($gaRuntime['requestPath']);
 }
 
 // This will handle redirects largely from the old wiki urls to the new urls

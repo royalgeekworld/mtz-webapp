@@ -180,6 +180,7 @@ function gfError($aValue, $phpError = false) {
 
   $externalOutput = function_exists('gfGenContent');
   $isCLI = (php_sapi_name() == "cli");
+  $isOutput = false;
 
   if (is_string($aValue) || is_int($aValue)) {
     $eContentType = 'text/xml';
@@ -193,6 +194,7 @@ function gfError($aValue, $phpError = false) {
     }
   }
   else {
+    $isOutput = true;
     $eContentType = 'application/json';
     $ePrefix = $pageHeader['output'];
     $eMessage = json_encode($aValue, JSON_ENCODE_FLAGS);
@@ -203,6 +205,10 @@ function gfError($aValue, $phpError = false) {
       gfGenContent($ePrefix, $eMessage, null, true, true);
     }
 
+    if ($isOutput) {
+      gfGenContent($ePrefix, $eMessage, true, false, true);
+    }
+    
     gfGenContent($ePrefix, $eMessage);
   }
   elseif ($isCLI) {
@@ -625,6 +631,7 @@ function gfHexString($aLength = 40) {
 /**********************************************************************************************************************
 * Basic Filter Substitution of a string
 *
+* @dep SLASH
 * @dep SPACE
 * @dep gfError()
 * @param $aSubsts               multi-dimensional array of keys and values to be replaced
@@ -645,12 +652,12 @@ function gfSubst($aSubsts, $aString, $aRegEx = null) {
 
   if ($aRegEx) {
     foreach ($aSubsts as $_key => $_value) {
-      $string = preg_replace($_key, $_value, $string);
+      $string = preg_replace(SLASH . $_key . SLASH . 'iU', $_value, $string);
     }
   }
   else {
     foreach ($aSubsts as $_key => $_value) {
-      $string = str_replace('{%' . $_key . '}', $_value, $string);
+      $string = str_replace($_key, $_value, $string);
     }
   }
 
