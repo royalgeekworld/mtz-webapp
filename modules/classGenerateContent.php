@@ -14,9 +14,9 @@ class classGenerateContent {
     $contentDir     = ROOT_PATH . BASE_RELPATH . 'content/';
     $skinDir        = ROOT_PATH . SKIN_RELPATH . SKIN . '/';
 
-    $template       = @file_get_contents($skinDir . 'site-template.xhtml');
-    $stylesheet     = @file_get_contents($skinDir . 'site-stylesheet.css');
-    $stylesheetHLJS = @file_get_contents($skinDir . '../../jsmodules/highlight/styles/github.css');
+    $template       = gfReadFile($skinDir . 'site-template.xhtml');
+    $stylesheet     = gfReadFile($skinDir . 'site-stylesheet.css');
+    $stylesheetHLJS = gfReadFile(dirname(JSMODULES['highlight']) . '/styles/github.css');
 
     if ($aContent) {
       if (is_array($aContent)) {
@@ -32,7 +32,7 @@ class classGenerateContent {
       }
     }
     else {
-      $content = @file_get_contents($contentDir . CONTENT[$this->contentURL][0] . '.content');
+      $content = gfReadFile($contentDir . CONTENT[$this->contentURL][0] . '.content');
       $title = CONTENT[$this->contentURL][1];
     }
 
