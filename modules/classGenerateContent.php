@@ -6,44 +6,79 @@
 class classGenerateContent {
   public $extraSimpleTags;
   public $extraRegexTags;
+  private $skinPath;
   private $contentURL;
+  private $contentBase;
 
-  public function display($aURL = null, $aContent = null) {
+  // --------------------------------------------------------------------------------------------------------------------
+
+  public function loadAndDisplay() {
+    global $gaRuntime;
+    $ePrefix = __CLASS__ . '::' . __FUNCTION__ . DASH_SEPARATOR;
+
+    if (str_contains($gaRuntime['requestPath'], DOTDOT)) {
+      gfError($ePrefix . 'CODE: ID-10-T');
+    }
+
+    $this->contentURL = $gaRuntime['requestPath'];
+    $this->contentBase = dirname(COMPONENTS[$gaRuntime['requestComponent']]) . SLASH . 'content';
+
+    $filename = 'selene' . CONTENT_EXTENSION;
+
+    $content = gfReadFile($this->contentBase . $this->contentURL . $filename);
+
+    if (!$content) {
+      gfError($ePrefix . 'Unable to load content');
+    }
+
+    // Parse the YAML header
+    $contentData = gfSuperVar('var', @yaml_parse($content));
+
+    if (!$contentData) {
+      gfError($ePrefix . 'Unable to parse YAML for content');
+    }
+
+    $contentData['content'] = preg_replace(REGEX_YAML_FILTER, EMPTY_STRING, $content);
+
+    $this->display($contentData);
+  }
+
+  // --------------------------------------------------------------------------------------------------------------------
+
+  public function display($aContent, $aURL = null) {
+    global $gaRuntime;
     $ePrefix = __CLASS__ . '::' . __FUNCTION__ . DASH_SEPARATOR;
 
     if (!$this->contentURL) {
-      if (!$aURL) {
-        gfError($ePrefix . 'You must pass a url');
-      }
-
-      $this->contentURL = $aURL;
+      $this->contentURL = $aURL ?? $gaRuntime['requestPath'];
     }
 
-    $contentDir     = ROOT_PATH . BASE_RELPATH . 'content' . SLASH;
-    $skinDir        = ROOT_PATH . SKIN_RELPATH . SKIN . SLASH;
+    if (!$this->contentBase) {
+      $this->contentDir = ROOT_PATH . BASE_RELPATH . 'content';
+    }
 
-    $template       = gfReadFile($skinDir . 'site-template.xhtml');
-    $stylesheet     = gfReadFile($skinDir . 'site-stylesheet.css');
+    if (!$this->skinPath) {
+      $this->skinPath = ROOT_PATH . SKIN_RELPATH . 'palemoon';
+    }
+
+    $template       = gfReadFile($this->skinPath . SLASH . 'site-template.xhtml');
+    $stylesheet     = gfReadFile($this->skinPath . SLASH . 'site-stylesheet.css');
     $stylesheetHLJS = gfReadFile(dirname(JSMODULES['highlight']) . '/styles/github.css');
 
     $isHTML = false;
 
-    if ($aContent) {
-      if (is_array($aContent)) {
-        $title = $aContent['title'];
-        $content = $aContent['content'];
-        $isHTML = array_key_exists('html', $aContent);
-      }
-      else {
-        $title = 'Content Test';
-        $content = $aContent;
-        $isHTML = str_starts_with($content, '[html-override]');
-      }
+    if (is_array($aContent)) {
+      $title = $aContent['title'];
+      $content = $aContent['content'];
+      $isHTML = array_key_exists('html', $aContent);
     }
     else {
-      $title = CONTENT[$this->contentURL][1];
-      $content = gfReadFile($contentDir . CONTENT[$this->contentURL][0] . CONTENT_EXTENSION);
+      $title = 'Content Test';
+      $content = $aContent;
+      // Content Test supports the legacy html override since it doesn't support YAML
       $isHTML = str_starts_with($content, '[html-override]');
+      // Discard any YAML for the content test
+      $content = preg_replace(REGEX_YAML_FILTER, EMPTY_STRING, $content);
     }
 
     if (!$template || !$stylesheet || !$content) {
@@ -52,15 +87,16 @@ class classGenerateContent {
 
     $finalContent = $template;
 
-    $content = $isHTML ? str_replace('[html-override]', EMPTY_STRING, $content) : $this->parseSeleneCode($content);   
+    $content = $isHTML ? str_replace('[html-override]', EMPTY_STRING, $content) : $this->parseSeleneCode($content);
     $content = '<h1>' . ($this->contentURL == SLASH ? 'Pale Moon Developer Site' : $title) . '</h1>' . NEW_LINE . $content;
 
     $pageSubsts = array(
       '{%SITE_STYLESHEET}'      => $stylesheet,
       '{%HIGHLIGHT_STYLESHEET}' => $stylesheetHLJS,
       '{%PAGE_CONTENT}'         => $content,
-      '{%BASE_PATH}'            => gfStripRootPath($skinDir),
-      '{%CONTENT_PATH}'         => gfStripRootPath($contentDir),
+      '{%BASE_PATH}'            => gfStripRootPath($this->skinPath . SLASH),
+      '{%SKIN_PATH}'            => gfStripRootPath($this->skinPath),
+      '{%CONTENT_PATH}'         => gfStripRootPath($this->contentBase . $this->contentURL),
       '{%SITE_NAME}'            => SITE_NAME,
       '{%PAGE_TITLE}'           => $this->contentURL == SLASH ? 'Front Page' : $title,
       '{%COPYRIGHT_YEAR}'       => date("Y"),

@@ -1,3 +1,17 @@
+---
+title: "Firefox Extension Request and Fork List"
+tags:
+  - Docs
+  - Documents
+  - Project
+  - "Pale Moon"
+  - Development
+  - Contribute
+  - Firefox
+  - "Add-ons"
+  - Extensions
+  - "Old and Insecure"
+---
 [p]This page will track various critical or important Firefox Extensions that the user base has expressed a direct need for since the release of Pale Moon 29.2.0 and map them to any forks or other suitable replacements within our own [url=https://addons.palemoon.org/extensions/?all=1]Add-ons Site[/url].[/p]
 
 [p]This "master list" will be useful for finding extensions that new or current Add-on Developers may wish to fork. Including existing Pale Moon extensions have been abandoned or abused by their developer.[/p]

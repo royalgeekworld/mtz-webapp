@@ -1,3 +1,20 @@
+---
+title: "Profile Migration"
+tags:
+  - Docs
+  - Documents
+  - Project
+  - "Pale Moon"
+  - Basilisk
+  - Profile
+  - Migration
+  - Firefox
+  - Bookmarks
+  - Passwords
+  - UXP
+  - "Unified XUL Platform"
+  - "Old and Insecure"
+---
 [p]Profiles are central to the function of mozilla-based applications since way back in the Netscape days. However, one important fact about them is [b]that migration of profile data is only one way, from older to newer versions of the application[/b]. Pale Moon Profiles are no different.[/p]
 
 [p]In the past when Pale Moon was closer to its wayward sibling, Firefox, one could get away with just a simple file copy operation from one Application Data directory to another. Though, today, this is not so cut and dry. As with Mozilla and [i]other[/i] rebuilds and vague forks one must take care when uplifting an established profile up the line. However, when going between the original mozilla application and legitimate divergent forks or different applications within the same family of forks (Such as Pale Moon and Basilisk both being Phoenix-based specifically) it becomes quite the minefield.[/p]

@@ -1,3 +1,11 @@
+---
+title: "Building Pale Moon: GNU Linux"
+tags:
+  - Build
+  - "Pale Moon"
+  - Instructions
+  - Linux
+---
 [p]These instructions are for building Pale Moon 28.9.* and newer and assumes you want to build the latest release.[/p]
 
 [header="Prerequisites"]

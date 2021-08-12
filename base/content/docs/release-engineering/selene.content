@@ -1,3 +1,22 @@
+---
+title: "Release Engineering"
+tags:
+  - Docs
+  - Documents
+  - Project
+  - "Pale Moon"
+  - Basilisk
+  - Profile
+  - Migration
+  - Firefox
+  - UXP
+  - "Unified XUL Platform"
+  - Release
+  - Engineering
+  - "New Version"
+  - Interlink
+  - "Mail & News"
+---
 [p]Pale Moon (and other applications on the Unified XUL Platform Stable Release train) utilize a four week release cycle. This is mainly due to Mozilla's similar move from a six to eight week cycle to releasing a new Firefox version every four weeks. Since we retain [i]some[/i] historical similarity with our wayward sibling, both Application and Platform wise, we [b]MUST[/b] take care to evaluate any Mozilla security fixes included in their releases.[/p]
 
 [p]However, the current practice that was formalized in an earlier version of this document has proven too inflexible with only allowing approximately three weeks of every four week release cycle for tangible development and testing of often complex and radical changes. Thus we have devised an improved strategy for maximum flexibility and efficiency while satisfying the security requirements imposed by Mozilla's increasingly frantic releases.[/p]

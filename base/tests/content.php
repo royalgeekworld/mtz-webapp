@@ -11,7 +11,7 @@ $post = gfSuperVar('post', 'content');
 
 if ($post) {
   gfImportModules('generateContent');
-  $gmGenerateContent->display('/content-test/', str_replace("\r", '', $post));
+  $gmGenerateContent->display(str_replace("\r", '', $post), '/content-test/');
 }
 else {
   $content = '<form id="content" accept-charset="UTF-8" autocomplete="on" method="POST" enctype="multipart/form-data">' .

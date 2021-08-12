@@ -1,3 +1,15 @@
+---
+title: "Building Pale Moon: Microsoft Windows"
+tags:
+  - Build
+  - "Pale Moon"
+  - Instructions
+  - Microsoft
+  - Windows
+  - "7"
+  - "8"
+  - "10"
+---
 [p]These instructions are for building Pale Moon 28.9.* and newer and assumes you want to build the latest release.[/p]
 
 [header="Prerequisites"]

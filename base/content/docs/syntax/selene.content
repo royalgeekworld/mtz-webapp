@@ -1,4 +1,19 @@
-[html-override]
+---
+title: "Site-Specific Syntax"
+tags:
+  - Docs
+  - Documents
+  - DPMO
+  - Selene
+  - Phoebus
+  - Syntax
+  - "Add-ons Site"
+  - Panel
+  - Git
+  - Repo
+  - Repository
+html: true
+---
 
 <h2><a name="seleneCode"></a>Selene Code</h2>
 
