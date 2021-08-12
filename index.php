@@ -21,7 +21,7 @@ define('DEBUG_MODE', $_GET['debug'] ?? null);
 
 // Define basic constants for the software
 const SOFTWARE_NAME       = 'Selene';
-const SOFTWARE_VERSION    = '1.0.0a1';
+const SOFTWARE_VERSION    = '1.2.0';
 const SOFTWARE_REPO       = 'https://repo.palemoon.org/MoonchildProductions/selene';
 const DATASTORE_RELPATH   = '/datastore/';
 const OBJ_RELPATH         = '/.obj/';
