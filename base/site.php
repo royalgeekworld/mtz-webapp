@@ -77,6 +77,11 @@ const REDIRECTS = array(
 
 // == | Main | ========================================================================================================
 
+// This will handle redirects largely from the old wiki urls to the new urls
+if (array_key_exists($gaRuntime['requestPath'], REDIRECTS)) {
+  gfRedirect(REDIRECTS[$gaRuntime['requestPath']]);
+}
+
 // If the URL is known to us pass it to generateContent
 if (array_key_exists($gaRuntime['requestPath'], CONTENT)) {
   $gvExtraSimpleTags  = EMPTY_ARRAY;
@@ -150,11 +155,6 @@ if (array_key_exists($gaRuntime['requestPath'], CONTENT)) {
   }
 
   $gmGenerateContent->display($gaRuntime['requestPath']);
-}
-
-// This will handle redirects largely from the old wiki urls to the new urls
-if (array_key_exists($gaRuntime['requestPath'], REDIRECTS)) {
-  gfRedirect(REDIRECTS[$gaRuntime['requestPath']]);
 }
 
 // No idea what we should do so 404
