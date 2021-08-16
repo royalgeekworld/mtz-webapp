@@ -5,28 +5,88 @@ tags:
   - "Pale Moon"
   - Instructions
   - Linux
+  - CentOS
+  - AlmaLinux
+  - Debian
+  - Arch
+  - Gentoo
+  - Rice
 ---
 [p]These instructions are for building Pale Moon 28.9.* and newer and assumes you want to build the latest release.[/p]
 
 [header="Prerequisites"]
 
+[section="Basic Dependencies"]
+
 [ul]
-  [li]
-    GCC versions 4.9, 5.x, 7.x, 8.x, 9.x or 10.x
-    [ul]
-      [li]GCC 6.x is not [i]at all[/i] recommended and has been known to produce unstable binaries. It has been reported that Debian-based GCC 6.x seems to produce stable [i]enough[/i] binaries. Your mileage will vary, of course.[/li]
-      [li]GCC 9.x and 10.x are still considered experimental at this time, however, they have thus far produced stable binaries.[/li]
-    [/ul]
-  [/li]
+  [li]GNU Compiler Collection (see below)[/li]
   [li]Python 2.7.x[/li]
   [li]Exactly Autoconf 2.13[/li]
   [li]Yasm 1.2.0 or higher[/li]
   [li]XZ[/li]
   [li]Plenty of free disk space[/li]
-  [li]At least 6 GB RAM free depending on number of processor cores (limit using the [codeline=bash]mk_add_options MOZ_MAKE_FLAGS="-jN"[/codeline] option)[/li]
+  [li]At least 6 GB RAM free depending on number of processor cores[break](limit using the [codeline=bash]mk_add_options MOZ_MAKE_FLAGS="-jN"[/codeline] option)[/li]
   [li]Various distribution specific development packages[/li]
   [li]General system requirements for running the application itself[/li]
 [/ul]
+
+[section="GCC Compatibility"]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+      <!-- Padding Account: 1000 - 30px -->
+      [th width="75px"]Version[/th]
+      [th width="300px"]Status[/th]
+      [th width="595px"]Notes[/th]
+    [/tr]
+    [tr]
+      [td][b]11.x[/b][/td]
+      [td]Pending Support[/td]
+      [td][i]Waiting for EL7 version.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]10.x[/b][/td]
+      [td]Experimental Support[/td]
+      [td][i]Build issues still crop up.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]9.x[/b][/td]
+      [td]Generally Considered Stable[/td]
+      [td][i]Requires more tangible usage testing.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]8.x[/b][/td]
+      [td]Recommended[/td]
+      [td][i]Mid-term tested. Currently in-use for BinOC Applications.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]7.x[/b][/td]
+      [td]Recommended[/td]
+      [td][i]Long-term tested. Currently in-use for MCP Applications.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]6.x[/b][/td]
+      [td]Deprecated, Pending Unsupported[/td]
+      [td][i]Bad track record, generally OK for Debian-based systems.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]5.x[/b][/td]
+      [td]Deprecated, Pending Unsupported[/td]
+      [td][i]Mixed stability based on distributions and minor versions.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]4.9[/b][/td]
+      [td]Deprecated, Pending Unsupported[/td]
+      [td][i]Rock solid for older distributions and systems.[/i][/td]
+    [/tr]
+    [tr]
+      [td][b]<=4.8[/b][/td]
+      [td]Unsupported[/td]
+      [td][i]Used Pre-Unified XUL Platform.[/i][/td]
+    [/tr]
+  [/tbody]
+[/table]
 
 <!-- ============================================================================================================== -->
 
@@ -94,6 +154,9 @@ yum install devtoolset-7-toolchain
 
 [p]Because the system compiler is too old we need to activate the GCC 7 Software Collection environment before we can build. To do so execute the following command:[/p]
 [code=bash]scl enable devtoolset-7 bash[/code]
+
+[p]If you are building a GTK3 build then you will need the development package for it. To install it execute the following command:[/p]
+[code=bash]yum install gtk3-devel[/code]
 
 [section="Debian"]
 [p]Install the required build dependencies by executing the following command:[/p]
