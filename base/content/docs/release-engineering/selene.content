@@ -19,18 +19,50 @@ tags:
 ---
 [p]Pale Moon (and other applications on the Unified XUL Platform Stable Release train) utilize a four week release cycle. This is mainly due to Mozilla's similar move from a six to eight week cycle to releasing a new Firefox version every four weeks. Since we retain [i]some[/i] historical similarity with our wayward sibling, both Application and Platform wise, we [b]MUST[/b] take care to evaluate any Mozilla security fixes included in their releases.[/p]
 
-[p]However, the current practice that was formalized in an earlier version of this document has proven too inflexible with only allowing approximately three weeks of every four week release cycle for tangible development and testing of often complex and radical changes. Thus we have devised an improved strategy for maximum flexibility and efficiency while satisfying the security requirements imposed by Mozilla's increasingly frantic releases.[/p]
-
 [header="The Release Cycle"]
-[p]Pale Moon will primarily be alternating between the type of release every four weeks with a Major/Feature (including security fixes) release and a Minor/Security release. This will be similar in practice to how the releases worked pre-2020.[/p]
+[p]Pale Moon will primarily be alternating between the type of release every four weeks with a Major/Feature release and a Minor/Security release. However, real world factors in tangible development may alter the intended cycle. Be sure to check this page frequently for such changes.[/p]
 
-[p][small][i][b]NOTE[/b]: There will be instances such as a particularly productive development period where it is desirable to make the next release a major one. As well as special occasions such as an approaching milestone release happening or emergency releases such as a target operating system specific out-of-band release or to address a found zero-day flaw. However, we will be sticking with this alternating Major and Security release scheme for the most part.[/i][/small][/p]
+[section="Version numbers and release types"]
+
+[p]The current Pale Moon version scheme is: [small][b][Milestone].[Major/Feature].[Minor/Security][/b][/small] with a forth version point being reserved for [small][b][Out-of-band][/b][/small] releases. Each of these version points corresponds with a type of release for Pale Moon.[/p]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+      <!-- Padding Account: 1000 - 37px -->
+      [th width="123px"]Release Type[/th]
+      [th width="840px"]Description[/th]
+    [/tr]
+    [tr]
+      [td]Milestone[/td]
+      [td]A significant release that may include an abundance of new features and backward-incompatible changes.[/td]
+    [/tr]
+    [tr]
+      [td]Major/Feature[/td]
+      [td]A release which includes new and updated features with or without minor backward-incompatible changes.[/td]
+    [/tr]
+    [tr]
+      [td]Minor/Security[/td]
+      [td]A release with minor changes, bug fixes, and applicable security patches.[/td]
+    [/tr]
+    [tr]
+      [td]Out-of-band[/td]
+      [td]An unscheduled release that resolves critical items on an ad-hoc basis.[/td]
+    [/tr]
+  [/tbody]
+[/table]
+
+[p style="color: #BF0000;"][small][i][b]NOTE:[/b] All release types [b]MAY[/b] and often do contain applicable security patches. For your safety it is recommend that you always stay up to date.[/i][/small][/p]
+
+[p]While we identify all UXP stable releases by date and the above types, we also still maintain an internal platform version number. This "mozilla" version is not currently hard-defined according to any current scheme and should [b]NOT[/b] be relied on for anything.[/p]
+
+[p][small][i][b]NOTE:[/b] Extensions targeting Firefox and Thunderbird for Basilisk (including ports to Pale Moon) and Interlink respectively may be using this version as an indication of platform capability. However, since it currently set to a non-existent "mozilla" version and will eventually progress into existing Gecko/Firefox versions these extensions may start to increasingly malfunction.[/i][/small][/p]
 
 [section="Current 2021 release schedule for Pale Moon"]
 
 [p]The advantage or disadvantage (depending on your point of view) to a set calendar based cycle is that in general our releases are predictable by specific calendar days. As such, we have outlined the anticipated release schedule and it will be kept updated for any changes.[/p]
 
-[p]Each date is offset from Mozilla Firefox's release day by one week to allow requesting of security access and evaluation of any known Mozilla vulnerabilities. This also gives us the time to test and stabilize the codebase for release.[/p]
+[p]Each date is offset from Mozilla's release day by one week to allow requesting of security access and evaluation of any known Mozilla vulnerabilities. This also gives us the time to test and stabilize the codebase for release.[/p]
 
 [table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
 	[tbody]
@@ -68,8 +100,6 @@ tags:
   [/tbody]
 [/table]
 
-[p style="color: #BF0000;"][small][i][b]NOTE:[/b] Major releases do include security fixes (when applicable) and security releases may include minor changes.[/i][/small][/p]
-
 [section="Previous releases of Pale Moon and UXP [small](from 29.0.0 onward)[/small]"]
 
 [table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
@@ -79,6 +109,10 @@ tags:
       [th width="300px"]Pale Moon Release[/th]
       [th width="300px"]Unified XUL Platform Release[/th]
       [th width="370px"]Type of Release[/th]
+    [/tr]
+    [tr]
+      [td colspan="2"][url=http://www.palemoon.org/releasenotes.shtml#v29.4.0.1]Release Notes for 29.4.0.1[/url][/td]
+      [td]Out-of-band Release[/td]
     [/tr]
     [tr]
       [td][url=http://www.palemoon.org/releasenotes.shtml#v29.4.0]Release Notes for 29.4.0[/url][/td]
@@ -101,29 +135,31 @@ tags:
       [td]Major/Feature Release[/td]
     [/tr]
     [tr]
-      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.1.1]Release Notes for 29.1.1[/url][/td]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.1.1]Release Notes for 29.1.1[/url][/td]
       [td][url=https://repo.palemoon.org/MoonchildProductions/UXP/releases/tag/RELBASE_20210330]Change Log for 2021-03-30[/url][/td]
       [td]Minor/Security Release[/td]
     [/tr]
     [tr]
-      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.1.0]Release Notes for 29.1.0[/url][/td]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.1.0]Release Notes for 29.1.0[/url][/td]
       [td][url=https://repo.palemoon.org/MoonchildProductions/UXP/releases/tag/RELBASE_20210302]Change Log for 2021-03-02[/url][/td]
       [td]Major/Feature Release[/td]
     [/tr]
     [tr]
-      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.0.1]Release Notes for 29.0.1[/url][/td]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.0.1]Release Notes for 29.0.1[/url][/td]
       [td][url=https://repo.palemoon.org/MoonchildProductions/UXP/releases/tag/RELBASE_20210205]Change Log for 2021-02-05[/url][/td]
-      [td]Security and Stability Release [small](Out of Band)[/small][/td]
+      [td]Out-of-band Release[/small][/td]
     [/tr]
     [tr]
-      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.0.0]Release Notes for 29.0.0[/url][/td]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.0.0]Release Notes for 29.0.0[/url][/td]
       [td][url=https://repo.palemoon.org/MoonchildProductions/UXP/releases/tag/RELBASE_20210202]Change Log for 2021-02-02[/url][/td]
       [td]Milestone Release[/td]
     [/tr]
   [/tbody]
 [/table]
 
-[Header="The Workflow"]
+[p][small][i][b]NOTE:[/b] Out-of-band releases with no listed UXP Change Log means that the Application was built using the same platform release code as the previous version.[/i][/small][/p]
+
+[Header="The Release Workflow"]
 
 [p]Our release engineering workflow happens over the course of one week starting with Firefox Release Day which tends to always be a Tuesday and will run through the week to the following Tuesday which is our release day as outlined above.[/p]
 
