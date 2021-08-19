@@ -46,11 +46,13 @@ const PHP_ERROR_CODES       = array(
 const HTTP_HEADERS          = array(
   404                       => 'HTTP/1.1 404 Not Found',
   501                       => 'HTTP/1.1 501 Not Implemented',
-  'html'                    => 'Content-Type: text/html',
   'text'                    => 'Content-Type: text/plain',
+  'html'                    => 'Content-Type: text/html',
+  'css'                     => 'Content-Type: text/css',
   'xml'                     => 'Content-Type: text/xml',
   'json'                    => 'Content-Type: application/json',
-  'css'                     => 'Content-Type: text/css',
+  'bin'                     => 'Content-Type: application/octet-stream',
+  'xpi'                     => 'Content-Type: application/x-xpinstall',
 );
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -336,16 +338,29 @@ function gfSuperVar($aVarType, $aVarValue, $aFalsy = null) {
 * @param $aHeader    Short name of header
 **********************************************************************************************************************/
 function gfHeader($aHeader) { 
-  if (!headers_sent() && array_key_exists($aHeader, HTTP_HEADERS)) {   
-    if (DEBUG_MODE) {
-      gfError(HTTP_HEADERS[$aHeader]);
-    }
-    else {
-      header(HTTP_HEADERS[$aHeader]);
+  $ePrefix = __FUNCTION__ . DASH_SEPARATOR;
+  $debugMode = DEBUG_MODE;
+  $isErrorPage = in_array($aHeader, [404, 501]);
 
-      if (in_array($aHeader, [404, 501])) {
-        exit();
-      }
+  if (array_key_exists('gaRuntime', $GLOBALS)) {
+    if (array_key_exists('debugMode', $GLOBALS['gaRuntime'])) {
+      $debugMode = $GLOBALS['gaRuntime']['debugMode'];
+    }
+  }
+
+  if (!array_key_exists($aHeader, HTTP_HEADERS)) {
+    gfError($ePrefix . 'Unknown' . SPACE . $aHeader . SPACE . 'header');
+  }
+
+  if ($debugMode && $isErrorPage) {
+    gfError($ePrefix . HTTP_HEADERS[$aHeader]);
+  }
+
+  if (!headers_sent()) { 
+    header(HTTP_HEADERS[$aHeader]);
+
+    if ($isErrorPage) {
+      exit();
     }
   }
 }
@@ -364,7 +379,7 @@ function gfRedirect($aURL) {
 }
 
 /**********************************************************************************************************************
-* Explodes a string to an array without empty elements if it starts or ends with the seperator
+* Explodes a string to an array without empty elements if it starts or ends with the separator
 *
 * @dep DASH_SEPARATOR
 * @dep gfError()
@@ -380,7 +395,7 @@ function gfExplodeString($aSeparator, $aString) {
   }
 
   if (!str_contains($aString, $aSeparator)) {
-    gfError($ePrefix . 'String does not contain the seperator');
+    gfError($ePrefix . 'String does not contain the separator');
   }
 
   $explodedString = array_values(array_filter(explode($aSeparator, $aString), 'strlen'));
