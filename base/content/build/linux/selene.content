@@ -179,19 +179,23 @@ libpulse gcc
 
 [p]Install the required build dependencies by executing the following commands:[/p]
 
-[code=bash]# Compile time dependencies
-emerge -n1 sys-devel/gcc:7.5.0 =sys-devel/autoconf-2.13 \
+[code=bash]# GCC 7 unmask
+(mkdir /etc/portage/package.unmask; \
+echo "sys-devel/gcc:7.5.0" >> /etc/portage/package.unmask/gcc) || \
+  echo "sys-devel/gcc:7.5.0" >> /etc/portage/package.unmask
+# Compile time dependencies
+emerge -n1 sys-devel/gcc:7.5.0 ~sys-devel/autoconf-2.13 \
 dev-lang/python:2.7 dev-lang/perl dev-lang/yasm
 
 # Runtime time dependencies
 emerge -n x11-libs/libXt app-arch/zip media-libs/freetype media-libs/fontconfig \
-sys-libs/glibc virtual/libffi sys-apps/dbus dev-libs/dbus-glib x11-libs/gtk+:2 \
+sys-libs/glibc dev-libs/libffi sys-apps/dbus dev-libs/dbus-glib x11-libs/gtk+:2 \
 media-sound/pulseaudio net-wireless/wireless-tools
 
-# Set the "x264" USE flag for virtual/ffmpeg and emerge it
+# Set the "x264" USE flag for media-video/ffmpeg and emerge it
 (mkdir /etc/portage/package.use; \
-echo "virtual/ffmpeg x264" >> /etc/portage/package.use/ffmpeg) || \
-  echo "virtual/ffmpeg x264" >> /etc/portage/package.use
+echo "media-video/ffmpeg x264" >> /etc/portage/package.use/ffmpeg) || \
+  echo "media-video/ffmpeg x264" >> /etc/portage/package.use
 emerge -nN ffmpeg
 [/code]
 
