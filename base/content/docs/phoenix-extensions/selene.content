@@ -245,7 +245,7 @@ tags:
 		[/tr]
     [joaddon joslug="active-stop-button" joname="Active Stop Button"]
     [joaddon joslug="add-bookmark-helper" joname="Add Bookmark Helper"]
-    [joaddon joslug="advanced-night-mode" joname="Advanced Night Mode"]
+    [joaddon joslug="advanced-night-mode" joname="Advanced Night Mode" pmslug="swarth" pmname="Swarth"]
     [joaddon joslug="dismiss-the-overlay" joname="Dismiss The Overlay"]
     [joaddon joslug="cookies-exterminator" joname="Cookies Exterminator"]
     [joaddon joslug="github-wc-polyfill" joname="GitHub Web Components Polyfill"]
