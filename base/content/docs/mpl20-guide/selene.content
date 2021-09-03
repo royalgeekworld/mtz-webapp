@@ -129,7 +129,7 @@ If you create a program that does not have a mention that it is built using MPL 
 You have to treat non-compliant source code, repositories, archives and programs as if they are proprietary and fully under each contributor's copyright. Not doing so may lead to DMCA notices and legal proceedings if persisted.
 [/p]
 
-[p]Further on the "you can't copy from a non-compliant repository" is the fact that if you [i]do[/i] fork or pull from a non-cmpliant repository, your own repository now also becomes non-compliant because you have introduced code into it for which you had no permission. Thankfully, such non-compliance in the case of pulls is easy to solve by rolling back to before your pull and making sure none of the commits from the repository in non-compliant state remain present in your repository (i.e. making sure to remove any commits and tags that were drawn from a non-compliant upstream).[br]
+[p]Further on the "you can't copy from a non-compliant repository" is the fact that if you [i]do[/i] fork or pull from a non-compliant repository, your own repository now also becomes non-compliant because you have introduced code into it for which you had no permission. Thankfully, such non-compliance in the case of pulls is easy to solve by rolling back to before your pull and making sure none of the commits from the repository in non-compliant state remain present in your repository (i.e. making sure to remove any commits and tags that were drawn from a non-compliant upstream).[br]
 Of course it is fine to retain any [i]historical[/i] commits from when the upstream repository was still compliant (since non-compliance is not retroactive). New forks, however, can never come into compliance by going to any historical commit in the forked repository because none of the repository's content had permission for making a copy when it was forked. The entire fork is and will remain non-compliant as the copy was illegal.[br]
 In short: you cannot continue to use a repository as your upstream or as a source of code from the moment it becomes non-compliant, and you cannot create new forks of non-compliant repositories.[/p]
 
@@ -159,6 +159,10 @@ As such, this only directly affects the code used and published by the person wh
 I.e. treat it the same as you would fully copyrighted code.[/p]
 
 [p]Hopefully this clarifies the MPL to everyone in an easy to understand way.[/p]
+
+[section="Disclaimer"]
+
+[p]Please note that, while this guide is intended to be accurate and helpful, it is not the license, and may not cover important issues that affect you and your specific situation. As a result, reading the guide should not serve as a substitute for reading the license itself, or for seeking legal advice from a lawyer.[/p]
 
 
 
