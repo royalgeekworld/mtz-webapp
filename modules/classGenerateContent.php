@@ -163,6 +163,7 @@ class classGenerateContent {
       '[dblbreak]'                                          => '<br /><br />',
       '[/code]'                                             => '</code></pre>',
       '[/codeline]'                                         => '</code></pre>',
+      '[separator]'                                         => '<hr style="display: block; width: 66%; margin: 2em auto;" />',
     );
 
     $seleneCodeSuperRegex = 'span|p|ul|ol|li|hr|table|th|tr|td|hr|caption|col|colgroup|thead|tbody|tfoot';
@@ -175,6 +176,7 @@ class classGenerateContent {
       "\[title=\"(.*)\"\]"                                  => '<h1>$1</h1>',
       "\[header=\"(.*)\"\]"                                 => '<h2>$1</h2>',
       "\[section=\"(.*)\"\]"                                => '<h3>$1</h3>',
+      "\[anchor=(.*)\]"                                     => '<a name="$1"></a>',
       "\[script=(.*)\]"                                     => '<script src="$1" type="text/javascript"></script>',
       "\[link=(.*)\](.*)\[\/link\]"                         => '<a href="$1">$2</a>',
       "\[url=(.*)\](.*)\[\/url\]"                           => '<a href="$1" target="_blank">$2</a>',

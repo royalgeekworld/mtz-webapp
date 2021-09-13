@@ -1,0 +1,59 @@
+---
+title: "Platform Change Log"
+tags:
+  - Docs
+  - Documents
+  - Project
+  - "Pale Moon"
+  - Basilisk
+  - UXP
+  - "Unified XUL Platform"
+  - Release
+  - Engineering
+  - "New Version"
+  - Interlink
+  - "Mail & News"
+---
+
+[p]This document will log the changes to the platform code base that is common to Moonchild Productions and Binary Outcast XUL-based Applications.[/p]
+
+[p][small][b]NOTE:[/b] This page will gain historical Change Logs for previous versions in due course.[/small][/p]
+
+<!-- ============================================================================================================== -->
+
+[header][anchor=RELBASE_20210823]August 23, 2021[/header]
+
+[p]This is a [link=/docs/releng-guidelines/]Out-of-band[/link] Release of the Unified XUL Platform.[/p]
+
+[section="Changes"]
+[ul]
+  [li]Revert Issue #1806 - Update libcubeb[/li]
+[/ul]
+
+[separator] <!-- ============================================================================================================== -->
+
+[header][anchor=RELBASE_20210817]August 17, 2021[/header]
+
+[p]This is a [link=/docs/releng-guidelines/]Major/Feature Release[/link] Release of the Unified XUL Platform.[/p]
+
+[section="Resolved"]
+[ul]
+  [li]Issue #1725 - Implement [codeline=javascript]Promise.allSettled()[/codeline][/li]
+  [li]Issue #1797 - Implement [codeline=javascript]WindowOrWorkerGlobalScope.origin[/codeline][/li]
+  [li]Issue #1806 - Update libcubeb[/li]
+  [li]Standalone Commit - Update SQLite to 3.36.0[/li]
+[/ul]
+
+[section="Security Fix Overview (by component)"]
+[ul]
+  [li]DOM: HTML[/li]
+  [li]DOM: Workers[/li]
+  [li]MFBT[/li]
+  [li]Netwerk: Cache2[/li]
+[/ul]
+
+[separator] <!-- ============================================================================================================== -->
+
+[header]Source Code[/header]
+
+[p]Please see the historical repositories or the application's main site for more information on how to obtain relevant source code.[/p]
