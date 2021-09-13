@@ -80,7 +80,7 @@ switch ($gvSpecialFunction) {
     $testsHTML = EMPTY_STRING;
 
     foreach ($arrayFinalTests as $_value) {
-      $testsHTML .= '<li><a href="/test/?case=' . $_value . '">' . $_value . '</a></li>';
+      $testsHTML .= '<li><a href="/special/test/?case=' . $_value . '">' . $_value . '</a></li>';
     }
 
     $testsHTML = '<ul>' . $testsHTML . '</ul>';
