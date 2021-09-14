@@ -21,7 +21,7 @@ tags:
 
 [header="Firefox to Pale Moon"]
 
-[p]The hard and fast rule is that Firefox profiles can be migrated to Pale Moon as-is if the profile is from Firefox 24 and no newer. This is because while we have progressed through two platform code rebases (Tycho and UXP) the Pale Moon specific application code in its current incarnation largely originates from the Firefox 24 state despite being updated and ported up twenty-eight relative Mozilla platform codebases.[/p]
+[p]The hard and fast rule is that Firefox profiles can be migrated to Pale Moon as-is if the profile is from Firefox 24 and no newer. This is because while we have progressed through two platform code rebases (Tycho and Platform) the Pale Moon specific application code in its current incarnation largely originates from the Firefox 24 state despite being updated and ported up twenty-eight relative Mozilla platform codebases.[/p]
 
 [p]Firefox 24 (or older back to at least Firefox 4) should successfully migrate them selves through Pale Moon 28.17.0 to the latest Pale Moon release. Why 28.17.0? Because this was the last version capable of migrating your NSS credential stores from DBM to SQLite. After that you can take the profile to the latest release. However, [b]for the best results[/b] you should take your Firefox >=24 profile through Pale Moon 26.5.x to 27.9.4 to 28.17.0 to latest release.[/p]
 

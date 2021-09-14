@@ -16,7 +16,7 @@ There are limits to what we can offer in terms of end user support for builds yo
 
 [section="Build targets"]
 
-[p]Pale Moon (and the Unified XUL Platform) can be built for many systems. While the process is similar across the board, each target operating system or processor architecture has its own specifics.[/p]
+[p]Pale Moon (and the Platform Codebase) can be built for many systems. While the process is similar across the board, each target operating system or processor architecture has its own specifics.[/p]
 
 [ul]
   [li][link=/build/windows/]Microsoft Windows[/link][/li]

@@ -21,6 +21,19 @@ tags:
 
 <!-- ============================================================================================================== -->
 
+[header][anchor=RELBASE_20210914]September 14, 2021[/header]
+
+[p]This is a [link=/docs/releng-guidelines/]Minor/Security[/link] Release of the Platform Codebase.[/p]
+
+[section="Security Fix Overview (by component)"]
+[ul]
+  [li]DOM: IPC[/li]
+  [li]Pref: Network[/li]
+  [li]XPCOM: Threads[/li]
+[/ul]
+
+[separator] <!-- ============================================================================================================== -->
+
 [header][anchor=RELBASE_20210823]August 23, 2021[/header]
 
 [p]This is a [link=/docs/releng-guidelines/]Out-of-band[/link] Release of the Unified XUL Platform.[/p]

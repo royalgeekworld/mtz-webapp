@@ -20,7 +20,7 @@ tags:
   - MPLv2
   - "MPL 2.0"
 ---
-[p]Pale Moon (and any other application building on the Unified XUL Platform) is licensed under the Mozilla Public License version 2.0. For brevity, this is referred to as (the) MPL in the rest of this page.[/p]
+[p]Pale Moon (and any other application building on the Platform Codebase) is licensed under the Mozilla Public License version 2.0. For brevity, this is referred to as (the) MPL in the rest of this page.[/p]
 [p]The full license text can be found at [url=https://www.mozilla.org/en-US/MPL/2.0/]https://www.mozilla.org/en-US/MPL/2.0/[/url], but this guide was written for contributors who might have trouble with legalese and need to know in plain terms what their rights and obligations are under this license, to avoid unnecessary and extensive, potentially very confusing debates about what should or should not be done in a particular situation.[/p]
 
 [header="Understanding ownership"]
