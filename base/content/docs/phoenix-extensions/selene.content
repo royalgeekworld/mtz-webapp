@@ -222,6 +222,7 @@ tags:
     [fxaddon fxslug="screenshoter-fixed" fxname="Screenshoter (Fixed)" fxreason="Illegal fork"]
     [fxaddon fxslug="download-manager-tweak" fxname="Download Manager Tweak" pmslug="download-manager-customizations" pmname="Download Manager Customizations"]
     [fxaddon fxslug="easyscreenshot" fxname="Easy Screenshot" pmslug="simple-screenshot" pmname="Simple Screenshot"]
+    [fxaddon fxslug="element-properties" fxname="Element Properties" pmslug="properties-dialog" pmname="Properties dialog"]
   [/tbody]
 [/table]
 
