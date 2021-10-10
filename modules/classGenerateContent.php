@@ -151,6 +151,8 @@ class classGenerateContent {
       "\[link=(.*)\](.*)\[\/link\]"       => '<a href="$1">$2</a>',
       "\[url=(.*)\](.*)\[\/url\]"         => '<a href="$1" target="_blank">$2</a>',
       "\[url\](.*)\[\/url\]"              => '<a href="$1" target="_blank">$1</a>',
+      "\[\/code\]"                        => '</code></pre>',
+      "\[\/codeline\]"                    => '</code></pre>',
       "\[code=(.*)\]"                     => '<pre style="' . $basePreStyle . $blockPreStyle . '">' .
                                              '<code class="$1" style="' . $codePreStyle . '">',
       "\[codeline=(.*)\]"                 => '<pre style="' . $basePreStyle . $inlinePreStyle .'">' .
