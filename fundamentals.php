@@ -53,6 +53,8 @@ const HTTP_HEADERS          = array(
   'json'                    => 'Content-Type: application/json',
   'bin'                     => 'Content-Type: application/octet-stream',
   'xpi'                     => 'Content-Type: application/x-xpinstall',
+  '7z'                      => 'Content-Type: application/x-7z-compressed',
+  'xz'                      => 'Content-Type: application/x-xz',
 );
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -66,6 +68,7 @@ const SLASH                 = "/";
 const DOT                   = ".";
 const DASH                  = "-";
 const UNDERSCORE            = "_";
+const PIPE                  = "|";
 const DOTDOT                = DOT . DOT;
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -81,6 +84,11 @@ const RDF_EXTENSION         = DOT . 'rdf';
 const JSON_EXTENSION        = DOT . 'json';
 const CONTENT_EXTENSION     = DOT . 'content';
 const XPINSTALL_EXTENSION   = DOT . 'xpi';
+const WINSTALLER_EXTENSION  = DOT . 'installer' . DOT .'exe';
+const WINPORTABLE_EXTENSION = DOT . 'portable' . DOT .'exe';
+const SEVENZIP_EXTENSION    = DOT . '7z';
+const TARXZ_EXTENSION       = DOT . 'tar' . DOT . 'xz';
+const MAR_EXTENSION         = DOT . 'complete' . DOT .'mar';
 const TEMP_EXTENSION        = DOT . 'temp';
 
 // --------------------------------------------------------------------------------------------------------------------
