@@ -85,10 +85,11 @@ class classGenerateContent {
       gfError($ePrefix . 'Failed to generate content.');
     }
 
-    $finalContent = $template;
+    $page = $template;
 
-    $content = $isHTML ? str_replace('[html-override]', EMPTY_STRING, $content) : $this->parseSeleneCode($content);
-    $content = '<h1>' . ($this->contentURL == SLASH ? 'Pale Moon Developer Site' : $title) . '</h1>' . NEW_LINE . $content;
+    $content = $isHTML ? str_replace('[html-override]', EMPTY_STRING, $content) : $this->parseCodeTags($content, true, true);
+    $content = '<h1>' . ($this->contentURL == SLASH ? str_replace(DASH_SEPARATOR, SPACE, SITE_NAME) : $title) .
+               '</h1>' . NEW_LINE . $content;
 
     $pageSubsts = array(
       '{%SITE_STYLESHEET}'      => $stylesheet,
@@ -106,105 +107,87 @@ class classGenerateContent {
     );
 
     if (is_string($aContent)) {
-      $pageSubsts['{%PAGE_CONTENT}'] = '<p><a href="#" onclick="window.history.back();"><-- Back</a></p>' . $pageSubsts['{%PAGE_CONTENT}'];
+      $backLink = '<p><a href="#" onclick="window.history.back();"><-- Back</a></p>';
+      $pageSubsts['{%PAGE_CONTENT}'] = $backLink . $pageSubsts['{%PAGE_CONTENT}'];
     }
 
-    foreach ($pageSubsts as $_key => $_value) {
-      $finalContent = str_replace($_key, $_value, $finalContent);
-    }
+    $page = gfSubst('simple', $pageSubsts, $page);
 
     // Clear contentURL for reasons
     $this->contentURL = null;
 
     // Set header and print the content and fuck off...
     gfHeader('html');
-    print($finalContent);
+    print($page);
     exit();
   }
 
   // --------------------------------------------------------------------------------------------------------------------
 
-  private function parseSeleneCode($aContent) {     
-    $aContent = preg_replace('/\<\!\-\- (.*) \-\-\>\n/iU', '', $aContent);
+  private function parseCodeTags($aContent, $allowHTMLAttrs = false, $allowScripts = false) {
+    $aContent = preg_replace('/\<\!\-\- (.*) \-\-\>\n/iU', EMPTY_STRING, $aContent);
     $aContent = htmlentities($aContent, ENT_XHTML);
 
-    $seleneCodeSimpleTags = array(
-      '[title]'                                             => '<h1>',
-      '[/title]'                                            => '</h1>',
-      '[header]'                                            => '<h2>',
-      '[/header]'                                           => '</h2>',
-      '[section]'                                           => '<h3>',
-      '[/section]'                                          => '</h3>',
-      '[small]'                                             => '<small>',
-      '[/small]'                                            => '</small>',
-      '[/span]'                                             => '</span>',    
-      '[b]'                                                 => '<strong>',
-      '[/b]'                                                => '</strong>',
-      '[i]'                                                 => '<em>',
-      '[/i]'                                                => '</em>',
-      '[u]'                                                 => '<u>',
-      '[/u]'                                                => '</u>',
-      '[/ul]'                                               => '</ul>',
-      '[/ol]'                                               => '</ol>',
-      '[/li]'                                               => '</li>',
-      '[/p]'                                                => '</p>',
-      '[/table]'                                            => '</table>',
-      '[/th]'                                               => '</th>',
-      '[/tr]'                                               => '</tr>',
-      '[/td]'                                               => '</td>',
-      '[/caption]'                                          => '</caption>',
-      '[/col]'                                              => '</col>',
-      '[/colgroup]'                                         => '</colgroup>',
-      '[/thead]'                                            => '</thead>',
-      '[/tbody]'                                            => '</tbody>',
-      '[/tfoot]'                                            => '</tfoot>',
-      '[br]'                                                => '<br />',
-      '[break]'                                             => '<br />',
-      '[dblbreak]'                                          => '<br /><br />',
-      '[/code]'                                             => '</code></pre>',
-      '[/codeline]'                                         => '</code></pre>',
-      '[separator]'                                         => '<hr style="display: block; width: 66%; margin: 2em auto;" />',
+    // XXXTobin: Move HLJS override styling to stylesheet
+    $basePreStyle                   = 'background-color: #ecf3f7 !important; border: 1px solid #cedfea !important;' . 
+                                      'border-radius: 6px !important;';
+    $blockPreStyle                  = 'padding: 4px !important;';
+    $inlinePreStyle                 = 'display: inline !important; line-height: 20pt !important;';
+    $codePreStyle                   = 'background-color: transparent !important;';
+
+    $htmlTags       = ['p', 'span', 'small', 'br', 'hr', 'ul', 'ol', 'li', 'table', 'th', 'tr', 'td',
+                       'caption', 'col', 'colgroup', 'thead', 'tbody', 'tfoot'];
+    $simpleTags     = implode(PIPE, array_merge($htmlTags, ['title', 'header', 'section', 'b', 'i', 'u']));
+    $regexTags      = array(
+      "\[\/(" . $simpleTags . ")\]"       => '</$1>',
+      "\[(" . $simpleTags . ")\]"         => '<$1>',
+      "\[break\]"                         => '<br />',
+      "\[dblbreak\]"                      => '<br /><br/>',
+      "\[separator\]"                     => '<hr style="display: block; width: 66%; margin: 2em auto;" />',
+      "\[title=\"(.*)\"\]"                => '<h1>$1</h1>',
+      "\[header=\"(.*)\"\]"               => '<h2>$1</h2>',
+      "\[section=\"(.*)\"\]"              => '<h3>$1</h3>',
+      "\[anchor=(.*)\]"                   => '<a name="$1"></a>',
+      "\[link=(.*)\](.*)\[\/link\]"       => '<a href="$1">$2</a>',
+      "\[url=(.*)\](.*)\[\/url\]"         => '<a href="$1" target="_blank">$2</a>',
+      "\[url\](.*)\[\/url\]"              => '<a href="$1" target="_blank">$1</a>',
+      "\[code=(.*)\]"                     => '<pre style="' . $basePreStyle . $blockPreStyle . '">' .
+                                             '<code class="$1" style="' . $codePreStyle . '">',
+      "\[codeline=(.*)\]"                 => '<pre style="' . $basePreStyle . $inlinePreStyle .'">' .
+                                             '<code class="$1" style="display: inline; ' . $codePreStyle . '">',
+
     );
 
-    $seleneCodeSuperRegex = 'span|p|ul|ol|li|hr|table|th|tr|td|hr|caption|col|colgroup|thead|tbody|tfoot';
-    $basePreStyle = 'background-color: #ecf3f7 !important; border: 1px solid #cedfea !important; border-radius: 6px !important;';
-    $blockPreStyle = 'padding: 4px !important;';
-    $inlinePreStyle = 'display: inline !important; line-height: 20pt !important;';
-    $codePreStyle = 'background-color: transparent !important;';
+    // Should we allow script tags?
+    if ($allowScripts) {
+      $regexTags["\[script=(.*)\]"] = '<script src="$1" type="text/javascript"></script>';
+    }
 
-    $seleneCodeRegexTags = array(
-      "\[title=\"(.*)\"\]"                                  => '<h1>$1</h1>',
-      "\[header=\"(.*)\"\]"                                 => '<h2>$1</h2>',
-      "\[section=\"(.*)\"\]"                                => '<h3>$1</h3>',
-      "\[anchor=(.*)\]"                                     => '<a name="$1"></a>',
-      "\[script=(.*)\]"                                     => '<script src="$1" type="text/javascript"></script>',
-      "\[link=(.*)\](.*)\[\/link\]"                         => '<a href="$1">$2</a>',
-      "\[url=(.*)\](.*)\[\/url\]"                           => '<a href="$1" target="_blank">$2</a>',
-      "\[url\](.*)\[\/url\]"                                => '<a href="$1" target="_blank">$1</a>',
-      "\[img(.*)\](.*)\[\/img\]"                            => '<img src="$2"$1 />',
-      "\[code=(.*)\]"                                       => '<pre style="' . $basePreStyle . $blockPreStyle . '">' .
-                                                               '<code class="$1" style="' . $codePreStyle . '">',
-      "\[codeline=(.*)\]"                                   => '<pre style="' . $basePreStyle . $inlinePreStyle .'">' .
-                                                               '<code class="$1" style="display: inline; ' . $codePreStyle . '">',
-      "\[(" . $seleneCodeSuperRegex . ")(.*)\]"             => '<$1$2>',
-    );
+    // Should we allow attributes on HTML tags?
+    // Additionally, this adds support for the img tag
+    if ($allowHTMLAttrs) {
+      $regexTags["\[img(.*)\](.*)\[\/img\]"] = '<img src="$2"$1 />';
+      $regexTags["\[(" . $simpleTags . ")(.*)\]"] = '<$1$2>';
+    }
 
+    // Maintain support for custom simple tags in the previous implementation but do the subst at once
     if ($this->extraSimpleTags) {
-      $seleneCodeSimpleTags = array_merge($seleneCodeSimpleTags, $this->extraSimpleTags);
+      $aContent = gfSubst('simple', $this->extraSimpleTags, $aContent);
     }
 
+    // Support extra regex tags
     if ($this->extraRegexTags) {
-      $seleneCodeRegexTags = array_merge($seleneCodeRegexTags, $this->extraRegexTags);
+      $regexTags = array_merge($regexTags, $this->extraRegexTags);
     }
 
-    // Process the substs
-    $aContent = gfSubst('simple', $seleneCodeSimpleTags, $aContent);
-    $aContent = gfSubst('regex', $seleneCodeRegexTags, $aContent);
+    // Finally process the regex substs
+    $aContent = gfSubst('regex', $regexTags, $aContent);
 
     // Clear the extra tag class vars
     $this->extraSimpleTags = null;
     $this->extraRegexTags = null;
 
+    // And return
     return $aContent;
   }
 }
