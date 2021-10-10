@@ -157,7 +157,6 @@ class classGenerateContent {
                                              '<code class="$1" style="' . $codePreStyle . '">',
       "\[codeline=(.*)\]"                 => '<pre style="' . $basePreStyle . $inlinePreStyle .'">' .
                                              '<code class="$1" style="display: inline; ' . $codePreStyle . '">',
-
     );
 
     // Should we allow script tags?
@@ -169,7 +168,7 @@ class classGenerateContent {
     // Additionally, this adds support for the img tag
     if ($allowHTMLAttrs) {
       $regexTags["\[img(.*)\](.*)\[\/img\]"] = '<img src="$2"$1 />';
-      $regexTags["\[(" . $simpleTags . ")(.*)\]"] = '<$1$2>';
+      $regexTags["\[(" . implode(PIPE, $htmlTags) . ")(.*)\]"] = '<$1$2>';
     }
 
     // Maintain support for custom simple tags in the previous implementation but do the subst at once
