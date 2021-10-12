@@ -135,26 +135,31 @@ class classGenerateContent {
     $inlinePreStyle                 = 'display: inline !important; line-height: 20pt !important;';
     $codePreStyle                   = 'background-color: transparent !important;';
 
-    $htmlTags       = ['p', 'span', 'small', 'br', 'hr', 'ul', 'ol', 'li', 'table', 'th', 'tr', 'td',
-                       'caption', 'col', 'colgroup', 'thead', 'tbody', 'tfoot'];
-    $simpleTags     = implode(PIPE, array_merge($htmlTags, ['title', 'header', 'section', 'b', 'i', 'u']));
+    $htmlTags       = implode(PIPE, ['p', 'span', 'small', 'br', 'hr', 'ul', 'ol', 'li', 'table', 'th', 'tr', 'td',
+                                     'caption', 'col', 'colgroup', 'thead', 'tbody', 'tfoot']);
     $regexTags      = array(
-      "\[\/(" . $simpleTags . ")\]"       => '</$1>',
-      "\[(" . $simpleTags . ")\]"         => '<$1>',
+      "\[\/(" . $htmlTags . ")\]"         => '</$1>',
+      "\[(" . $htmlTags . ")\]"           => '<$1>',
       "\[break\]"                         => '<br />',
       "\[dblbreak\]"                      => '<br /><br/>',
       "\[separator\]"                     => '<hr style="display: block; width: 66%; margin: 2em auto;" />',
       "\[title=\"(.*)\"\]"                => '<h1>$1</h1>',
       "\[header=\"(.*)\"\]"               => '<h2>$1</h2>',
       "\[section=\"(.*)\"\]"              => '<h3>$1</h3>',
+      "\[title](.*)\[\/title\]"           => '<h1>$1</h1>',
+      "\[header](.*)\[\/header\]"         => '<h2>$1</h2>',
+      "\[section](.*)\[\/header\]"        => '<h3>$1</h3>',
+      "\[b](.*)\[\/b\]"                   => '<strong>$1</strong>',
+      "\[i](.*)\[\/i\]"                   => '<em>$1</em>',
+      "\[u](.*)\[\/u\]"                   => '<u>$1</u>',
       "\[anchor=(.*)\]"                   => '<a name="$1"></a>',
       "\[link=(.*)\](.*)\[\/link\]"       => '<a href="$1">$2</a>',
       "\[url=(.*)\](.*)\[\/url\]"         => '<a href="$1" target="_blank">$2</a>',
       "\[url\](.*)\[\/url\]"              => '<a href="$1" target="_blank">$1</a>',
       "\[\/code\]"                        => '</code></pre>',
-      "\[\/codeline\]"                    => '</code></pre>',
       "\[code=(.*)\]"                     => '<pre style="' . $basePreStyle . $blockPreStyle . '">' .
                                              '<code class="$1" style="' . $codePreStyle . '">',
+      "\[\/codeline\]"                    => '</code></pre>',
       "\[codeline=(.*)\]"                 => '<pre style="' . $basePreStyle . $inlinePreStyle .'">' .
                                              '<code class="$1" style="display: inline; ' . $codePreStyle . '">',
     );
@@ -168,7 +173,7 @@ class classGenerateContent {
     // Additionally, this adds support for the img tag
     if ($allowHTMLAttrs) {
       $regexTags["\[img(.*)\](.*)\[\/img\]"] = '<img src="$2"$1 />';
-      $regexTags["\[(" . implode(PIPE, $htmlTags) . ")(.*)\]"] = '<$1$2>';
+      $regexTags["\[(" . $htmlTags . ")(.*)\]"] = '<$1$2>';
     }
 
     // Maintain support for custom simple tags in the previous implementation but do the subst at once
