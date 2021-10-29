@@ -21,7 +21,7 @@ define('DEBUG_MODE', $_GET['debug'] ?? null);
 
 // Define basic constants for the software
 const SOFTWARE_NAME       = 'Selene';
-const SOFTWARE_VERSION    = '1.2.0';
+const SOFTWARE_VERSION    = '1.2.1';
 const SOFTWARE_REPO       = 'https://repo.palemoon.org/MoonchildProductions/selene';
 const DATASTORE_RELPATH   = '/datastore/';
 const OBJ_RELPATH         = '/.obj/';
@@ -71,48 +71,104 @@ require_once('./fundamentals.php');
 * @param $aList       Use list for content
 * @param $aError      Is an Error Page
 ***********************************************************************************************************************/
-function gfGenContent($aTitle, $aContent, $aTextBox = null, $aList = null, $aError = null) {
-  $templateHead = @file_get_contents('./skin/special/template-header.xhtml');
-  $templateFooter = @file_get_contents('./skin/special/template-footer.xhtml');
+function gfGenContent($aMetadata, $aLegacyContent = null, $aTextBox = null, $aList = null, $aError = null) {
+  $ePrefix = __FUNCTION__ . DASH_SEPARATOR;
+  $skinPath = '/skin/default';
 
-  // Make sure the template isn't busted, if it is send a text only error as an array
-  if (!$templateHead || !$templateFooter) {
-    gfError([__FUNCTION__ . ': Special Template is busted...', $aTitle, $aContent], -1);
-  }
-
-  // Can't use both the textbox and list arguments
-  if ($aTextBox && $aList) {
-    gfError(__FUNCTION__ . ': You cannot use both textbox and list');
-  }
-
-  // Anonymous function to determin if aContent is a string-ish or not
-  $notString = function() use ($aContent) {
+  // Anonymous functions
+  $contentIsStringish = function($aContent) {
     return (!is_string($aContent) && !is_int($aContent)); 
   };
 
-  // If not a string var_export it and enable the textbox
-  if ($notString()) {
-    $aContent = var_export($aContent, true);
-    $aTextBox = true;
-    $aList = false;
+  $textboxContent = function($aContent) {
+    return '<textarea class="special-textbox aligncenter" name="content" rows="36" readonly>' .
+           $aContent . '</textarea>';
+  };
+
+  $template = gfReadFile(DOT . $skinPath . SLASH . 'template.xhtml');
+
+  if (!$template) {
+    gfError($ePrefix . 'Special Template is busted...', null, true);
   }
 
-  // Use either a textbox or an unordered list
-  if ($aTextBox) {
-    // We are using the textbox so put aContent in there
-    $aContent = '<textarea style="width: 1195px; resize: none;" name="content" rows="36" readonly>' .
-                $aContent .
-                '</textarea>';
+  $pageSubsts = array(
+    '{$SKIN_PATH}'        => $skinPath,
+    '{$SITE_NAME}'        => defined('SITE_NAME') ? SITE_NAME : SOFTWARE_NAME . SPACE . SOFTWARE_VERSION,
+    '{$SITE_MENU}'        => EMPTY_STRING,
+    '{$PAGE_TITLE}'       => null,
+    '{$PAGE_CONTENT}'     => null,
+    '{$SOFTWARE_NAME}'    => SOFTWARE_NAME,
+    '{$SOFTWARE_VERSION}' => SOFTWARE_VERSION,
+  );
+
+  if ($aLegacyContent) {
+    if (is_array($aMetadata)) {
+      gfError($ePrefix . 'aMetadata may not be an array in legacy mode.');
+    }
+
+    if ($aTextBox && $aList) {
+      gfError($ePrefix . 'You cannot use both textbox and list');
+    }
+
+    if ($contentIsStringish($aLegacyContent)) {
+      $aLegacyContent = var_export($aLegacyContent, true);
+      $aTextBox = true;
+      $aList = false;
+    }
+
+    if ($aTextBox) {
+      $aLegacyContent = $textboxContent($aLegacyContent);
+    }
+    elseif ($aList) {
+      // We are using an unordered list so put aLegacyContent in there
+      $aLegacyContent = '<ul><li>' . $aLegacyContent . '</li><ul>';
+    }
+
+    if (!$aError && ($GLOBALS['gaRuntime']['qTestCase'] ?? null)) {
+      $pageSubsts['{$PAGE_TITLE}'] = 'Test Case' . DASH_SEPARATOR . $GLOBALS['gaRuntime']['qTestCase'];
+
+      foreach ($GLOBALS['gaRuntime']['siteMenu'] ?? EMPTY_ARRAY as $_key => $_value) {
+        $pageSubsts['{$SITE_MENU}'] .= '<li><a href="' . $_key . '">' . $_value . '</a></li>';
+      }
+    }
+    else {
+      $pageSubsts['{$PAGE_TITLE}'] = $aMetadata;
+    }
+
+    $pageSubsts['{$PAGE_CONTENT}'] = $aLegacyContent;
   }
-  elseif ($aList) {
-    // We are using an unordered list so put aContent in there
-    $aContent = '<ul><li>' . $aContent . '</li><ul>';
+  else {
+    if ($aTextBox || $aList) {
+      gfError($ePrefix . 'Mode attributes are deprecated.');
+    }
+
+    if (!array_key_exists('title', $aMetadata) && !array_key_exists('content', $aMetadata)) {
+      gfError($ePrefix . 'You must specify a title and content');
+    }
+
+    $pageSubsts['{$PAGE_TITLE}'] = $aMetadata['title'];
+    $pageSubsts['{$PAGE_CONTENT}'] = $contentIsStringish($aMetadata['content']) ?
+                                     $textboxContent(var_export($aMetadata['content'], true)) :
+                                     $aMetadata['content'];
+
+    foreach ($aMetadata['menu'] ?? EMPTY_ARRAY as $_key => $_value) {
+      $pageSubsts['{$SITE_MENU}'] .= '<li><a href="' . $_key . '">' . $_value . '</a></li>';
+    }
   }
 
-  // Set page title
-  $templateHead = str_replace('<title></title>',
-                  '<title>' . $aTitle . ' - ' . SOFTWARE_NAME . ' ' . SOFTWARE_VERSION . '</title>',
-                  $templateHead);
+  if ($pageSubsts['{$SITE_MENU}'] == EMPTY_STRING) {
+    $pageSubsts['{$SITE_MENU}'] = '<li><a href="/">Root</a></li>';
+  }
+
+  if (!str_starts_with($pageSubsts['{$PAGE_CONTENT}'], '<p') &&
+      !str_starts_with($pageSubsts['{$PAGE_CONTENT}'], '<ul') &&
+      !str_starts_with($pageSubsts['{$PAGE_CONTENT}'], '<h1') &&
+      !str_starts_with($pageSubsts['{$PAGE_CONTENT}'], '<h2') &&
+      !str_starts_with($pageSubsts['{$PAGE_CONTENT}'], '<table')) {
+    $pageSubsts['{$PAGE_CONTENT}'] = '<p>' . $pageSubsts['{$PAGE_CONTENT}'] . '</p>';
+  }
+
+  $template = gfSubst('string', $pageSubsts, $template);
 
   // If we are generating an error from gfError we want to clean the output buffer
   if ($aError) {
@@ -123,7 +179,7 @@ function gfGenContent($aTitle, $aContent, $aTextBox = null, $aList = null, $aErr
   header('Content-Type: text/html', false);
 
   // write out the everything
-  print($templateHead . '<h2>' . $aTitle . '</h2>' . $aContent . $templateFooter);
+  print($template);
 
   // We're done here
   exit();

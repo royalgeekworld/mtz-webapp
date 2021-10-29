@@ -26,7 +26,7 @@ if (gfSuperVar('get', 'case') == 'content') {
 $gaRuntime['explodedPath'] = gfExplodePath($gaRuntime['qPath']);
 
 // The Special Component never has more than one level below it
-// We still have to determin the root of the component though...
+// We still have to determine the root of the component though...
 if (count($gaRuntime['explodedPath']) == 1) {
   $gvSpecialFunction = 'root';
 }
@@ -35,64 +35,86 @@ else {
   $gvSpecialFunction = $gaRuntime['explodedPath'][1];
 }
 
+if ($gvSpecialFunction == 'content-test') {
+  $gaRuntime['siteMenu'] = array(
+    '/'                         => 'Root',
+    '/special/content-test/'    => 'Selene Content Test',
+  );
+}
+else {
+  $gaRuntime['siteMenu'] = array(
+    '/'                         => 'Root',
+    '/special/'                 => 'Special',
+    '/special/content-test/'    => 'Selene Content Test',
+    '/special/test/'            => 'Test Cases',
+    '/special/software-state/'  => 'Software State',
+    '/special/phpinfo/'         => 'PHP Info',
+  );
+}
+
 switch ($gvSpecialFunction) {
   case 'root':
-    $rootHTML = '<a href="/special/content-test/">Selene Content Test</a></li><li>' .
-                '<a href="/special/test/">Test Cases</a></li><li>' .
-                '<a href="/special/phpinfo/">PHP Info</a></li><li>' .
-                '<a href="/special/software-state/">Software State</a>';
-    gfGenContent('Special Component', $rootHTML, null, true);
+    gfGenContent(['title'   => 'Special Component',
+                  'content' => '<h2>Welcome to the Special Component!</h2>' .
+                               '<p>Please select a function from the command bar above.</p>',
+                  'menu'    => $gaRuntime['siteMenu']]);
+    break;
   case 'content-test':
     define('SITE_NAME', 'Pale Moon - Developer Site');
-    $gaRuntime['pTestCase'] = gfSuperVar('post', 'content');
+    $gaRuntime['qContentTest'] = gfSuperVar('post', 'content');
 
-    if ($gaRuntime['pTestCase']) {
+    if ($gaRuntime['qContentTest']) {
       gfImportModules('generateContent');
-      $gmGenerateContent->display(str_replace("\r", '', $gaRuntime['pTestCase']), '/content-test/');
+      $gmGenerateContent->display(str_replace("\r", EMPTY_STRING, $gaRuntime['qContentTest']), '/content-test/');
     }
     else {
-      $content = '<form id="content" accept-charset="UTF-8" autocomplete="on" method="POST" enctype="multipart/form-data">' .
-                 '<textarea style="width: 1195px; resize: none;" name="content" rows="36" name="content"></textarea>' .
-                 '</br>' .
-                 '<button type="submit" value="Submit" style="float: right;">Test</button><br />' .
-                 '</form>';
-      gfGenContent('Content Test', $content);
+      $gvContent = '<form id="content" accept-charset="UTF-8" autocomplete="on" method="POST" enctype="multipart/form-data">' .
+                   '<textarea class="special-textbox aligncenter" name="content" rows="36" name="content"></textarea>' .
+                   '</br>' .
+                   '<button type="submit" value="Submit" style="margin-bottom: -12px; float: right;">Test</button><br />' .
+                   '</form>';
+      gfGenContent(['title' => 'Content Test', 'content' => $gvContent, 'menu' => $gaRuntime['siteMenu']]);
     }
   case 'test':
     $gaRuntime['qTestCase'] = gfSuperVar('get', 'case');
-    $arrayTestsGlob = glob('./base/tests/*.php');
-    $arrayFinalTests = EMPTY_ARRAY;
+    $gvTestsPath = gfBuildPath(ROOT_PATH, 'base', 'tests');
+    $gaGlobTests = glob($gvTestsPath . WILDCARD . PHP_EXTENSION);
+    $gaTests = EMPTY_ARRAY;
 
-    foreach ($arrayTestsGlob as $_value) {
-      $arrayFinalTests[] = str_replace('.php', '', str_replace('./base/tests/', '', $_value));
+    foreach ($gaGlobTests as $_value) {
+      $gaTests[] = str_replace(PHP_EXTENSION, EMPTY_STRING, str_replace($gvTestsPath, EMPTY_STRING, $_value));
     }
 
-    unset($arrayTestsGlob);
-
     if ($gaRuntime['qTestCase']) {
-      if (!in_array($gaRuntime['qTestCase'], $arrayFinalTests)) {
+      if (!in_array($gaRuntime['qTestCase'], $gaTests)) {
         gfError('Unknown test case');
       }
 
-      require_once('./base/tests/' . $gaRuntime['qTestCase'] . '.php');
+      require_once($gvTestsPath . $gaRuntime['qTestCase'] . PHP_EXTENSION);
+      exit();
     }
 
-    $testsHTML = EMPTY_STRING;
+    $gvContent = EMPTY_STRING;
 
-    foreach ($arrayFinalTests as $_value) {
-      $testsHTML .= '<li><a href="/special/test/?case=' . $_value . '">' . $_value . '</a></li>';
+    foreach ($gaTests as $_value) {
+      $gvContent .= '<li><a href="/special/test/?case=' . $_value . '">' . $_value . '</a></li>';
     }
 
-    $testsHTML = '<ul>' . $testsHTML . '</ul>';
+    if ($gvContent == EMPTY_STRING) {
+      $gvContent = '<p>There are no test cases.</p>';
+    }
+    else {
+      $gvContent = '<h2>Please select a test case&hellip;</h2><ul>' . $gvContent . '</ul>';
+    }
 
-    gfGenContent('Test Cases', $testsHTML);
+    gfGenContent(['title' => 'Test Cases', 'content' => $gvContent, 'menu' => $gaRuntime['siteMenu']]);
+    break;
+  case 'software-state':
+    gfGenContent(['title' => 'Software State', 'content' => $gaRuntime, 'menu' => $gaRuntime['siteMenu']]);
     break;
   case 'phpinfo':
     gfHeader('html');
     phpinfo(INFO_GENERAL | INFO_CONFIGURATION | INFO_ENVIRONMENT | INFO_VARIABLES);
-    break;
-  case 'software-state':
-    gfGenContent('Software State', $gaRuntime);
     break;
   default:
     gfHeader(404);

@@ -184,21 +184,20 @@ if (!function_exists('str_contains')) {
 * @dep XML_TAG
 * @dep JSON_ENCODE_FLAGS
 **********************************************************************************************************************/
-function gfError($aValue, $phpError = false) { 
+function gfError($aValue, $aPHPError = false, $aExternalOutput = null) { 
   $pageHeader = array(
     'default' => 'Unable to Comply',
-    'fatal'   => 'Fatal Error',
     'php'     => 'PHP Error',
     'output'  => 'Output'
   );
 
-  $externalOutput = function_exists('gfGenContent');
+  $externalOutput = !$aExternalOutput ?? function_exists('gfGenContent');
   $isCLI = (php_sapi_name() == "cli");
   $isOutput = false;
 
   if (is_string($aValue) || is_int($aValue)) {
     $eContentType = 'text/xml';
-    $ePrefix = $phpError ? $pageHeader['php'] : $pageHeader['default'];
+    $ePrefix = $aPHPError ? $pageHeader['php'] : $pageHeader['default'];
 
     if ($externalOutput || $isCLI) {
       $eMessage = $aValue;
@@ -215,7 +214,7 @@ function gfError($aValue, $phpError = false) {
   }
 
   if ($externalOutput) {
-    if ($phpError) {
+    if ($aPHPError) {
       gfGenContent($ePrefix, $eMessage, null, true, true);
     }
 
@@ -223,7 +222,7 @@ function gfError($aValue, $phpError = false) {
       gfGenContent($ePrefix, $eMessage, true, false, true);
     }
     
-    gfGenContent($ePrefix, $eMessage);
+    gfGenContent($ePrefix, $eMessage, null, null, true);
   }
   elseif ($isCLI) {
     print('========================================' . NEW_LINE .
@@ -285,7 +284,7 @@ function gfSuperVar($aVarType, $aVarValue, $aFalsy = null) {
   $varType = UNDERSCORE . strtoupper($aVarType);
 
   // General variable absolute null check unless falsy is allowed
-  if ($varType == "_VAR" || $varType == "_DIRECT"){
+  if ($varType == "_CHECK" || $varType == "_VAR" || $varType == "_DIRECT"){
     $rv = $aVarValue ?? null;
 
     if ($rv && !$aFalsy) {
@@ -380,7 +379,7 @@ function gfHeader($aHeader) {
 **********************************************************************************************************************/
 // This function sends a redirect header
 function gfRedirect($aURL) {
-  header('Location: ' . $aURL , true, 302);
+  header('Location: ' . $aURL, true, 302);
   
   // We are done here
   exit();
@@ -478,8 +477,8 @@ function gfStripRootPath($aPath) {
 function gfGetDomain($aHost, $aReturnSub = null) {
   $host = gfExplodeString(DOT, $aHost);
   $domainSlice = $aReturnSub ? array_slice($host, 0, -2) : array_slice($host, -2, 2);
-  $domainString = implode(DOT, $domainSlice);
-  return $domainString;
+  $rv = implode(DOT, $domainSlice);
+  return $rv;
 }
 
 /**********************************************************************************************************************
@@ -642,7 +641,7 @@ function gfWriteFile($aData, $aFile, $aRenameFile = null) {
 * Generate a random hexadecimal string
 *
 * @param $aLength   Desired number of final chars
-* @returns          Random hexadecimal string of desired lenth
+* @returns          Random hexadecimal string of desired length
 **********************************************************************************************************************/
 function gfHexString($aLength = 40) {
   if ($aLength <= 1) {
@@ -681,6 +680,7 @@ function gfSubst($aMode, $aSubsts, $aString) {
 
   switch ($aMode) {
     case 'simple':
+    case 'string':
       foreach ($aSubsts as $_key => $_value) { $rv = str_replace($_key, $_value, $rv); }
       break;
     case 'regex':
