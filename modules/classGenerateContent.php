@@ -148,7 +148,7 @@ class classGenerateContent {
       "\[section=\"(.*)\"\]"              => '<h3>$1</h3>',
       "\[title](.*)\[\/title\]"           => '<h1>$1</h1>',
       "\[header](.*)\[\/header\]"         => '<h2>$1</h2>',
-      "\[section](.*)\[\/header\]"        => '<h3>$1</h3>',
+      "\[section](.*)\[\/section\]"       => '<h3>$1</h3>',
       "\[b](.*)\[\/b\]"                   => '<strong>$1</strong>',
       "\[i](.*)\[\/i\]"                   => '<em>$1</em>',
       "\[u](.*)\[\/u\]"                   => '<u>$1</u>',
