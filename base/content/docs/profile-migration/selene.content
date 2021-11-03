@@ -33,7 +33,7 @@ tags:
 
 [p style="color: #BF0000;"][small][b]Note:[/b] [i]Once again, profiles can be migrated/upgraded in [i]one[/i] direction [i]only[/i]. If you try to use a profile from a newer version of Pale Moon on the older one it will become corrupt even if you return to the newer version afterwards. We will [u]not[/u] extend support to users with corrupt profiles. To say nothing about mangled franken-profiles.[/i][/small][/p]
 
-[header="Other UXP applications"]
+[header="Other applications based on our [i]Platform Codebase[/i]"]
 
 [section="Firefox to Basilisk"]
 
