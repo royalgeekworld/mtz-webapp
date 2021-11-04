@@ -56,7 +56,7 @@ tags:
 
 [p]While we identify all [i]Platform Codebase[/i] stable releases by date and the above types, we also still maintain an internal version number. This "mozilla milestone" version is not currently hard-defined according to any current scheme and should [b]NOT[/b] be relied on for anything.[/p]
 
-[p][small][i][b]NOTE:[/b] Extensions targeting Firefox and Thunderbird for Basilisk (including ports to Pale Moon) and Interlink respectively may be using this version as an indication of feature capability. However, since it currently set to a non-existent "mozilla" version and [b]WILL[/b] progress into [i]existing[/i] Gecko/Firefox versions, these extensions may start to increasingly malfunction.[/i][/small][/p]
+[p][small][i][b]NOTE:[/b] Extensions targeting Firefox and Thunderbird for Basilisk (including ports to Pale Moon) and Interlink respectively may be using this version as an indication of feature capability. However, since it currently set to a non-existent "mozilla" version and [b]WILL[/b] progress into [b]existing[/b] Gecko/Firefox versions, these extensions may start to increasingly malfunction.[/i][/small][/p]
 
 [section="Current 2021 release schedule for Pale Moon"]
 
@@ -155,7 +155,7 @@ tags:
   [/tbody]
 [/table]
 
-[p][small][i][b]NOTE:[/b] Out-of-band releases with no listed [i]Platform Codebase[/i] Change Log means that the Application was built using the same [i]Platform Codebase[/i] release code as the previous version.[/i][/small][/p]
+[p][small][i][b]NOTE:[/b] Out-of-band releases with no listed Platform Codebase Change Log means that the Application was built using the same Platform Codebase release code as the previous version.[/i][/small][/p]
 
 [Header="The Release Workflow"]
 
