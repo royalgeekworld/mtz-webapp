@@ -40,6 +40,14 @@ class classGenerateContent {
 
     $contentData['content'] = preg_replace(REGEX_YAML_FILTER, EMPTY_STRING, $content);
 
+    if (array_key_exists('extraSimpleTags', $contentData)) {
+      $this->extraSimpleTags = $contentData['extraSimpleTags'];
+    }
+
+    if (array_key_exists('extraRegexTags', $contentData)) {
+      $this->extraRegexTags = $contentData['extraRegexTags'];
+    }
+
     $this->display($contentData);
   }
 

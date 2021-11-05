@@ -49,78 +49,7 @@ if (array_key_exists($gaRuntime['qPath'], REDIRECTS)) {
   gfRedirect(REDIRECTS[$gaRuntime['qPath']]);
 }
 
-$gvExtraSimpleTags  = EMPTY_ARRAY;
-$gvExtraRegexTags   = EMPTY_ARRAY;
-
-if ($gaRuntime['qPath'] == '/docs/phoenix-extensions/') {
-  // [fxaddon] (Firefox CAA)
-  $gvFxForkedRegex        = "\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]";
-  $gvFxForkedReplace      = '<tr>' .
-                            '<td style="color: #00c019;">Forked</td>' .
-                            '<td><a href="caa:addon/$1" target="_blank">$2</a></td>' .
-                            '<td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
-                            '</tr>';
-  $gvExtraRegexTags[$gvFxForkedRegex] = $gvFxForkedReplace;
-
-  $gvFxBadRegex           = "\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\" fxreason=\"(.*)\"\]";
-  $gvFxBadReplace         = '<tr>' .
-                            '<td style="color: #BF0000;">Unforkable</td>' .
-                            '<td><a href="caa:addon/$1" target="_blank">$2</a></td>' .
-                            '<td style="color: #BF0000;">$3</td>' .
-                            '</tr>';
-  $gvExtraRegexTags[$gvFxBadRegex] = $gvFxBadReplace;
-
-  $gvFxRegex              = "\[fxaddon fxslug=\"(.*)\" fxname=\"(.*)\"\]";
-  $gvFxReplace            = '<tr>' .
-                            '<td>Forkable</td>' .
-                            '<td colspan="2"><a href="caa:addon/$1" target="_blank">$2</a></td>' .
-                            '</tr>';
-  $gvExtraRegexTags[$gvFxRegex] = $gvFxReplace;
-
-  // [joaddon] (JustOff)
-  $gvJustOffForkedRegex   = "\[joaddon joslug=\"(.*)\" joname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]";
-  $gvJustOffForkedReplace = '<tr>' .
-                            '<td style="color: #00c019;">Forked</td>' .
-                            '<td><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td>' .
-                            '<td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
-                            '</tr>';
-  $gvExtraRegexTags[$gvJustOffForkedRegex] = $gvJustOffForkedReplace;
-
-  $gvJustOffRegex         = "\[joaddon joslug=\"(.*)\" joname=\"(.*)\"\]";
-  $gvJustOffReplace       = '<tr>' .
-                            '<td>Up for grabs!</td>' .
-                            '<td colspan="2"><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td>' .
-                            '</tr>';
-  $gvExtraRegexTags[$gvJustOffRegex] = $gvJustOffReplace;
-
-  // [riaddon] Riiis
-  $gvRiiisForkedRegex     = "\[riaddon rislug=\"(.*)\" riname=\"(.*)\" pmslug=\"(.*)\" pmname=\"(.*)\"\]";
-  $gvRiiisForkedReplace   = '<tr>' .
-                            '<td><small>$1</small></td>' .
-                            '<td>$2</td>' .
-                            '<td style="background-color: #eaf6eb !important;"><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td>' .
-                            '</tr>';
-  $gvExtraRegexTags[$gvRiiisForkedRegex] = $gvRiiisForkedReplace;
-
-  $gvRiiisBadRegex        = "\[riaddon rislug=\"(.*)\" riname=\"(.*)\" rireason=\"(.*)\"\]";
-  $gvRiiisBadReplace      = '<tr>' .
-                            '<td><small>$1</small></td>' .
-                            '<td>$2</td>' .
-                            '<td style="background-color: #f6eaeb !important; border-spacing: 0px;"><small>$3</small></td>' .
-                            '</tr>';
-  $gvExtraRegexTags[$gvRiiisBadRegex] = $gvRiiisBadReplace;
-}
-
-if (!empty($gvExtraSimpleTags)) {
-  $gmGenerateContent->extraSimpleTags = $gvExtraSimpleTags;
-}
-
-if (!empty($gvExtraRegexTags)) {
-  $gmGenerateContent->extraRegexTags = $gvExtraRegexTags;
-}
-
 $gmGenerateContent->loadAndDisplay($gaRuntime['qPath']);
-
 
 // No idea what we should do so 404
 gfHeader(404);
