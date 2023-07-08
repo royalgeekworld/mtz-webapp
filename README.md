@@ -1,2 +1,2 @@
-# Project Selene
-The Pale Moon Developer Site - http://developer.palemoon.org/
+# Project Something or another
+The thing for the thing to do stuff.
