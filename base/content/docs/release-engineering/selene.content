@@ -1,0 +1,209 @@
+---
+title: "Release Engineering"
+tags:
+  - Docs
+  - Documents
+  - Project
+  - "Pale Moon"
+  - Basilisk
+  - Profile
+  - Migration
+  - Firefox
+  - UXP
+  - "Unified XUL Platform"
+  - Release
+  - Engineering
+  - "New Version"
+  - Interlink
+  - "Mail & News"
+---
+[p]Pale Moon (and other applications on our [i]Platform Codebase[/i] Stable Release train) utilize a four week release cycle. This is mainly due to Mozilla's similar move from a six to eight week cycle to releasing a new Firefox version every four weeks. Since we retain [i]some[/i] historical similarity with our wayward sibling, both Application and Platform wise, we [b]MUST[/b] take care to evaluate any Mozilla security fixes included in their releases.[/p]
+
+[header="The Release Cycle"]
+[p]Pale Moon will primarily be alternating between the type of release every four weeks with a Major/Feature release and a Minor/Security release. [b]However, real world factors in tangible development may alter the intended cycle.[/b] Be sure to check this page frequently for such changes.[/p]
+
+[section="Version numbers and release types"]
+
+[p]The current Pale Moon version scheme is: [small][b][Milestone].[Major/Feature].[Minor/Security][/b][/small] with a forth version point being reserved for [small][b][Out-of-band][/b][/small] releases. Each of these version points corresponds with a type of release for Pale Moon.[/p]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+      <!-- Padding Account: 1000 - 37px -->
+      [th width="123px"]Release Type[/th]
+      [th width="840px"]Description[/th]
+    [/tr]
+    [tr]
+      [td]Milestone[/td]
+      [td]A significant release that may include an abundance of new features and backward-incompatible changes.[/td]
+    [/tr]
+    [tr]
+      [td]Major/Feature[/td]
+      [td]A release which includes new and updated features with or without minor backward-incompatible changes.[/td]
+    [/tr]
+    [tr]
+      [td]Minor/Security[/td]
+      [td]A release with minor changes, bug fixes, and applicable security patches.[/td]
+    [/tr]
+    [tr]
+      [td]Out-of-band[/td]
+      [td]An unscheduled release that resolves critical items on an ad-hoc basis.[/td]
+    [/tr]
+  [/tbody]
+[/table]
+
+[p style="color: #BF0000;"][small][i][b]NOTE:[/b] All release types [b]MAY[/b] and often [b]DO[/b] contain applicable security patches. For your safety it is recommend that you always stay up to date.[/i][/small][/p]
+
+[p]While we identify all [i]Platform Codebase[/i] stable releases by date and the above types, we also still maintain an internal version number. This "mozilla milestone" version is not currently hard-defined according to any current scheme and should [b]NOT[/b] be relied on for anything.[/p]
+
+[p][small][i][b]NOTE:[/b] Extensions targeting Firefox and Thunderbird for Basilisk (including ports to Pale Moon) and Interlink respectively may be using this version as an indication of feature capability. However, since it currently set to a non-existent "mozilla" version and [b]WILL[/b] progress into [b]existing[/b] Gecko/Firefox versions, these extensions may start to increasingly malfunction.[/i][/small][/p]
+
+[section="Current 2021 release schedule for Pale Moon"]
+
+[p]The advantage or disadvantage (depending on your point of view) to a set calendar based cycle is that, in general, our releases are predictable by specific calendar days. As such, we have outlined the anticipated release schedule and it will be kept updated for any changes.[/p]
+
+[p]Each date is offset from Mozilla's release day by one week to allow requesting of security access and evaluation of any known Mozilla vulnerabilities. This also gives us the time to test and stabilize the codebase for release.[/p]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+      <!-- Padding Account: 1000 - 37px -->
+      [th width="200px"]Pale Moon Version[/th]
+      [th width="200px"]- CLOSED TREE -[/th]
+      [th width="200px"]Intended Release Date[/th]
+      [th width="363px"]Type of Release[/th]
+    [/tr]
+    [tr]
+      [td]29.4.2[/td]
+      [td]2021-11-02[/td]
+      [td]2021-11-09[/td]
+      [td]Minor/Security Release[/td]
+    [/tr]
+    [tr]
+      [td]29.4.3[/td]
+      [td]2021-12-07[/td]
+      [td]2021-12-14[/td]
+      [td]Minor/Security Release[/td]
+    [/tr]
+  [/tbody]
+[/table]
+
+[section="Previous releases of Pale Moon and our [i]Platform Codebase[/i] [small](from 29.0.0 onward)[/small]"]
+
+[table width="1000px" cellpadding="4" cellspacing="1" class="wikiTable" style="table-layout: fixed; margin: 0 auto;"]
+	[tbody]
+		[tr]
+      <!-- Padding Account: 1000 - 30px -->
+      [th width="300px"]Pale Moon Release[/th]
+      [th width="300px"][i]Platform Codebase[/i] Release[/th]
+      [th width="370px"]Type of Release[/th]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.4.1]Release Notes for 29.4.1[/url][/td]
+      [td][link=/docs/gre-changelog/#RELBASE_20210914]Change Log for 2021-09-14[/link][/td]
+      [td]Minor/Security Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.4.0.2]Release Notes for 29.4.0.2[/url][/td]
+      [td][link=/docs/gre-changelog/#RELBASE_20210823]Change Log for 2021-08-23[/link][/td]
+      [td]Out-of-band Release[/td]
+    [/tr]
+    [tr]
+      [td colspan="2"][url=http://www.palemoon.org/releasenotes.shtml#v29.4.0.1]Release Notes for 29.4.0.1[/url][/td]
+      [td]Out-of-band Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.4.0]Release Notes for 29.4.0[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210817]Change Log for 2021-08-17[/url][/td]
+      [td]Major/Feature Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.3.0]Release Notes for 29.3.0[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210719]Change Log for 2021-07-19[/url][/td]
+      [td]Major/Feature Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.2.1]Release Notes for 29.2.1[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210608]Change Log for 2021-06-08[/url][/td]
+      [td]Minor/Security Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes.shtml#v29.2.0]Release Notes for 29.2.0[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210427]Change Log for 2021-04-27[/url][/td]
+      [td]Major/Feature Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.1.1]Release Notes for 29.1.1[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210330]Change Log for 2021-03-30[/url][/td]
+      [td]Minor/Security Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.1.0]Release Notes for 29.1.0[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210302]Change Log for 2021-03-02[/url][/td]
+      [td]Major/Feature Release[/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.0.1]Release Notes for 29.0.1[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210205]Change Log for 2021-02-05[/url][/td]
+      [td]Out-of-band Release[/small][/td]
+    [/tr]
+    [tr]
+      [td][url=http://www.palemoon.org/releasenotes-archived.shtml#v29.0.0]Release Notes for 29.0.0[/url][/td]
+      [td][url=https://repo.palemoon.org/mcp-graveyard/Platform/releases/tag/RELBASE_20210202]Change Log for 2021-02-02[/url][/td]
+      [td]Milestone Release[/td]
+    [/tr]
+  [/tbody]
+[/table]
+
+[p][small][i][b]NOTE:[/b] Out-of-band releases with no listed Platform Codebase Change Log means that the Application was built using the same Platform Codebase release code as the previous version.[/i][/small][/p]
+
+[Header="The Release Workflow"]
+
+[p]Our release engineering workflow happens over the course of one week starting with Firefox Release Day which tends to always be a Tuesday and will run through the week to the following Tuesday which is our release day as outlined above.[/p]
+
+[ul]
+  [li]
+    [b]Tuesday[/b] - Firefox Release Day
+    [ul]
+      [li]The master branches will be placed under a "CLOSED TREE" type of condition where no high-risk patches and feature merges will be permitted until after merge day.[/li]
+      [li]Security Access will be requested on all known Mozilla vulnerabilities described on the Mozilla Foundation Security Advisory.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Tuesday through Friday[/b] - Security Updates
+    [ul]
+      [li]Each known Mozilla security vulnerability will be evaluated and patched, if applicable.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Friday[/b] - Release Branch Preparations (Merge Day)
+    [ul]
+      [li]For Major Releases: The master branches will be merged to the release branches.[/li]
+      [li]For Security Releases: The security patches and any minor patches will be cherry-picked to the release branches.[/li]
+      [li]Application Release Notes and our [i]Platform Codebase[/i] Change Log will be drafted.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Friday through Monday[/b] - Build and Test Release Candidates
+    [ul]
+      [li]Build signed binaries for various target operating systems and make them available for final acceptance tests.[/li]
+      [li]Test built binaries for any show-stoppers. Implement spot-fixes or back-out problematic code changes that are too big to tackle on short notice. Building new binaries (RC2, 3, etc.) as-needed.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Monday[/b] - Finalize Releases
+    [ul]
+      [li]Distribute final binaries to release mirrors.[/li]
+      [li]Signal external mirrors.[/li]
+      [li]Write final Application Release Notes and our [i]Platform Codebase[/i] Change Log.[/li]
+    [/ul]
+  [/li]
+  [li]
+    [b]Tuesday[/b] - Our Release Day
+    [ul]
+      [li]Put web pages live, enable new downloads.[/li]
+      [li]Publish announcements on forum and to any applicable social media.[/li]
+    [/ul]
+  [/li]
+[/ul]
+

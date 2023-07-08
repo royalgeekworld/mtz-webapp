@@ -1,0 +1,72 @@
+---
+title: "Platform Change Log"
+tags:
+  - Docs
+  - Documents
+  - Project
+  - "Pale Moon"
+  - Basilisk
+  - UXP
+  - "Unified XUL Platform"
+  - Release
+  - Engineering
+  - "New Version"
+  - Interlink
+  - "Mail & News"
+---
+
+[p]This document will log the changes to our [i]Platform Codebase[/i] that is common to Moonchild Productions and Binary Outcast XUL-based Applications.[/p]
+
+[p][small][b]NOTE:[/b] This page will gain historical Change Logs for previous versions in due course.[/small][/p]
+
+<!-- ============================================================================================================== -->
+
+[section][anchor=RELBASE_20210914]September 14, 2021[/section]
+
+[p]This is a [link=/docs/releng-guidelines/]Minor/Security[/link] Release of the Platform Codebase.[/p]
+
+[b]Security Fix Overview (by component)[/b]
+[ul]
+  [li]DOM: IPC[/li]
+  [li]Pref: Network[/li]
+  [li]XPCOM: Threads[/li]
+[/ul]
+
+[separator] <!-- ============================================================================================================== -->
+
+[section][anchor=RELBASE_20210823]August 23, 2021[/section]
+
+[p]This is a [link=/docs/releng-guidelines/]Out-of-band[/link] Release of the Unified XUL Platform.[/p]
+
+[b]Changes[/b]
+[ul]
+  [li]Revert Issue #1806 - Update libcubeb[/li]
+[/ul]
+
+[separator] <!-- ============================================================================================================== -->
+
+[section][anchor=RELBASE_20210817]August 17, 2021[/section]
+
+[p]This is a [link=/docs/releng-guidelines/]Major/Feature Release[/link] Release of the Unified XUL Platform.[/p]
+
+[b]Resolved[/b]
+[ul]
+  [li]Issue #1725 - Implement [codeline=javascript]Promise.allSettled()[/codeline][/li]
+  [li]Issue #1797 - Implement [codeline=javascript]WindowOrWorkerGlobalScope.origin[/codeline][/li]
+  [li]Issue #1806 - Update libcubeb[/li]
+  [li]Standalone Commit - Update SQLite to 3.36.0[/li]
+[/ul]
+
+[b]Security Fix Overview (by component)[/b]
+[ul]
+  [li]DOM: HTML[/li]
+  [li]DOM: Workers[/li]
+  [li]MFBT[/li]
+  [li]Netwerk: Cache2[/li]
+[/ul]
+
+[separator] <!-- ============================================================================================================== -->
+
+[header]Source Code[/header]
+
+[p]Please see the historical repositories or the application's main site for more information on how to obtain relevant source code.[/p]

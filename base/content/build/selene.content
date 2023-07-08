@@ -1,0 +1,25 @@
+---
+title: "Building Pale Moon"
+tags:
+  - Build
+  - "Pale Moon"
+  - Instructions
+  - Overview
+---
+[p]So you want to build Pale Moon yourself? Awesome![/p]
+
+[section="Before you begin"]
+
+There are limits to what we can offer in terms of end user support for builds you roll yourself, as well as for the build process itself. As such, you will largely be on your own if you decide to build from source.[dblbreak]
+
+[b]Important:[/b] Please take some time to familiarize yourself with the various [i][url=http://www.palemoon.org/licensing.shtml]terms and licensing[/url][/i] associated with Pale Moon [b]before[/b] you proceed.[/p]
+
+[section="Build targets"]
+
+[p]Pale Moon (and the Platform Codebase) can be built for many systems. While the process is similar across the board, each target operating system or processor architecture has its own specifics.[/p]
+
+[ul]
+  [li][link=/build/windows/]Microsoft Windows[/link][/li]
+  [li][link=/build/linux/]GNU/Linux[/link][/li]
+  [li][link=/build/sunos/]SunOS-based Systems[/link] [i](Modern Solaris and Illumos)[/i][/li]
+[/ul]

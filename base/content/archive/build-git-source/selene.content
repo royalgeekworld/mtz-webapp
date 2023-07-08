@@ -1,0 +1,39 @@
+---
+title: "Building Pale Moon: Git Sources"
+tags:
+  - Build
+  - "Pale Moon"
+  - Git
+---
+[p]These instructions are for building Pale Moon 28.9.* to 29.4.0.2 from [url=https://repo.palemoon.org/]RPMO[/url].[/p]
+
+[header="Prerequisites"]
+
+[ul]
+  [li]Git Client[/li]
+  [li]Target OS Dependencies[/li]
+[/ul]
+
+[header="Getting the source"]
+
+[p]The Older [url=https://repo.palemoon.org/mcp-graveyard/Pale-Moon]Pale Moon[/url] source code along with the [url=https://repo.palemoon.org/mcp-graveyard/UXP]Unified XUL Platform[/url] source code are available on our self-hosted Gitea instance.[dblbreak]
+
+This method will assume you are going to create a directory on your C: drive or in your home directory, depending on the system, called [codeline=bash]palemoon-source[/codeline]. You can, of course, put the source code anywhere you want as long as the path does not contain any spaces.[/p]
+
+[section="Using git"]
+
+[ul]
+  [li]Install git and open a Git Bash prompt, and change directory to the desired source location, e.g. [codeline=bash]cd /location-you-picked/palemoon-source/[/codeline][/li]
+  [li]
+    Execute the following commands:
+[code=bash]git clone https://repo.palemoon.org/mcp-graveyard/Pale-Moon.git ./
+git submodule init && git submodule update
+git checkout release && git submodule update
+[/code]
+  [/li]
+  [li]Close Git Bash and proceed to the "Build instructions" below.[/li]
+[/ul]
+
+[header="Build instructions"]
+
+[p]Please see the [link=/build/]relevant instructions[/link] for your intended Target OS.[/p]

@@ -1,0 +1,167 @@
+---
+title: "Contributor's guide to the MPL 2.0"
+tags:
+  - Docs
+  - Documents
+  - Project
+  - "Pale Moon"
+  - Basilisk
+  - Firefox
+  - UXP
+  - Borealis
+  - Interlink
+  - Legal
+  - License
+  - Licensing
+  - Mozilla
+  - Public
+  - MPL
+  - MPL2
+  - MPLv2
+  - "MPL 2.0"
+---
+[p]Pale Moon (and any other application building on the Platform Codebase) is licensed under the Mozilla Public License version 2.0. For brevity, this is referred to as (the) MPL in the rest of this page.[/p]
+[p]The full license text can be found at [url=https://www.mozilla.org/en-US/MPL/2.0/]https://www.mozilla.org/en-US/MPL/2.0/[/url], but this guide was written for contributors who might have trouble with legalese and need to know in plain terms what their rights and obligations are under this license, to avoid unnecessary and extensive, potentially very confusing debates about what should or should not be done in a particular situation.[/p]
+
+[header="Understanding ownership"]
+
+[p]A lot of misinformation and wrong assumptions about Open Source in general, and MPL software in particular, stems from the fact that people don't understand what "Open Source" really means. I'll focus on the MPL specifically in the rest of this document.
+
+[section="It's not Public Domain"]
+
+[p]Plenty of people seem under the impression that Open Source software is in the public domain, the author has disclaimed owning the code by publishing it, and that anyone can do anything they want with it. Nothing could be less true, though.[/p]
+
+[p]Every Open Source license that isn't effectively a Public Domain license in its wording asserts some form of code ownership - either by explicitly stating copyright (that must be reproduced if you use the source code) or in the case of the MPL by referring to known registrations of authorship. This explicitly means that while you can [i]use[/i] the code under certain terms of the license, you [i]don't own it[/i].[br]
+In other words, you have permission to use the code under the terms of the license but it's not your property. Some licenses are less restrictive in their terms such as "Permissive" licenses like MIT/BSD. Other licenses are more restrictive such as the "Strong-copyleft" GNU General Public License. The Mozilla Public License is referred to as a "Weak-copyleft" license, taking a position somewhere between "Strong-copyleft" and "Permissive" in terms of how licensed code is allowed to be used in programs. Maybe a better term is something from the creative commons: share-alike.[br]
+However, regardless of their differences, every license mentioned is based on the same concept: permission from a copyright holder.[/p]
+
+[p]If you make modifications to the code as allowed under the terms of the MPL or other licenses that grant permission to protected content, then the code you write (your modifications) will be yours, and those portions of the code resulting from your modifications will have your author copyright, meaning that nobody can use them without your permission. Meaning: you have ownership of new code you wrote or modifications you made to open source software.
+Because the MPL says that you can't restrict other people's rights to the code, your modifications are released to the public under the same terms, with the same rights as those you received when you started working on Open Source code. That means others will be allowed to use your code under the terms of the license, but they will never own your code, just like you can never own code written by others.[/p]
+
+[section="A practical example"]
+
+[p]To clarify, here's a practical example.[/p]
+[p]Say, Person A wrote a short program, that they released under the MPL:
+[code=C]main() {
+  int total = 10;
+  for (int i = 1; i < total; i++) {
+    print "Hello world!";
+  }
+}[/code]
+Person A owns all this code, but has given others permission to use and modify it under the MPL.[/p]
+[/p]Person B doesn't like that it repeats 10 times; they want 20! So they go in and change the program:
+[code=C]main() {
+  int total = 20;
+  for (int i = 1; i < total; i++) {
+    print "Hello world!";
+  }
+}[/code][/p]
+[p]Now, what would be the result for ownership of the code? In general, code changes are determined on a basis of what is logical in the programming language at hand, so any changed value or expression will now be owned by person B, but the other code is still owned by person A.[/p]
+[p style="font-family:monospace;"][span style="color:#B00000"]A: main() {[/span][br]
+[span style="color:#B00000"]A+B:   int total = [/span][span style="color:#006060"]20;[/span][br]
+[span style="color:#B00000"]A:   for (int i = 1; i < total; i++) {[br]
+A:     print "Hello world!";[br]
+A:   }[br]
+A: }[/span][/p]
+[p]In a classic copyright ownership model, this would mean that if anyone wanted to use the resulting program's code, they would first need to get permission from both A [i]and[/i] B since copyright would be shared between both authors of the resulting program.
+This is where licensing comes in, where this permission is implied for code with modifications, so all developers don't constantly need to OK every use of or change to their original code as it's modified by others.[/p]
+[p]Once again: you only own what you have actually contributed or modified. Everything else is still owned by its original author, and you only have permission to use it. It is very similar to a leasing contract in that respect.[/p]
+
+[header="Working with MPL Licensed Code"]
+
+[section="A File-based License"]
+
+[p]Working with MPL licensed code is easy. In fact in many ways it's easier than some other popular Open Source licenses out there, because the MPL is on a file-by-file basis. This means the license does not try to absorb files that are licensed differently into itself and doesn't try to force itself onto entire projects.[br]
+Of course you still need to be careful when mixing and matching different licenses to make sure that your project overall remains compliant with [u]all[/u] of the licensing used in your software.[/p]
+
+[p]On the flipside, this does mean that you have to make sure you have a license statement in every single file in your project (usually placed in the header of files) or otherwise explicitly state what license applies to certain files or groups of files that aren't able to contain arbitrary comment blocks at the beginning.[br]
+Unlike other licenses, including the MPL 1.1, it is not customary or necessary to place a copyright header in each file. Your historic record as an author of code changes (in version control systems or otherwise) asserts your rights to those changes and ownership of them, which greatly simplifies rights assignment and vastly reduces the overhead of keeping track of (extensive) lists of contributors in file headers. [i]For convenience[/i], MPL-licensed software may have an AUTHORS file included listing people who may have made significant contributions for larger projects, but this should neither be considered exhaustive, nor is it required by the license.[/p]
+
+[section="Rights and Obligations"]
+
+In other terms, the MPL is very similar to other permissive licenses out there, with similar rights and obligations like:
+[ul]
+  [li]You are free to use, modify and re-publish the code in its modified form.[/li]
+  [li]You have a right to see the source code of software (or any MPL-licensed part of it) that has been published as a compiled program. Either the source code for each published program (and version) has to be readily available or information has to be provided how to request it (point of contact).[/li]
+  [li]You won't get any guarantee from a publisher as to its use, meaning you won't be able to hold anyone but yourself liable for using the software.[/li]
+  [li]If you make a modified version of the software and publish that (like a fork, rebuild or other program incorporating the software), then you must similarly also make the source code with your modifications available to others.[/li]
+  [li]You can't just take the code and re-license it under a different license. You have to re-publish changed code under the MPL.[/li]
+[/ul]
+
+[p]These rights and obligations follow from the fact that you don't own other people's code (see the previous heading) but, rather, you are permitted to use it, and in turn permit others to use what you add or modify in the code (this is a "grant").[/p]
+
+[section="Secondary Licenses"]
+
+[p]One important thing to note is that by default, MPL licensed software is "compatible with secondary licenses" due to its historical use in the MPL 1.1, GPL and LGPL tri-license. This means the same code may be used in conjunction with other software licenses that might have a different scope than the MPL, as long as those licenses don't conflict with the MPL otherwise (which means that you can, for example, use MPL licensed files in proprietary software as long as the portions licensed under the MPL remain in compliance with the MPL, or on the flipside, you can include it in other Open Source licensed software that works on a whole-program basis and not a file basis and don't change the terms under which the MPL code is made available). If you specifically don't want this to happen, you have to add an extra bit to the licensing headers in your files stating that they are incompatible with secondary licenses. See exhibit B included with the MPL.[/p]
+[p]The "secondary licensing" bit is an interesting piece of the MPL that offers some additional options for software developers, but it is also tricky to get right, so our focus here will remain on the general application of the MPL as it is. If you are interested in learning more about this and what your rights and obligations are under shared licensing with the MPL, please talk to someone who can explain the exact legalities involved.[/p]
+
+[header="What if someone breaks with the license terms?"]
+
+[p]Of course it's something nobody wants to see happen, but sometimes breaches of the MPL do happen, and if they do, they have important consequences for use and availability of the code.[/p]
+
+[section="Compliance vs. Non-compliance"]
+
+[p]A lot of people might have heard the terms "compliance" and "non-compliance" but many don't know exactly what the terms mean and what consequences are attached to being non-compliant.[/p]
+
+[p]If you follow all the rules set out in a license, you are [b]compliant[/b] with it. When you are compliant, you get the privilege of having code licensed to you for your use, modification and distribution. In other words, you are doing everything you should be doing to be allowed your freedom.[/p]
+
+[p]If you break any [i]one[/i] of the rules set out in a license, you become [b]non-compliant[/b] with it. As long as you are non-compliant with a license you are not allowed to use, modify or distribute this code/software or [i]anything[/i] built with the code covered by the license. So if you are a program developer using MPL-licensed code, and you are currently non-compliant, you have to stop using or distributing the code or anything built with it.[br]
+When you are non-compliant, you have to remove any software you created under the MPL because effectively, you are no longer having a license to use the code you used to build the software, and therefore don't have the permission from the authors of the code to use or distribute it.[/p]
+
+[p]Similarly, if a program you build is non-compliant, and you become aware of this non-compliance, you must immediately stop distributing it since you don't have the rights to publish non-compliant programs. You should also notify others you are aware of who are distributing on your behalf of non-compliance so they stop distributing unlicensed programs.[/p]
+
+[p]If you resolve the problem that made you become non-compliant, then you can resume using the code or building with it.[/p]
+
+[p][b]An example[/b][br]
+If you create a program that does not have a mention that it is built using MPL licensed code, then you are non-compliant. If you resolve that problem by, for example, adding the proper notifications to an about box in your program, then you come back into compliance and can distribute the updated version of the program. Old versions of the program built without that notice must be removed (since they are not compliant, and you have no right to distribute them in that case because being non-compliant means the code used to build it was not licensed).[/p]
+
+[section="Restrictions on Non-compliant Code or Programs"]
+
+[p]If, and for as long as, source code or programs are in a [b]non-compliant[/b] state, it is not allowed to:
+[ul]
+  [li]Use the code in any way[/li]
+  [li]Publish or distribute the code[/li]
+  [li]Publish or distribute programs built with the code[/li]
+  [li]Transfer ownership[/li]
+  [li]Copy the code[/li]
+  [li]Do anything else you couldn't do with proprietary/Copyrighted code[/li]
+[/ul]
+You have to treat non-compliant source code, repositories, archives and programs as if they are proprietary and fully under each contributor's copyright. Not doing so may lead to DMCA notices and legal proceedings if persisted.
+[/p]
+
+[p]Further on the "you can't copy from a non-compliant repository" is the fact that if you [i]do[/i] fork or pull from a non-compliant repository, your own repository now also becomes non-compliant because you have introduced code into it for which you had no permission. Thankfully, such non-compliance in the case of pulls is easy to solve by rolling back to before your pull and making sure none of the commits from the repository in non-compliant state remain present in your repository (i.e. making sure to remove any commits and tags that were drawn from a non-compliant upstream).[br]
+Of course it is fine to retain any [i]historical[/i] commits from when the upstream repository was still compliant (since non-compliance is not retroactive). New forks, however, can never come into compliance by going to any historical commit in the forked repository because none of the repository's content had permission for making a copy when it was forked. The entire fork is and will remain non-compliant as the copy was illegal.[br]
+In short: you cannot continue to use a repository as your upstream or as a source of code from the moment it becomes non-compliant, and you cannot create new forks of non-compliant repositories.[/p]
+
+[section="Being Notified of Non-compliance"]
+
+[p]If you don't notice your own non-compliance due to e.g. an oversight (Hey, it happens! Nobody's perfect.) then it's possible that one of the people who contributed code to the software you are using under the MPL notifies you of non-compliance with the MPL. This is an important step by such contributor, that often (but not always) occurs after informally letting you know of the problem that you are not solving on your own accord. It is basically an official notice to you that you have broken the license terms and that you must come back into compliance and remain compliant from here on out.[/p]
+
+[p]You have to solve the compliance issue within 30 days of being notified and come back into compliance. Please note that this one-time "allowed mistake" will reinstate your rights to use, modify and distribute the software under the MPL when you are compliant, but this is only provisional. In other words: you are warned to never break the license again.[/p]
+
+[p]Even if you have already solved the issue, any contributor who learns of your non-compliance can still send you such a notification (up to 60 days after you have come back into compliance) that you were in violation of the MPL. They are "official warnings" in that case which are important if a contributor wants to take further steps (see the next section).[/p]
+
+[section="Termination of a Grant"]
+
+In case of severe breaches of the MPL, for example if a notified publisher/developer doesn't come back into compliance within 30 days, or they breach the MPL a second time after having been notified, a contributor can decide to terminate their grant (which means to retract their permission to use their code or modifications under the MPL) to that publisher/developer. This kind of situation is rare and as a result many people don't immediately know or understand the consequences of such a termination, which is what ultimately spurred creation of this Contributors' Guide to the MPL.
+
+[section="Consequences of Termination of a Grant"]
+
+[p]When a grant is terminated, this immediately and completely revokes your permission to use or distribute any code and modifications in the MPL-licensed code that belong to the contributor who terminated the grant. This is a person-to-person exclusion from the permissions granted by the MPL.[br]
+As such, this only directly affects the code used and published by the person who violated the license and does not affect other publishers/developers directly. [b]However[/b], beware that unless and until the publisher/developer removes all contributions owned by the contributor who terminated the grant, the code (and executable programs built with it) are [b]non-compliant[/b]. See above for restrictions on non-compliant code, especially the part about using repositories, pulling and forking.[/p]
+[p]To clarify: even if the termination of the grant is personal, the state of a repository owned by someone with a terminated grant is not. In other words: making a copy or a fork of (any code in) the repository belonging to that person is not allowed because that person doesn't have any rights to distribute the code to anyone.[/p]
+
+[p]When a grant has been terminated to you, the only way to come back into compliance is to either:
+[ul]
+  [li]Remove [b]any and all[/b] code owned by the contributor who terminated the grant from your published source, repositories, programs (in any form) and other places it may be present, OR[/li]
+  [li]Get explicit permission from the contributor to use specific code they indicate you can use that you want to keep using.[/li]
+[/ul]
+I.e. treat it the same as you would fully copyrighted code.[/p]
+
+[separator]
+
+[p]Hopefully this clarifies the MPL to everyone in an easy to understand way.[/p]
+
+[section="Disclaimer"]
+
+[p]Please note that, while this guide is intended to be accurate and helpful, it is not the license, and may not cover important issues that affect you and your specific situation. As a result, reading the guide should not serve as a substitute for reading the license itself, or for seeking legal advice from a lawyer.[/p]
