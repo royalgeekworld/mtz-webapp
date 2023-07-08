@@ -1,6 +1,6 @@
 ---
 title: "Site-Specific Syntax"
-tags:
+searchTags:
   - Docs
   - Documents
   - DPMO
@@ -126,7 +126,7 @@ html: true
 
 <h3>Example</h3>
 
-<p>The best examples are the existing <a href="https://repo.palemoon.org/MoonchildProductions/selene/src/branch/TRUNK/base/content" target="_blank">content files</a> that exist in the <a href="https://repo.palemoon.org/MoonchildProductions/selene/" target="_blank">repository</a>.
+<p>The best examples are the existing <a href="https://repo.palemoon.org/MoonchildProductions/selene-content" target="_blank">content files</a> that exist in the <a href="https://repo.palemoon.org/MoonchildProductions/selene/" target="_blank">repository</a>.
 
 <h3>Live preview</h3>
 <p>We understand that since the Developer Site has a greater degree of freedom regarding content layout and because of it being git controlled without a web panel it may be difficult to visualize how seleneCode tags will be translated to a live html form. To assist in this endevor we have written a test case to allow you to paste (or even compose) an arbitrary page and preview it live in your browser before commiting and submitting a pull request.</p>

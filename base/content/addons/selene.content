@@ -1,15 +1,15 @@
 ---
 title: "Add-ons: Overview"
-tags:
+searchTags:
   - DPMO
   - "Add-ons"
   - Overview
 ---
-[p]Add-ons are a hallmark of classical mozilla-style applications and as such a lot of this information not only applies to Pale Moon but to [url=http://www.basilisk-browser.org/]Basilisk[/url] and [url=http://thereisonlyxul.org]other applications[/url] based on our [i]Platform Codebase[/i].[/p]
+[p]Add-ons are a hallmark of classical mozilla-style applications and as such a lot of this information not only applies to Pale Moon but to [url=http://www.basilisk-browser.org/]Basilisk[/url] and [url=http://thereisonlyxul.org]other applications[/url] based on the Goanna Runtine Environment.[/p]
 
 [header="Add-on concepts"]
 
-[p]There are many concepts when it comes to the add-on technology employed in the [i]Platform Codebase[/i] and used by Pale Moon. As such, there is an on-going effort to (re-)document them and you will see them here soon. You may also find valuable information under [b]External Resources[/b] in the site's menu bar.[/p]
+[p]There are many concepts when it comes to the add-on technology employed in GRE and used by Pale Moon. As such, there is an on-going effort to (re-)document them and you will see them here soon. You may also find valuable information under [b]External Resources[/b] in the site's menu bar.[/p]
 
 [header="Add-on types"]
 [p]There are many kinds of add-ons and how they are used is dependent on what type they are.[/p]
@@ -26,7 +26,7 @@ tags:
     [ul]
       [li][i]This sub-type of extension also leverages Bootstrap technology to operate in a restartless way which can be confusing.[/i][/li]
       [li]
-        [i]Jetpack is considered deprecated in the scheme of Platform but [url=http://www.basilisk-browser.org/]Basilisk[/url] still uses them (as old [url=https://github.com/JustOff/ca-archive/releases]Firefox Extensions[/url]) and a handful do target Pale Moon. It is [b]not recommended[/b] that anyone fork or create new extensions using this technology.[/i]
+        [i]Jetpack is considered deprecated in the scheme of GRE but a handful do target Pale Moon. It is [b]not recommended[/b] that anyone fork or create new extensions using this technology.[/i]
       [/li]
       [li][i][url=https://binaryoutcast.com/]Binary Outcast[/url]  applications have wholly rejected the technology and jetpack extensions [b]will not[/b] work with them. Keep this in mind if you develop cross-application compatible extensions.[/i][/li]
     [/ul]

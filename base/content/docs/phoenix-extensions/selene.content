@@ -1,6 +1,6 @@
 ---
 title: "Firefox Extension Request and Fork List"
-tags:
+searchTags:
   - Docs
   - Documents
   - Project
@@ -11,6 +11,14 @@ tags:
   - "Add-ons"
   - Extensions
   - "Old and Insecure"
+extraRegexTags:
+  \[fxaddon fxslug="(.*)" fxname="(.*)" pmslug="(.*)" pmname="(.*)"\]: '<tr><td style="color: #00c019;">Forked</td><td><a href="caa:addon/$1" target="_blank">$2</a></td><td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td></tr>'
+  \[fxaddon fxslug="(.*)" fxname="(.*)" fxreason="(.*)"\]: '<tr><td style="color: #BF0000;">Unforkable</td><td><a href="caa:addon/$1" target="_blank">$2</a></td><td style="color: #BF0000;">$3</td></tr>'
+  \[fxaddon fxslug="(.*)" fxname="(.*)"\]: '<tr><td>Forkable</td><td colspan="2"><a href="caa:addon/$1" target="_blank">$2</a></td></tr>'
+  \[joaddon joslug="(.*)" joname="(.*)" pmslug="(.*)" pmname="(.*)"\]: '<tr><td style="color: #00c019;">Forked</td><td><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td><td><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td></tr>'
+  \[joaddon joslug="(.*)" joname="(.*)"\]: '<tr><td>Up for grabs!</td><td colspan="2"><a href="https://github.com/JustOff/$1" target="_blank">$2</a></td></tr>'
+  \[riaddon rislug="(.*)" riname="(.*)" pmslug="(.*)" pmname="(.*)"\]: '<tr><td><small>$1</small></td><td>$2</td><td style="background-color: #eaf6eb !important;"><a href="https://addons.palemoon.org/addon/$3/" target="_blank">$4</a></td></tr>'
+  \[riaddon rislug="(.*)" riname="(.*)" rireason="(.*)"\]: '<tr><td><small>$1</small></td><td>$2</td><td style="background-color: #f6eaeb !important; border-spacing: 0px;"><small>$3</small></td></tr>'
 ---
 [p]This page will track various critical or important Firefox Extensions that the user base has expressed a direct need for since the release of Pale Moon 29.2.0 and map them to any forks or other suitable replacements within our own [url=https://addons.palemoon.org/extensions/?all=1]Add-ons Site[/url].[/p]
 
@@ -304,4 +312,3 @@ tags:
     [riaddon rislug="zoompagestool" riname="Zoom Pages Tool" rireason="Branding: Original Icon"]
   [/tbody]
 [/table]
-
