@@ -7,20 +7,12 @@
 
 gfImportModules('generateContent');
 
-const SITE_NAME = 'Pale Moon - Developer Site';
-const SKIN = 'palemoon';
-
-// This constant array contains redirects (largely old wiki urls accounting for the fact that we add / to non-file.ext urls here)
-const REDIRECTS = array();
+const SITE_NAME = 'Metropolis-based WebApp';
+const SKIN = 'mtz-webapp';
 
 // ====================================================================================================================
 
 // == | Main | ========================================================================================================
-
-// This will handle redirects largely from the old wiki urls to the new urls
-if (array_key_exists($gaRuntime['qPath'], REDIRECTS)) {
-  gfRedirect(REDIRECTS[$gaRuntime['qPath']]);
-}
 
 $gmGenerateContent->loadAndDisplay($gaRuntime['qPath']);
 
